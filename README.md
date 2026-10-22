@@ -108,7 +108,7 @@ HueScript is a **fully static site** — no build step needed for the marketing 
 ### Option 1 — Open directly in browser
 Just open `index.html` in your browser.
 
-> ⚠️ Some features (video demos, CDN-hosted assets) require an internet connection as they load from `cdn.solidvents.com`.
+> ⚠️ Some features (video demos, CDN-hosted assets) require an internet connection as they load from `cdn.texture.huescript.com`.
 
 ### Option 2 — Serve with a local dev server (recommended)
 
