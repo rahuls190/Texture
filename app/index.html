@@ -254,7 +254,7 @@
     <style>button[aria-label="Login"],[data-hs-hide]{display:none !important}</style>
     <script>
       try{localStorage.setItem('solidvents_announcement_seen_version','2026-09-12-v1');}catch(e){}
-      new MutationObserver(function(){document.querySelectorAll('button').forEach(function(b){var t=(b.innerText||'').trim();if(/^(MANAGE PRO|UPGRADE TO PRO)$/i.test(t))b.setAttribute('data-hs-hide','')})}).observe(document.documentElement,{childList:true,subtree:true});
+      (function(){var B=/^(MANAGE PRO|UPGRADE TO PRO|LOGIN|EXTEND|PRO)$/i;function h(e){if(e&&!e.hasAttribute('data-hs-hide'))e.setAttribute('data-hs-hide','')}function run(){document.querySelectorAll('button').forEach(function(b){if(B.test((b.innerText||'').trim()))h(b)});document.querySelectorAll('div').forEach(function(d){var t=(d.innerText||'').trim();if(t==='Login to manage subscription')h(d.parentElement);else if(/^Help: \S+@\S+$/.test(t))h(d)})}new MutationObserver(run).observe(document.documentElement,{childList:true,subtree:true});run()})();
     </script>
   </head>  <body>
     <div id="root">
