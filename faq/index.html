@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js)。初始化在 public/ga-init.js（外部檔，CSP 不開 'unsafe-inline'） -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8W2EV2PJ7W"></script>
+    <script src="../ga-init.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Primary Meta Tags -->
+    <title>Frequently asked questions | HueScript</title>
+    <meta name="title" content="Frequently asked questions | HueScript">
+    <meta name="description" content="Answers about HueScript: export formats, the daily free limit, CAD and STEP troubleshooting, plans and payment, and using your patterns commercially.">
+    <meta name="author" content="HueScript">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+
+    <!-- Canonical URL & Hreflang -->
+    <link rel="canonical" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="en" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://texture.huescript.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://texture.huescript.com/en">
+    <meta property="og:title" content="Frequently asked questions | HueScript">
+    <meta property="og:description" content="Answers about HueScript: export formats, the daily free limit, CAD and STEP troubleshooting, plans and payment, and using your patterns commercially.">
+    <meta property="og:image" content="https://texture.huescript.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="HueScript">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://texture.huescript.com/en">
+    <meta name="twitter:title" content="Frequently asked questions | HueScript">
+    <meta name="twitter:description" content="Answers about HueScript: export formats, the daily free limit, CAD and STEP troubleshooting, plans and payment, and using your patterns commercially.">
+    <meta name="twitter:image" content="https://texture.huescript.com/og-image.jpg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is HueScript a company?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. It is an indie project founded by Yoshi, who handles the product design and the roadmap, built together with a trusted frontend developer. A small team focused on solving real design problems." }
+        },
+        {
+          "@type": "Question",
+          "name": "Will there be regular updates?",
+          "acceptedAnswer": { "@type": "Answer", "text": "We are committed to improving HueScript continuously. Both of us have full-time day jobs, though, so development happens in our spare time and releases land irregularly, but we are in this for the long run. Every release is listed on the changelog page." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to install anything or create an account?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. HueScript runs entirely in the browser, so you can open it and start designing. " }
+        },
+        {
+          "@type": "Question",
+          "name": "What pattern layout modes are there?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nine layout modes, with live gradients. Grid, path, spiral, concentric, Fibonacci, cross-hatch, Voronoi stone and flow lines. Control points sit directly on the canvas and drive size, spacing, angle and rotation, and everything redraws live as you move them." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do the gradient controls work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You drop controllers (points, lines, curves or polylines) onto the canvas, and each one pulls a parameter toward a target value within its influence range. Size, Spacing, Angle and Shape each have their own set of controllers, so a design can get denser toward one edge while the holes also rotate and grow. Advanced options add hard edges, single-side falloff, and syncing one controller’s geometry across the other modes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use my own shapes instead of circles?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The custom shape editor lets you draw outlines, stack them as layers, and give each layer a boolean role (union, subtract or normal) for cut-outs and composite forms. You can also import your own SVG or DXF file straight into the editor, turning a logo or an existing CAD outline into the repeating unit. Fillets stay editable after you reopen the editor, and the merged result previews live while you edit." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I turn a photo into a pattern?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Load an image as a controller and its brightness drives the pattern: dark areas get larger or denser elements, light areas smaller or sparser. That is how the halftone portrait effect is made, and it exports as vectors like any other design." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I reset the parameters to their defaults?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Click the “Reset to Defaults” button in the top-right toolbar, immediately left of the dice button, and every parameter returns to its default value." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export and share my design parameters with someone else?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, there are two ways: JSON config file: right-click any design thumbnail in your Repository and choose “Export JSON”. SVG file: simply share an exported SVG of the design. The person receiving it can drag either the SVG or the JSON straight onto the HueScript page to restore every parameter instantly." }
+        },
+        {
+          "@type": "Question",
+          "name": "The preview is laggy when there are too many points — what can I do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Open “Settings” (top-left) and turn on “Performance Mode”. With it on, the preview no longer recomputes in real time while you adjust parameters — it updates once you release a slider, press Enter, or stop scrolling. When dragging gradient control points the handle follows live and the effect is applied on release. This greatly reduces lag with complex patterns (lots of points). The app will also offer to enable it when it detects lag." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which file formats can I export?",
+          "acceptedAnswer": { "@type": "Answer", "text": "SVG for Illustrator, Figma and laser cutting; DXF for AutoCAD and CNC; STEP (.stp) for SolidWorks, Fusion 360, CATIA, Inventor and Rhino." }
+        },
+        {
+          "@type": "Question",
+          "name": "When does the daily free export limit reset?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The free plan’s 3 exports a day are counted in Coordinated Universal Time (UTC) and reset at 00:00 UTC every day." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can’t I open the exported STP file in my software?",
+          "acceptedAnswer": { "@type": "Answer", "text": "First check your software’s import settings and try switching the import mode between “Solid” and “Surface”. If it still will not open, convert the file to .x_t (Parasolid) or .igs (IGES)." }
+        },
+        {
+          "@type": "Question",
+          "name": "My CAD software lags after importing a complex pattern. What can I do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A design with a very large number of holes can bog CAD down when it arrives as a single solid. Turn on the “STP Split” option before exporting and the model is divided into several smaller blocks, which takes a great deal of load off your CAD software." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use HueScript designs for laser cutting?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Export SVG or DXF and hand the file straight to your laser cutting service." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it suitable for 3D printing?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Export a STEP file, add thickness and combine it with your main body in SolidWorks or Fusion 360, then generate the STL from there." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I control the open area ratio of a speaker grille or vent?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open area is controlled precisely through the size, spacing and gradient parameters, so adjust them and the ratio follows." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is HueScript really free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every layout mode, the gradient controls, the custom shape tool and every export format are free, with 3 exports a day. Pro at $49/year removes the export limit and unlocks Shape Morphing, STP Split, the cloud library and the full Marketplace." }
+        },
+        {
+          "@type": "Question",
+          "name": "What do I get with Pro?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Unlimited exports with no daily limit, plus the advanced tools: the Shape Morphing gradient, advanced gradient options, the Flow Direction controller, STP Split export, Draft Angle on STP solids, the cloud repository, every Marketplace preset unlocked, and MCP / API access (beta), which lets AI assistants such as Claude or Cursor design patterns with HueScript." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which plans are available?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Two subscriptions and two one-time passes: Monthly at $9/month, Yearly at $49/year (about $4.08 a month), a 3 Month Pass at $27, and a 1 Year Pass at $55 (about $4.58 a month). All prices are in US dollars." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I pay?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Checkout runs through Lemon Squeezy with a credit or debit card. In mainland China, or if you do not have an international card, you can buy through Afdian with WeChat Pay or Alipay instead." }
+        },
+        {
+          "@type": "Question",
+          "name": "The checkout page will not load. What should I do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Lemon Squeezy, the platform that handles our payments, is hosted in the United States, so checkout can load slowly or drop out on connections from mainland China. Refreshing and trying a few times usually gets you through; if it still fails, buy through Afdian with WeChat Pay or Alipay instead." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a subscription and a pass?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A subscription renews automatically, monthly or yearly, until you cancel it. A pass is a single payment for a fixed period; when it ends, nothing is charged again." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a refund?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Email us about anything payment-related and we will handle it case by case." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens to my cloud designs when Pro expires?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nothing is lost. When Pro ends, your cloud designs stay in the cloud, so they are all there if you renew. Each computer you sign in on also gets a copy in its browser, so you can keep editing them on the free plan." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use the patterns commercially?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Patterns you generate with HueScript are fully yours to use in any commercial product, client project or personal creation." }
+        },
+        {
+          "@type": "Question",
+          "name": "How many devices can use one account?",
+          "acceptedAnswer": { "@type": "Answer", "text": "One at a time. For account security HueScript uses a single-device session, so signing in on a new device automatically signs the previous one out." }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Tailwind CSS (compiled). Must stay last in <head>. -->
+    <style>
+      summary::-webkit-details-marker { display: none; }
+      .sv-lang[open] .sv-lang-chevron { transform: rotate(180deg); }
+    </style>
+    
+    <link rel="stylesheet" crossorigin href="../assets/tailwind-BFpa3N4E.css">
+  </head>
+  <body class="bg-[#0a0a0a] text-gray-300 antialiased">
+
+    <!-- ============================== NAV ============================== -->
+    <div class="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl">
+      <nav class="mx-auto max-w-[1240px] px-5">
+        <div class="flex h-16 items-center justify-between gap-4">
+          <div class="flex items-center gap-6">
+          <a href="../index.html" class="flex items-center gap-2 no-underline">
+            <svg viewBox="0 0 80.67 77.04" class="h-[17px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+            <span class="text-[15px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+          </a>
+
+          <div class="hidden items-center gap-1 md:flex">
+            <a href="index.html" aria-current="page" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white no-underline transition hover:text-white">FAQ</a>
+            <a href="../tutorial/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Tutorial</a>
+            <a href="../changelog/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Changelog</a>
+            <a href="../explore/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Explore</a>
+            <a href="../ai/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+          </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <!-- Desktop only: on a phone the tool cannot be used, so the whole
+                 mobile site funnels into the send-link form instead. -->
+            <a href="../app/index__5a07df1e.html" class="hidden whitespace-nowrap rounded-lg bg-amber-500 px-3.5 py-2 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400 md:inline-block">Open the app</a>
+            <details class="relative md:hidden">
+              <summary class="flex h-8 w-8 cursor-pointer list-none items-center justify-center rounded-lg border border-white/[0.08] text-gray-400 transition hover:text-white">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              </summary>
+              <div class="absolute right-0 top-10 w-48 rounded-xl border border-white/[0.08] bg-[#141414] p-1.5">
+                <a href="index.html" aria-current="page" class="block rounded-md px-3 py-2 text-[14px] text-white no-underline hover:text-white">FAQ</a>
+                <a href="../tutorial/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Tutorial</a>
+                <a href="../changelog/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Changelog</a>
+                <a href="../explore/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Explore</a>
+                <a href="../ai/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+              </div>
+            </details>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <header class="mx-auto max-w-[1240px] px-5 pb-6 pt-16 sm:pt-24">
+      <h1 class="max-w-[740px] text-[36px] font-medium leading-[1em] tracking-[-0.04em] text-white min-[810px]:text-[42px]">FAQ</h1>
+      <p class="mt-5 max-w-[620px] text-[16px] leading-[1.35] text-white/60 min-[810px]:text-[18px]">Everything about designing, exporting and paying for HueScript. Can’t find your answer? Write to us, we read every message.</p>
+    </header>
+
+    <main class="mx-auto max-w-[880px] px-5 pb-8">
+
+      <section class="mt-16 first:mt-10">
+        <h2 class="m-0 text-[26px] font-medium tracking-[-0.03em] text-white min-[810px]:text-[30px]">About HueScript</h2>
+        <div class="mt-7">
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Is HueScript a company?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">No. It is an indie project founded by Yoshi, who handles the product design and the roadmap, built together with a trusted frontend developer. A small team focused on solving real design problems.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Will there be regular updates?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">We are committed to improving HueScript continuously. Both of us have full-time day jobs, though, so development happens in our spare time and releases land irregularly, but we are in this for the long run. Every release is listed on the changelog page.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Do I need to install anything or create an account?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">No. HueScript runs entirely in the browser, so you can open it and start designing. </p>
+        </div>
+        </div>
+      </section>
+
+      <section class="mt-16 first:mt-10">
+        <h2 class="m-0 text-[26px] font-medium tracking-[-0.03em] text-white min-[810px]:text-[30px]">Designing patterns</h2>
+        <div class="mt-7">
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">What pattern layout modes are there?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Nine layout modes, with live gradients. Grid, path, spiral, concentric, Fibonacci, cross-hatch, Voronoi stone and flow lines. Control points sit directly on the canvas and drive size, spacing, angle and rotation, and everything redraws live as you move them.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">How do the gradient controls work?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">You drop controllers (points, lines, curves or polylines) onto the canvas, and each one pulls a parameter toward a target value within its influence range. Size, Spacing, Angle and Shape each have their own set of controllers, so a design can get denser toward one edge while the holes also rotate and grow. Advanced options add hard edges, single-side falloff, and syncing one controller’s geometry across the other modes.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Can I use my own shapes instead of circles?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Yes. The custom shape editor lets you draw outlines, stack them as layers, and give each layer a boolean role (union, subtract or normal) for cut-outs and composite forms. You can also import your own SVG or DXF file straight into the editor, turning a logo or an existing CAD outline into the repeating unit. Fillets stay editable after you reopen the editor, and the merged result previews live while you edit.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Can I turn a photo into a pattern?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Yes. Load an image as a controller and its brightness drives the pattern: dark areas get larger or denser elements, light areas smaller or sparser. That is how the halftone portrait effect is made, and it exports as vectors like any other design.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">How do I reset the parameters to their defaults?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Click the “Reset to Defaults” button in the top-right toolbar, immediately left of the dice button, and every parameter returns to its default value.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Can I export and share my design parameters with someone else?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Yes, there are two ways:</p>
+          <ul class="mt-3 space-y-2 pl-5">
+            <li class="text-[15px] leading-[1.6] text-white/60">JSON config file: right-click any design thumbnail in your Repository and choose “Export JSON”.</li>
+            <li class="text-[15px] leading-[1.6] text-white/60">SVG file: simply share an exported SVG of the design.</li>
+          </ul>
+          <div class="mt-4 rounded-xl border border-amber-500/20 bg-amber-500/[0.06] px-4 py-3">
+            <p class="m-0 text-[13px] font-semibold uppercase tracking-[0.12em] text-amber-500">Tip</p>
+            <p class="mt-1.5 text-[15px] leading-[1.6] text-white/70">The person receiving it can drag either the SVG or the JSON straight onto the HueScript page to restore every parameter instantly.</p>
+          </div>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">The preview is laggy when there are too many points — what can I do?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Open “Settings” (top-left) and turn on “Performance Mode”. With it on, the preview no longer recomputes in real time while you adjust parameters — it updates once you release a slider, press Enter, or stop scrolling. When dragging gradient control points the handle follows live and the effect is applied on release. This greatly reduces lag with complex patterns (lots of points). The app will also offer to enable it when it detects lag.</p>
+        </div>
+        </div>
+      </section>
+
+      <section class="mt-16 first:mt-10">
+        <h2 class="m-0 text-[26px] font-medium tracking-[-0.03em] text-white min-[810px]:text-[30px]">Export, CAD &amp; manufacturing</h2>
+        <div class="mt-7">
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Which file formats can I export?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">SVG for Illustrator, Figma and laser cutting; DXF for AutoCAD and CNC; STEP (.stp) for SolidWorks, Fusion 360, CATIA, Inventor and Rhino.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">When does the daily free export limit reset?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">The free plan’s 3 exports a day are counted in Coordinated Universal Time (UTC) and reset at 00:00 UTC every day.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Why can’t I open the exported STP file in my software?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">First check your software’s import settings and try switching the import mode between “Solid” and “Surface”. If it still will not open, convert the file to .x_t (Parasolid) or .igs (IGES).</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">My CAD software lags after importing a complex pattern. What can I do?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">A design with a very large number of holes can bog CAD down when it arrives as a single solid. Turn on the “STP Split” option before exporting and the model is divided into several smaller blocks, which takes a great deal of load off your CAD software.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Can I use HueScript designs for laser cutting?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Yes. Export SVG or DXF and hand the file straight to your laser cutting service.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Is it suitable for 3D printing?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Yes. Export a STEP file, add thickness and combine it with your main body in SolidWorks or Fusion 360, then generate the STL from there.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Can I control the open area ratio of a speaker grille or vent?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Yes. Open area is controlled precisely through the size, spacing and gradient parameters, so adjust them and the ratio follows.</p>
+        </div>
+        </div>
+      </section>
+
+      <section class="mt-16 first:mt-10">
+        <h2 class="m-0 text-[26px] font-medium tracking-[-0.03em] text-white min-[810px]:text-[30px]">Plans, payment &amp; account</h2>
+        <div class="mt-7">
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Is HueScript really free?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Yes. Every layout mode, the gradient controls, the custom shape tool and every export format are free, with 3 exports a day.  removes the export limit and unlocks Shape Morphing, STP Split, the cloud library and the full Marketplace.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">What do I get with Pro?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Unlimited exports with no daily limit, plus the advanced tools: the Shape Morphing gradient, advanced gradient options, the Flow Direction controller, STP Split export, Draft Angle on STP solids, the cloud repository, every Marketplace preset unlocked, and MCP / API access (beta), which lets AI assistants such as Claude or Cursor design patterns with HueScript.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Which plans are available?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Two subscriptions and two one-time passes: Monthly at $9/month, Yearly at $49/year (about $4.08 a month), a 3 Month Pass at $27, and a 1 Year Pass at $55 (about $4.58 a month). All prices are in US dollars.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">How do I pay?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Checkout runs through Lemon Squeezy with a credit or debit card. In mainland China, or if you do not have an international card, you can buy through Afdian with WeChat Pay or Alipay instead.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">The checkout page will not load. What should I do?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Lemon Squeezy, the platform that handles our payments, is hosted in the United States, so checkout can load slowly or drop out on connections from mainland China. Refreshing and trying a few times usually gets you through; if it still fails, buy through Afdian with WeChat Pay or Alipay instead.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">What is the difference between a subscription and a pass?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">A subscription renews automatically, monthly or yearly, until you cancel it. A pass is a single payment for a fixed period; when it ends, nothing is charged again.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Can I get a refund?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Email us about anything payment-related and we will handle it case by case.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">What happens to my cloud designs when Pro expires?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Nothing is lost. When Pro ends, your cloud designs stay in the cloud, so they are all there if you renew. Each computer you sign in on also gets a copy in its browser, so you can keep editing them on the free plan.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">Can I use the patterns commercially?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">Absolutely. Patterns you generate with HueScript are fully yours to use in any commercial product, client project or personal creation.</p>
+        </div>
+        <div class="border-t border-white/[0.07] py-8 first:border-t-0 first:pt-0">
+          <h3 class="m-0 max-w-[720px] text-[17px] font-medium leading-[1.35] text-white">How many devices can use one account?</h3>
+          <p class="mt-3 max-w-[720px] text-[15px] leading-[1.65] text-white/60">One at a time. For account security HueScript uses a single-device session, so signing in on a new device automatically signs the previous one out.</p>
+        </div>
+        </div>
+      </section>
+
+      <section class="mt-20 rounded-2xl border border-white/[0.07] bg-[#101010] p-8">
+        <h2 class="m-0 text-[20px] font-medium tracking-[-0.02em] text-white">Still stuck?</h2>
+        <p class="mt-3 max-w-[560px] text-[15px] leading-[1.6] text-white/60">Send us the question and, if it helps, the file you are working on. Replies come from the person who built the tool.</p>
+        <div class="mt-6 flex flex-wrap gap-2.5">
+          <!-- Copies the address rather than opening a mail client — a visitor
+               with none configured just gets a blank tab. Same ✓ confirmation as
+               the footer mail icon, whose script picks this button up too. -->
+          <button type="button" data-sv-copy="huescript@gmail.com" class="relative inline-flex items-center gap-2 rounded-lg bg-amber-500 px-4 py-2.5 text-[14px] font-medium text-black transition hover:bg-amber-400" title="huescript@gmail.com" aria-label="huescript@gmail.com">
+            <svg class="sv-copy-icon h-[16px] w-[16px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+            <svg class="sv-copy-check h-[16px] w-[16px] fill-current" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+            Email us
+            <span class="sv-copy-toast absolute bottom-full left-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] font-normal text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span>
+          </button>
+          <a href="../app/index__5a07df1e.html" class="rounded-lg border border-white/[0.12] px-4 py-2.5 text-[14px] font-medium text-white/80 no-underline transition hover:border-white/30 hover:text-white">Open the app</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="border-t border-white/[0.07] px-5 pb-10 pt-14">
+      <div class="mx-auto max-w-[1240px]">
+        <div class="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+          <div class="col-span-2 md:col-span-4 lg:col-span-1">
+            <a href="../index.html" class="inline-flex items-center gap-2.5 no-underline">
+              <svg viewBox="0 0 80.67 77.04" class="h-[26px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+              <span class="text-[22px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+            </a>
+            <p class="mt-5 max-w-[300px] text-[14px] leading-[1.5] text-white/60">
+              A browser-based parametric pattern generator. Design it, export SVG / DXF / STEP, make it.
+            </p>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Product</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../app/index__5a07df1e.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Open the app</a></li>
+              <li><a href="../ai/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a></li>
+              <li></li>
+              <li><a href="../changelog/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Changelog</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Patterns</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../explore/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Explore</a></li>
+              <li><a href="../speaker-grille-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Speaker grille</a></li>
+              <li><a href="../ventilation-hole-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Ventilation holes</a></li>
+              <li><a href="../halftone-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Halftone patterns</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Guides</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../tutorial/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Tutorial</a></li>
+              <li><a href="index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">FAQ</a></li>
+              <li><a href="../guides/ipad/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Using on iPad</a></li>
+              <li><a href="../guides/wrap/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Wrap onto curved surfaces</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">About</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../about/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">About HueScript</a></li>
+              <li><button type="button" data-sv-copy="huescript@gmail.com" class="relative p-0 text-left text-[14px] text-white/60 transition hover:text-white" title="huescript@gmail.com">Contact us<span class="sv-copy-toast absolute bottom-full left-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span></button></li>
+              <li><a href="../privacy/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Privacy policy</a></li>
+              <li><a href="../terms/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Terms of service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Community bar -->
+        <div class="mt-12 flex flex-col gap-6 border-t border-white/[0.07] pt-6 lg:flex-row lg:items-center lg:justify-between">
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a href="../app/index__4b616722.html" class="flex items-center gap-2 text-[14px] font-medium text-white/70 no-underline transition hover:text-white">
+              <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" /></svg>
+              Send feedback
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-5">
+            <div class="flex items-center gap-4 text-white/50">
+              <a href="https://www.instagram.com/huescript/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="Instagram">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+              </a>
+              <a href="https://www.youtube.com/@HueScript" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="YouTube">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg>
+              </a>
+              <button type="button" data-sv-copy="huescript@gmail.com" class="relative transition hover:text-white" title="huescript@gmail.com" aria-label="huescript@gmail.com">
+                <svg class="h-[18px] w-[18px] fill-current sv-copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                <svg class="sv-copy-check h-[18px] w-[18px] fill-current text-green-400" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                <span class="sv-copy-toast absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span>
+              </button>
+            </div>
+
+            <!-- Language picker: real links inside a <details>, so every locale
+                 stays crawlable and the control needs no JavaScript. -->
+            
+
+            <div class="flex flex-col leading-tight">
+              <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50">Created by</span>
+              <span class="text-[14px] font-semibold text-white">Yoshi Chen</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="m-0 mt-8 text-center text-[13px] text-white/50">© 2026 HueScript. All rights reserved.</p>
+
+        <script src="../site-copy.js" defer></script>
+      </div>
+    </footer>
+
+  </body>
+</html>

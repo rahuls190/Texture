@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8W2EV2PJ7W"></script>
+    <script src="../ga-init.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Primary Meta Tags -->
+    <title>Tutorial Video Guide - HueScript</title>
+    <meta name="title" content="Tutorial Video Guide - HueScript">
+    <meta name="description" content="HueScript tutorial video guide: scroll adjustment, gradient controller, STP export, custom editor, and more feature demonstrations.">
+    <meta name="author" content="HueScript">
+    <meta name="theme-color" content="#121212">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://texture.huescript.com/" />
+
+    <link rel="alternate" hreflang="en" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://texture.huescript.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://texture.huescript.com/tutorial/en">
+    <meta property="og:title" content="Tutorial Video Guide - HueScript">
+    <meta property="og:description" content="HueScript tutorial video guide: detailed feature demonstrations and instructions.">
+    <meta property="og:image" content="https://texture.huescript.com/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="HueScript">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://texture.huescript.com/tutorial/en">
+    <meta name="twitter:title" content="Tutorial Video Guide - HueScript">
+    <meta name="twitter:description" content="HueScript tutorial video guide.">
+    <meta name="twitter:image" content="https://texture.huescript.com/og-image.jpg">
+
+
+    <!-- Fonts are self-hosted; @font-face lives in styles/tailwind.css -->
+
+    <style>
+      body {
+        background-color: #0a0a0a;
+        color: #e5e5e5;
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      html { scroll-behavior: smooth; }
+
+      /* Sidebar nav active state */
+      .nav-link {
+        transition: all 0.15s ease;
+        border-left: 2px solid transparent;
+      }
+      .nav-link:hover {
+        color: #f59e0b;
+        background: rgba(245, 158, 11, 0.06);
+        border-left-color: rgba(245, 158, 11, 0.3);
+      }
+      .nav-link.active {
+        color: #f59e0b;
+        background: rgba(245, 158, 11, 0.1);
+        border-left-color: #f59e0b;
+      }
+      .nav-category {
+        transition: all 0.15s ease;
+      }
+      .nav-category:hover {
+        color: #f59e0b;
+      }
+
+      /* Video placeholder */
+      .video-container {
+        position: relative;
+        width: 100%;
+        background: #1a1a1a;
+        border: 1px solid #2a2a2a;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .video-container video {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .video-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #555;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        -webkit-user-select: text;
+           -moz-user-select: text;
+                user-select: text;
+      }
+      .video-container video.playing ~ .video-placeholder {
+        opacity: 0;
+      }
+
+      /* Custom scrollbar */
+      .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #555; }
+
+      /* Section divider */
+      .section-divider {
+        height: 1px;
+        background: linear-gradient(to right, transparent, #2a2a2a 20%, #2a2a2a 80%, transparent);
+        margin: 3rem 0;
+      }
+      /* Language switcher */
+      .lang-btn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 4px 10px;
+        border: 1px solid #333;
+        border-radius: 6px;
+        background: transparent;
+        color: #999;
+        font-size: 12px;
+        cursor: pointer;
+        transition: all 0.15s ease;
+        white-space: nowrap;
+      }
+      .lang-btn:hover { color: #e5e5e5; border-color: #555; }
+      .lang-dropdown {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        right: 0;
+        background: #1e1e1e;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 6px;
+        min-width: 150px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+        z-index: 100;
+        max-height: 320px;
+        overflow-y: auto;
+      }
+      .lang-dropdown.open { display: block; }
+      .lang-dropdown a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 10px;
+        border-radius: 4px;
+        color: #999;
+        text-decoration: none;
+        font-size: 12px;
+        transition: all 0.1s ease;
+      }
+      .lang-dropdown a:hover { background: rgba(245,158,11,0.08); color: #e5e5e5; }
+      .lang-dropdown a.active { color: #f59e0b; background: rgba(245,158,11,0.12); }
+      .lang-dropdown a .lang-native { font-weight: 500; }
+      .lang-dropdown a .lang-code { font-size: 10px; color: #555; text-transform: uppercase; }
+
+      /* Easter egg */
+      .egg-trigger {
+        display: inline-block;
+        margin-left: 8px;
+        font-size: 11px;
+        line-height: 1;
+        opacity: 0.18;
+        filter: grayscale(1);
+        cursor: pointer;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+                user-select: none;
+        transition: all 0.3s ease;
+      }
+      .egg-trigger:hover {
+        opacity: 1;
+        filter: none;
+        transform: rotate(-12deg) scale(1.3);
+      }
+      .egg-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        z-index: 200;
+        align-items: center;
+        justify-content: center;
+      }
+      .egg-overlay.open { display: flex; }
+      .egg-modal {
+        position: relative;
+        background: #1e1e1e;
+        border: 1px solid rgba(245, 158, 11, 0.4);
+        border-radius: 16px;
+        padding: 2.5rem 2rem 2rem;
+        max-width: 360px;
+        width: calc(100% - 48px);
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(245, 158, 11, 0.15);
+        animation: egg-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      @keyframes egg-pop {
+        from { transform: scale(0.6); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+      .egg-confetti {
+        position: fixed;
+        top: -16px;
+        z-index: 210;
+        pointer-events: none;
+        animation-name: egg-fall;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+      }
+      @keyframes egg-fall {
+        to { transform: translateY(110vh) rotate(720deg); opacity: 0.7; }
+      }
+
+      summary::-webkit-details-marker { display: none; }
+      .sv-lang[open] .sv-lang-chevron { transform: rotate(180deg); }
+    </style>
+    <!-- Structured Data: tutorial videos -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": "https://texture.huescript.com/tutorial/en#videos",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#getting-started",
+            "name": "Getting Started",
+            "description": "New here? This clip runs the whole loop once: choose an arrangement, set the hole size and pitch with the mouse wheel, drop a controller on the canvas and drag it so the pattern follows, lock the pattern inside a boundary, then open Export and pick SVG, DXF or STEP. Every other clip on this page zooms in on one of these steps.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/getting-started.mp4?v=e808b2f0",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/getting-started.jpg",
+            "uploadDate": "2026-09-20",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#getting-started"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#scroll-adjustment",
+            "name": "Scroll Adjustment",
+            "description": "Use the mouse scroll wheel to quickly adjust numerical parameters in the panel. Hover over any numeric input field and scroll the wheel to change the value. Hold Shift while scrolling for larger steps (coarse, faster adjustment), or hold Ctrl for smaller steps (fine-tuning), so you can move fast and then dial in the exact value.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/scroll-adjustment.mp4?v=2a039a73",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/scroll-adjustment.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#scroll-adjustment"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#canvas-zoom",
+            "name": "Canvas Zoom",
+            "description": "Click the \"Canvas Zoom\" button in the top toolbar to enable free viewport mode. Once enabled, use Alt + scroll wheel to zoom the canvas, and Space + drag to pan the view, making it easy to inspect design details.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/canvas-zoom.mp4?v=8a4f954e",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/canvas-zoom.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#canvas-zoom"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#canvas-lock-aspect",
+            "name": "Sync All Parameters",
+            "description": "When \"Sync All Parameters\" is enabled in the canvas panel, all parameters (spacing, radius, etc.) will scale proportionally when the canvas size changes, maintaining consistent visual proportions of patterns across different sizes.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/canvas-lock-aspect.mp4?v=b76a5ad2",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/canvas-lock-aspect.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#canvas-lock-aspect"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#pattern-flow-lines",
+            "name": "Flow Lines",
+            "description": "\"Flow Lines\" fills the sheet with continuous lines instead of holes, and the gradient tabs are remapped to suit: \"Width\" makes the lines thicker or thinner around a controller, \"Spacing\" packs them closer or looser, \"Bend\" swirls them. On the \"Direction\" tab you draw one line, curve or closed shape and the whole field runs parallel to it (open ends extend forever; only one direction controller at a time), and \"Corner Fillet\" rounds every sharp turn it produces. The direction controller is free to try — exporting requires Pro.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/pattern-flow-lines.mp4?v=449eb73e",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/pattern-flow-lines.jpg",
+            "uploadDate": "2026-09-20",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#pattern-flow-lines"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#pattern-rotation",
+            "name": "Rotate to Path · Cross-Row Spin",
+            "description": "Two rotations belong to the arrangement rather than the shape. In \"Concentric\" and \"Spiral\", turn on \"Rotate to Path\" and every unit turns to follow its ring or spiral — slots stop lying flat and line up one after another along the curve. In an array, \"Cross-Row Spin\" turns each row a little more than the one before so the whole sheet reads as twisted (at 90°, rows alternate between horizontal and vertical); \"Spin By\" chooses whether it accumulates by Row, by Column, or along both axes. Each unit spins in place, so positions never move.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/pattern-rotation.mp4?v=22a08b01",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/pattern-rotation.jpg",
+            "uploadDate": "2026-09-20",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#pattern-rotation"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-point-line-curve",
+            "name": "Control Point Types: Point / Line / Curve",
+            "description": "The gradient controller supports three interactive controller types: \"Point\" creates a radial gradient effect from a single center point outward; \"Line\" produces a linear gradient along a straight line; \"Curve\" allows you to draw a free-form curve path with multiple nodes on the canvas, and the gradient follows the curve direction. Click directly on the canvas to add a controller, and drag to adjust its position.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-point-line-curve.mp4?v=f76a8d09",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-point-line-curve.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-point-line-curve"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-image-controller",
+            "name": "Image as Controller",
+            "description": "Upload an image in the \"Background Image\" panel, then enable \"Image as Controller\" in the gradient controller panel to let the image's luminance drive pattern parameters: by default, dark areas apply the target value (such as hole size) while bright areas keep the base value, making it easy to create halftone-style imagery. Turn on \"Invert\" to have bright areas apply the target value instead, and adjust the mapping strength with \"Contrast\". The same mechanism also works for spacing, angle, and shape gradients.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-image-controller.mp4?v=16a0bafc",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-image-controller.jpg",
+            "uploadDate": "2026-06-12",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-image-controller"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-right-click-fillet",
+            "name": "Right-click · Fillet",
+            "description": "Right-click on a controller node and select \"Add Fillet,\" then move the mouse to adjust the fillet size and click to confirm. This feature smooths sharp corners at curve or line segment bends.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-right-click-fillet.mp4?v=097e08b9",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-right-click-fillet.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-right-click-fillet"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-convert-to-geometry",
+            "name": "Right-click · Convert Controller Shape",
+            "description": "Click back on the point you started from to close a controller path. Right-click any segment of a closed controller and its outline can be swapped for exact geometry: \"Regular Polygon\" gives every side the same length, while \"Proportional Polygon\" keeps that regular form but stretches it to the box the freehand outline already occupies. A closed curve offers \"Convert to Circle\" and \"Convert to Ellipse\" instead. Draw roughly first, snap to exact geometry afterwards, without redrawing. The same menu also carries Add Point, Scale, Rotate, Center Shape and Sync, which mirrors this controller's geometry into the other gradient modes.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-convert-to-geometry.mp4?v=16f52678",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-convert-to-geometry.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-convert-to-geometry"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-sync",
+            "name": "Right-click · Sync",
+            "description": "Draw a controller once and reuse it everywhere: right-click it, open \"Sync\" and tick the other gradient modes (Size / Spacing / Angle / Shape). The controller's position and shape are mirrored into those modes and stay linked — move or reshape one and its twins follow — while each mode keeps its own target value, range and advanced switches. Deleting a synced controller removes its twins in the other modes as well.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-sync.mp4?v=e5eef6c5",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-sync.jpg",
+            "uploadDate": "2026-09-20",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-sync"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-uniform-range",
+            "name": "Unify Range",
+            "description": "When \"Unify Range\" is enabled, all gradient controllers on the canvas share the same influence range. Adjusting the range of any controller will synchronize all others, making it easy to manage the gradient influence distance of multiple controllers uniformly.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-uniform-range.mp4?v=7d882657",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-uniform-range.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-uniform-range"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-uniform-value",
+            "name": "Unified Value",
+            "description": "When \"Unified Value\" is enabled, all gradient controllers share the same target value (such as the final value for size, density, or angle). Adjusting the target value of any controller will synchronize all others.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-uniform-value.mp4?v=f466f79d",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-uniform-value.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-uniform-value"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-shape-morph",
+            "name": "Shape Morphing",
+            "description": "The fourth tab of the gradient controller, \"Shape\", blends the outline itself: far from a controller the holes keep their original point style, and the closer they get, the closer they come to the \"Target Shape\", with a smooth transition at every step in between. Place a controller, then pick Circle, Rectangle, Polygon or Star under \"Target Shape\"; each target's own parameters (sides, points, rounding) appear below it. With a rectangle target, the W / H button next to \"Aspect Ratio\" decides whether the hole diameter maps to the rectangle's width or its height. Controllers work exactly as they do on the other tabs — point, line, curve and range all apply — and when you drag a controller, the morphed area follows it. Shape morphing is free to try — exporting requires Pro.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-shape-morph.mp4?v=be57b46f",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-shape-morph.jpg",
+            "uploadDate": "2026-09-20",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-shape-morph"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-shape-morph-custom",
+            "name": "Shape Morphing · Custom Shape",
+            "description": "When the point style is \"Custom\", the target isn't picked from a list — you draw it. Click \"Edit target shape\" on the \"Shape\" tab and the editor opens in its \"Target\" state, where you reshape the same anchors: move anchors, adjust handles, scale, rotate, or change the radius of fillets that already exist. The pattern then morphs layer by layer from the \"Base\" shape to the \"Target\" shape along your shape controllers, and the \"Base | Target\" switch in the toolbar lets you flip back to compare at any time. Because the morph moves every anchor from its base position to its target position, both outlines must keep the same anchors in the same order: the pen, new shapes, import and boolean operations are disabled in \"Target\", and if you add or remove anchors on \"Base\", that layer's target is reset automatically (\"Reset target shape\" does the same by hand). Layers set to \"Fixed (Ignore Gradient)\" don't morph. Shape morphing is free to try — exporting requires Pro.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-shape-morph-custom.mp4?v=69eeceef",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-shape-morph-custom.jpg",
+            "uploadDate": "2026-09-20",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-shape-morph-custom"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-advanced-fill",
+            "name": "Advanced · Fill",
+            "description": "In the gradient controller's advanced options, the \"Fill Closed\" feature allows the interior of a closed controller (a closed area formed by curves) to use the target value directly, rather than producing a gradient effect. Note: Points and lines are non-closed shapes and cannot use this feature. Advanced options are free to try — exporting requires Pro.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-advanced-fill.mp4?v=a6da92a1",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-advanced-fill.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-advanced-fill"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-single-side-infinite",
+            "name": "Advanced · Single Side / Infinite Extension",
+            "description": "Two advanced switches for open controllers (line, curve, polyline). \"Single Side\" applies the gradient on one side of the controller only and keeps the other side at the base value; the swap button next to it flips sides. \"Infinite Extension\" continues the controller straight out from both end points, so a short stroke governs the full width of the canvas — and it combines with \"Single Side\". Closed shapes and point controllers have no open ends, so they are unaffected. Advanced options are free to try — exporting requires Pro.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-single-side-infinite.mp4?v=a9448edc",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-single-side-infinite.jpg",
+            "uploadDate": "2026-09-20",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-single-side-infinite"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-random-dropout",
+            "name": "Advanced · Random Dropout",
+            "description": "\"Random Dropout\" is an advanced option of the size mode: inside a size controller's range, points vanish at random by the share you set, and everything outside the range is untouched. The button beside the slider cycles where they vanish — more near the controller, more toward the edge of the range, or evenly — and the dice re-rolls which points go; with \"Hard Edge\" on, the chance is the same across the whole range. It needs a size controller to act on, and the thinned-out area travels with that controller. Advanced options are free to try — exporting requires Pro.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-random-dropout.mp4?v=8ecdcf96",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-random-dropout.jpg",
+            "uploadDate": "2026-09-20",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-random-dropout"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-custom-controller",
+            "name": "Advanced · Custom controller shape",
+            "description": "The three controller tools draw freehand on the canvas. \"Custom controller shape\" in the advanced options opens the path editor instead, sized to the canvas and working in millimetres, so a controller can be an exact shape: build circles, rectangles, polygons and stars from the size dialog, or draw lines and closed outlines with the pen. Press \"Import\" and everything drawn becomes a controller of the tab that is open (single nodes and hidden layers are skipped). In \"Flow Lines\" mode only the topmost layer is imported, and it replaces the current direction controller. Advanced options are free to try — exporting requires Pro.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-custom-controller.mp4?v=28844e87",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-custom-controller.jpg",
+            "uploadDate": "2026-09-20",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-custom-controller"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-angle-symmetry",
+            "name": "Angle Advanced · Symmetry",
+            "description": "In the angle mode's advanced options, enabling \"Symmetric\" causes both sides of the controller to use opposite angle values, creating a mirror-symmetric angle gradient effect. Advanced options are free to try — exporting requires Pro.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-angle-symmetry.mp4?v=4c0d18d4",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-angle-symmetry.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-angle-symmetry"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#gradient-angle-stepped",
+            "name": "Angle Advanced · Stepped Increment",
+            "description": "In the angle mode's advanced options, setting \"Increment\" divides the gradient into evenly spaced steps at fixed angles, replacing the default smooth transition (set to 0 to return to smooth mode). When holding Shift + scroll wheel to adjust the center rotation angle, this value is also used as the increment unit. Advanced options are free to try — exporting requires Pro.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/gradient-angle-stepped.mp4?v=852cd7ed",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/gradient-angle-stepped.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#gradient-angle-stepped"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#export-stp-split-surface",
+            "name": "Split Surface Export",
+            "description": "To address issues where a large number of holes causes CAD software to lag or fail during import, you can enable the \"STP Split\" feature to divide the surface into multiple smaller regions for separate export. You can set the number of rows and columns, and under \"Split Packaging\" choose whether the tiles come back as a \"ZIP archive\" (one .stp per tile) or as a \"Single assembly\" (a single .stp holding every tile as a sub-component). All files maintain absolute coordinates, so they automatically align precisely when imported into CAD without manual adjustment. This is a Pro-exclusive feature.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/export-stp-split-surface.mp4?v=37e6590d",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/export-stp-split-surface.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#export-stp-split-surface"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#editor-mirror",
+            "name": "Mirror",
+            "description": "In the custom shape editor, turn on \"Mirror\" in the toolbar and every stroke you draw is repeated live into the other symmetric copies. The count goes from 2 to 12: 2 is a left–right reflection, while 3 and up is radial symmetry, one copy every 360°/N around the centre (3 makes a three-blade propeller, 6 a snowflake). Mirroring is non-destructive — the count is saved with the shape, so you can reopen the editor and change it later. Only \"Apply Mirror\" expands the copies into independent paths you can edit one by one, and an open path whose endpoints meet the mirror axis is stitched into a single closed path.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/editor-mirror.mp4?v=e113bf6e",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/editor-mirror.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#editor-mirror"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#editor-affect-independent",
+            "name": "Gradient Response",
+            "description": "In the \"Point Style\" custom editor, each layer chooses how it answers the gradient. \"Default (None)\" scales with the group, like every other layer. \"Independent Unit\" works out its own gradient value from where that layer sits, so a multi-layer shape can respond unevenly. \"Fixed (Ignore Gradient)\" opts the layer out completely — useful for a frame that has to stay the same size while everything inside it grows. Select a layer to set it.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/editor-affect-independent.mp4?v=49c694b3",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/editor-affect-independent.jpg",
+            "uploadDate": "2026-04-14",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#editor-affect-independent"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "item": {
+            "@type": "VideoObject",
+            "@id": "https://texture.huescript.com/tutorial/en#editor-layer-role",
+            "name": "Boolean Role",
+            "description": "In the Custom Editor of \"Dot Style,\" you can assign a \"Boolean Role\" to each layer to define how it stacks with the layer below, supporting boolean operations such as Union and Subtract. Combining different roles lets you build richer shape variations and composite designs.",
+            "contentUrl": "https://cdn.texture.huescript.com/tutorial/editor-layer-role.mp4?v=2f3ed38e",
+            "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/editor-layer-role.jpg",
+            "uploadDate": "2026-04-19",
+            "inLanguage": "en",
+            "url": "https://texture.huescript.com/tutorial/en#editor-layer-role"
+          }
+        }
+      ]
+    }
+    </script>
+    <!-- Tailwind CSS (compiled). Must stay last in <head>: utilities must override the Material Symbols stylesheet's 24px font-size default (same order the old Play CDN produced). -->
+    
+    <link rel="stylesheet" crossorigin href="../assets/tailwind-BFpa3N4E.css">
+  </head>
+  <body class="bg-[#0a0a0a] text-gray-300 antialiased">
+    <!-- site-chrome:nav:start -->
+    <!-- ============================== NAV ============================== -->
+    <div class="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl">
+      <nav class="mx-auto max-w-[1240px] px-5">
+        <div class="flex h-16 items-center justify-between gap-4">
+          <div class="flex items-center gap-6">
+          <a href="../index.html" class="flex items-center gap-2 no-underline">
+            <svg viewBox="0 0 80.67 77.04" class="h-[17px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+            <span class="text-[15px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+          </a>
+
+          <div class="hidden items-center gap-1 md:flex">
+            <a href="../faq/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">FAQ</a>
+            <a href="index.html" aria-current="page" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white no-underline transition hover:text-white">Tutorial</a>
+            <a href="../changelog/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Changelog</a>
+            <a href="../explore/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Explore</a>
+            <a href="../ai/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+          </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <!-- Desktop only: on a phone the tool cannot be used, so the whole
+                 mobile site funnels into the send-link form instead. -->
+            <a href="../app/index__5a07df1e.html" class="hidden whitespace-nowrap rounded-lg bg-amber-500 px-3.5 py-2 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400 md:inline-block">Open the app</a>
+            <details class="relative md:hidden">
+              <summary class="flex h-8 w-8 cursor-pointer list-none items-center justify-center rounded-lg border border-white/[0.08] text-gray-400 transition hover:text-white">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              </summary>
+              <div class="absolute right-0 top-10 w-48 rounded-xl border border-white/[0.08] bg-[#141414] p-1.5">
+                <a href="../faq/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">FAQ</a>
+                <a href="index.html" aria-current="page" class="block rounded-md px-3 py-2 text-[14px] text-white no-underline hover:text-white">Tutorial</a>
+                <a href="../changelog/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Changelog</a>
+                <a href="../explore/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Explore</a>
+                <a href="../ai/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+              </div>
+            </details>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- site-chrome:nav:end -->
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-6 py-10">
+      <!-- Header -->
+      <div class="text-center mb-10">
+        <h1 class="text-3xl font-bold mb-3">Tutorial Video Guide</h1>
+        <p class="text-gray-400 text-sm max-w-xl mx-auto">
+          Learn HueScript features quickly through short video tutorials
+        </p>
+      </div>
+
+      <!-- Two-column layout -->
+      <div class="flex gap-8">
+
+        <!-- Left Sidebar Navigation -->
+        <aside class="hidden lg:block w-64 shrink-0">
+          <div class="sticky top-24">
+            <nav class="space-y-1 custom-scrollbar max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
+
+              <!-- Category 1 -->
+              <div class="mb-4">
+                <a href="#section-tips" class="nav-category flex items-center gap-2 text-base font-bold text-gray-300 tracking-wider px-3 py-2 no-underline">
+                  <svg class="sv-icon text-base text-amber-500" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="14" height="20" x="5" y="2" rx="7" /><path d="M12 6v4" /></svg>
+                  Operating Tips
+                </a>
+                <a href="#getting-started" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Getting Started</a>
+                <a href="#scroll-adjustment" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Scroll Adjustment</a>
+                <a href="#canvas-zoom" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Canvas Zoom</a>
+                <a href="#canvas-lock-aspect" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Sync All Parameters</a>
+              </div>
+
+              <!-- Category: 排列模式 -->
+              <div class="mb-4">
+                <a href="#section-pattern" class="nav-category flex items-center gap-2 text-base font-bold text-gray-300 tracking-wider px-3 py-2 no-underline">
+                  <svg class="sv-icon text-base text-amber-500" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></svg>
+                  Pattern Mode
+                </a>
+                <a href="#pattern-flow-lines" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Flow Lines</a>
+                <a href="#pattern-rotation" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Rotate to Path · Cross-Row Spin</a>
+              </div>
+
+              <!-- Category 2 -->
+              <div class="mb-4">
+                <a href="#section-gradient" class="nav-category flex items-center gap-2 text-base font-bold text-gray-300 tracking-wider px-3 py-2 no-underline">
+                  <svg class="sv-icon text-base text-amber-500" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m10.586 5.414-5.172 5.172" /><path d="m18.586 13.414-5.172 5.172" /><path d="M6 12h12" /><circle cx="12" cy="20" r="2" /><circle cx="12" cy="4" r="2" /><circle cx="20" cy="12" r="2" /><circle cx="4" cy="12" r="2" /></svg>
+                  Gradient Controller
+                </a>
+                <a href="#gradient-point-line-curve" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Point / Line / Curve</a>
+                <a href="#gradient-image-controller" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Image as Controller</a>
+                <a href="#gradient-right-click-fillet" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Right-click · Fillet</a>
+                <a href="#gradient-convert-to-geometry" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Right-click · Convert Controller Shape</a>
+                <a href="#gradient-sync" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Right-click · Sync</a>
+                <a href="#gradient-uniform-range" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Unify Range</a>
+                <a href="#gradient-uniform-value" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Unified Value</a>
+                <a href="#gradient-shape-morph" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Shape Morphing</a>
+                <a href="#gradient-shape-morph-custom" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Shape Morphing · Custom Shape</a>
+              </div>
+
+              <!-- Category: 進階選項 -->
+              <div class="mb-4">
+                <a href="#section-advanced" class="nav-category flex items-center gap-2 text-base font-bold text-gray-300 tracking-wider px-3 py-2 no-underline">
+                  <svg class="sv-icon text-base text-amber-500" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="21" x2="14" y1="4" y2="4" /><line x1="10" x2="3" y1="4" y2="4" /><line x1="21" x2="12" y1="12" y2="12" /><line x1="8" x2="3" y1="12" y2="12" /><line x1="21" x2="16" y1="20" y2="20" /><line x1="12" x2="3" y1="20" y2="20" /><line x1="14" x2="14" y1="2" y2="6" /><line x1="8" x2="8" y1="10" y2="14" /><line x1="16" x2="16" y1="18" y2="22" /></svg>
+                  Advanced Options
+                </a>
+                <a href="#gradient-advanced-fill" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Fill</a>
+                <a href="#gradient-single-side-infinite" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Single Side / Infinite Extension</a>
+                <a href="#gradient-random-dropout" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Random Dropout</a>
+                <a href="#gradient-custom-controller" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Custom controller shape</a>
+                <a href="#gradient-angle-symmetry" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Angle · Symmetry</a>
+                <a href="#gradient-angle-stepped" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Angle · Stepped</a>
+              </div>
+
+              <!-- Category 3 -->
+              <div class="mb-4">
+                <a href="#section-export" class="nav-category flex items-center gap-2 text-base font-bold text-gray-300 tracking-wider px-3 py-2 no-underline">
+                  <svg class="sv-icon text-base text-amber-500" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 15V3" /><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /></svg>
+                  STP Export
+                </a>
+                <a href="#export-stp-split-surface" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Split Surface</a>
+              </div>
+
+              <!-- Category 4 -->
+              <div class="mb-4">
+                <a href="#section-editor" class="nav-category flex items-center gap-2 text-base font-bold text-gray-300 tracking-wider px-3 py-2 no-underline">
+                  <svg class="sv-icon text-base text-amber-500" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m11 10 3 3" /><path d="M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z" /><path d="M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031" /></svg>
+                  Custom Editor
+                </a>
+                <a href="#editor-mirror" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Mirror</a>
+                <a href="#editor-affect-independent" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Gradient Response</a>
+                <a href="#editor-layer-role" class="nav-link block text-[15px] text-gray-500 px-3 py-1.5 pl-9 no-underline rounded-r">Boolean Role</a>
+              </div>
+
+            </nav>
+          </div>
+        </aside>
+
+        <!-- Right Content Area -->
+        <main class="flex-1 min-w-0">
+
+          <!-- ==================== Section 1: Operating Tips ==================== -->
+          <section id="section-tips" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-amber-500 mb-6 flex items-center gap-2 pb-2 border-b border-[#2a2a2a]">
+              <svg class="sv-icon text-2xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="14" height="20" x="5" y="2" rx="7" /><path d="M12 6v4" /></svg>
+              Operating Tips
+            </h2>
+
+            <!-- 入門主線 -->
+            <article id="getting-started" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Getting Started
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                New here? This clip runs the whole loop once: choose an arrangement, set the hole size and pitch with the mouse wheel, drop a controller on the canvas and drag it so the pattern follows, lock the pattern inside a boundary, then open Export and pick SVG, DXF or STEP. Every other clip on this page zooms in on one of these steps.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/getting-started.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/getting-started__d1bba18f.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 1. Scroll Adjustment -->
+            <article id="scroll-adjustment" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Scroll Adjustment
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                Use the mouse scroll wheel to quickly adjust numerical parameters in the panel. Hover over any numeric input field and scroll the wheel to change the value. Hold Shift while scrolling for larger steps (coarse, faster adjustment), or hold Ctrl for smaller steps (fine-tuning), so you can move fast and then dial in the exact value.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/scroll-adjustment.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/scroll-adjustment__ea1aedfa.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. Canvas Zoom -->
+            <article id="canvas-zoom" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Canvas Zoom
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                Click the "Canvas Zoom" button in the top toolbar to enable free viewport mode. Once enabled, use Alt + scroll wheel to zoom the canvas, and Space + drag to pan the view, making it easy to inspect design details.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/canvas-zoom.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/canvas-zoom__02ff286b.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. Sync All Parameters -->
+            <article id="canvas-lock-aspect" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Sync All Parameters
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                When "Sync All Parameters" is enabled in the canvas panel, all parameters (spacing, radius, etc.) will scale proportionally when the canvas size changes, maintaining consistent visual proportions of patterns across different sizes.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/canvas-lock-aspect.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/canvas-lock-aspect__0e561008.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <div class="section-divider"></div>
+
+          <!-- ==================== Section: 排列模式 ==================== -->
+          <section id="section-pattern" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-amber-500 mb-6 flex items-center gap-2 pb-2 border-b border-[#2a2a2a]">
+              <svg class="sv-icon text-2xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></svg>
+              Pattern Mode
+            </h2>
+
+            <!-- 流線紋理 -->
+            <article id="pattern-flow-lines" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Flow Lines
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                "Flow Lines" fills the sheet with continuous lines instead of holes, and the gradient tabs are remapped to suit: "Width" makes the lines thicker or thinner around a controller, "Spacing" packs them closer or looser, "Bend" swirls them. On the "Direction" tab you draw one line, curve or closed shape and the whole field runs parallel to it (open ends extend forever; only one direction controller at a time), and "Corner Fillet" rounds every sharp turn it produces. The direction controller is free to try — exporting requires Pro.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/pattern-flow-lines.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/pattern-flow-lines__49818544.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 排列旋轉 -->
+            <article id="pattern-rotation" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Rotate to Path · Cross-Row Spin
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                Two rotations belong to the arrangement rather than the shape. In "Concentric" and "Spiral", turn on "Rotate to Path" and every unit turns to follow its ring or spiral — slots stop lying flat and line up one after another along the curve. In an array, "Cross-Row Spin" turns each row a little more than the one before so the whole sheet reads as twisted (at 90°, rows alternate between horizontal and vertical); "Spin By" chooses whether it accumulates by Row, by Column, or along both axes. Each unit spins in place, so positions never move.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/pattern-rotation.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/pattern-rotation__ef9b5284.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <div class="section-divider"></div>
+
+          <!-- ==================== Section 2: Gradient Controller ==================== -->
+          <section id="section-gradient" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-amber-500 mb-6 flex items-center gap-2 pb-2 border-b border-[#2a2a2a]">
+              <svg class="sv-icon text-2xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m10.586 5.414-5.172 5.172" /><path d="m18.586 13.414-5.172 5.172" /><path d="M6 12h12" /><circle cx="12" cy="20" r="2" /><circle cx="12" cy="4" r="2" /><circle cx="20" cy="12" r="2" /><circle cx="4" cy="12" r="2" /></svg>
+              Gradient Controller
+            </h2>
+
+            <!-- 3. Point / Line / Curve -->
+            <article id="gradient-point-line-curve" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Control Point Types: Point / Line / Curve
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                The gradient controller supports three interactive controller types: "Point" creates a radial gradient effect from a single center point outward; "Line" produces a linear gradient along a straight line; "Curve" allows you to draw a free-form curve path with multiple nodes on the canvas, and the gradient follows the curve direction. Click directly on the canvas to add a controller, and drag to adjust its position.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-point-line-curve.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-point-line-curve__3c64470b.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- Image as Controller -->
+            <article id="gradient-image-controller" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Image as Controller
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                Upload an image in the "Background Image" panel, then enable "Image as Controller" in the gradient controller panel to let the image's luminance drive pattern parameters: by default, dark areas apply the target value (such as hole size) while bright areas keep the base value, making it easy to create halftone-style imagery. Turn on "Invert" to have bright areas apply the target value instead, and adjust the mapping strength with "Contrast". The same mechanism also works for spacing, angle, and shape gradients.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-image-controller.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-image-controller__ca081a33.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4. Right-click · Fillet -->
+            <article id="gradient-right-click-fillet" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Right-click · Fillet
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                Right-click on a controller node and select "Add Fillet," then move the mouse to adjust the fillet size and click to confirm. This feature smooths sharp corners at curve or line segment bends.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-right-click-fillet.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-right-click-fillet__8e7f34e9.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- Right-click · Convert Controller Shape -->
+            <article id="gradient-convert-to-geometry" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Right-click · Convert Controller Shape
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                Click back on the point you started from to close a controller path. Right-click any segment of a closed controller and its outline can be swapped for exact geometry: "Regular Polygon" gives every side the same length, while "Proportional Polygon" keeps that regular form but stretches it to the box the freehand outline already occupies. A closed curve offers "Convert to Circle" and "Convert to Ellipse" instead. Draw roughly first, snap to exact geometry afterwards, without redrawing. The same menu also carries Add Point, Scale, Rotate, Center Shape and Sync, which mirrors this controller's geometry into the other gradient modes.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-convert-to-geometry.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-convert-to-geometry__b2f3d5d3.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 右鍵 · 同步 -->
+            <article id="gradient-sync" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Right-click · Sync
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                Draw a controller once and reuse it everywhere: right-click it, open "Sync" and tick the other gradient modes (Size / Spacing / Angle / Shape). The controller's position and shape are mirrored into those modes and stay linked — move or reshape one and its twins follow — while each mode keeps its own target value, range and advanced switches. Deleting a synced controller removes its twins in the other modes as well.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-sync.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-sync__7ae31301.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 8. Unify Range -->
+            <article id="gradient-uniform-range" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Unify Range
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                When "Unify Range" is enabled, all gradient controllers on the canvas share the same influence range. Adjusting the range of any controller will synchronize all others, making it easy to manage the gradient influence distance of multiple controllers uniformly.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-uniform-range.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-uniform-range__a09735e3.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 9. Unified Value -->
+            <article id="gradient-uniform-value" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Unified Value
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                When "Unified Value" is enabled, all gradient controllers share the same target value (such as the final value for size, density, or angle). Adjusting the target value of any controller will synchronize all others.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-uniform-value.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-uniform-value__23d88993.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 形狀漸變 -->
+            <article id="gradient-shape-morph" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Shape Morphing
+                <span class="rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Pro</span>
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                The fourth tab of the gradient controller, "Shape", blends the outline itself: far from a controller the holes keep their original point style, and the closer they get, the closer they come to the "Target Shape", with a smooth transition at every step in between. Place a controller, then pick Circle, Rectangle, Polygon or Star under "Target Shape"; each target's own parameters (sides, points, rounding) appear below it. With a rectangle target, the W / H button next to "Aspect Ratio" decides whether the hole diameter maps to the rectangle's width or its height. Controllers work exactly as they do on the other tabs — point, line, curve and range all apply — and when you drag a controller, the morphed area follows it. Shape morphing is free to try — exporting requires Pro.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-shape-morph.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-shape-morph__d0a1f358.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 形狀漸變 · 自訂圖形 -->
+            <article id="gradient-shape-morph-custom" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Shape Morphing · Custom Shape
+                <span class="rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Pro</span>
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                When the point style is "Custom", the target isn't picked from a list — you draw it. Click "Edit target shape" on the "Shape" tab and the editor opens in its "Target" state, where you reshape the same anchors: move anchors, adjust handles, scale, rotate, or change the radius of fillets that already exist. The pattern then morphs layer by layer from the "Base" shape to the "Target" shape along your shape controllers, and the "Base | Target" switch in the toolbar lets you flip back to compare at any time. Because the morph moves every anchor from its base position to its target position, both outlines must keep the same anchors in the same order: the pen, new shapes, import and boolean operations are disabled in "Target", and if you add or remove anchors on "Base", that layer's target is reset automatically ("Reset target shape" does the same by hand). Layers set to "Fixed (Ignore Gradient)" don't morph. Shape morphing is free to try — exporting requires Pro.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-shape-morph-custom.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-shape-morph-custom__046265e7.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+          </section>
+
+          <div class="section-divider"></div>
+
+          <!-- ==================== Section: 進階選項 ==================== -->
+          <section id="section-advanced" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-amber-500 mb-6 flex items-center gap-2 pb-2 border-b border-[#2a2a2a]">
+              <svg class="sv-icon text-2xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="21" x2="14" y1="4" y2="4" /><line x1="10" x2="3" y1="4" y2="4" /><line x1="21" x2="12" y1="12" y2="12" /><line x1="8" x2="3" y1="12" y2="12" /><line x1="21" x2="16" y1="20" y2="20" /><line x1="12" x2="3" y1="20" y2="20" /><line x1="14" x2="14" y1="2" y2="6" /><line x1="8" x2="8" y1="10" y2="14" /><line x1="16" x2="16" y1="18" y2="22" /></svg>
+              Advanced Options
+              <span class="rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Pro</span>
+            </h2>
+
+            <!-- 10. Advanced · Fill -->
+            <article id="gradient-advanced-fill" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Advanced · Fill
+                <span class="rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Pro</span>
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                In the gradient controller's advanced options, the "Fill Closed" feature allows the interior of a closed controller (a closed area formed by curves) to use the target value directly, rather than producing a gradient effect. Note: Points and lines are non-closed shapes and cannot use this feature. Advanced options are free to try — exporting requires Pro.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-advanced-fill.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-advanced-fill__43f4da10.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 進階 · 單側＋無限延伸 -->
+            <article id="gradient-single-side-infinite" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Advanced · Single Side / Infinite Extension
+                <span class="rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Pro</span>
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                Two advanced switches for open controllers (line, curve, polyline). "Single Side" applies the gradient on one side of the controller only and keeps the other side at the base value; the swap button next to it flips sides. "Infinite Extension" continues the controller straight out from both end points, so a short stroke governs the full width of the canvas — and it combines with "Single Side". Closed shapes and point controllers have no open ends, so they are unaffected. Advanced options are free to try — exporting requires Pro.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-single-side-infinite.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-single-side-infinite__fe051ce4.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 進階 · 隨機消失 -->
+            <article id="gradient-random-dropout" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Advanced · Random Dropout
+                <span class="rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Pro</span>
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                "Random Dropout" is an advanced option of the size mode: inside a size controller's range, points vanish at random by the share you set, and everything outside the range is untouched. The button beside the slider cycles where they vanish — more near the controller, more toward the edge of the range, or evenly — and the dice re-rolls which points go; with "Hard Edge" on, the chance is the same across the whole range. It needs a size controller to act on, and the thinned-out area travels with that controller. Advanced options are free to try — exporting requires Pro.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-random-dropout.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-random-dropout__6a24aad1.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 進階 · 自訂控制器形狀 -->
+            <article id="gradient-custom-controller" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Advanced · Custom controller shape
+                <span class="rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Pro</span>
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                The three controller tools draw freehand on the canvas. "Custom controller shape" in the advanced options opens the path editor instead, sized to the canvas and working in millimetres, so a controller can be an exact shape: build circles, rectangles, polygons and stars from the size dialog, or draw lines and closed outlines with the pen. Press "Import" and everything drawn becomes a controller of the tab that is open (single nodes and hidden layers are skipped). In "Flow Lines" mode only the topmost layer is imported, and it replaces the current direction controller. Advanced options are free to try — exporting requires Pro.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-custom-controller.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-custom-controller__31236752.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 11. Angle · Symmetry -->
+            <article id="gradient-angle-symmetry" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Angle Advanced · Symmetry
+                <span class="rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Pro</span>
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                In the angle mode's advanced options, enabling "Symmetric" causes both sides of the controller to use opposite angle values, creating a mirror-symmetric angle gradient effect. Advanced options are free to try — exporting requires Pro.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-angle-symmetry.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-angle-symmetry__68634ef7.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- 12. Angle · Stepped -->
+            <article id="gradient-angle-stepped" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Angle Advanced · Stepped Increment
+                <span class="rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Pro</span>
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                In the angle mode's advanced options, setting "Increment" divides the gradient into evenly spaced steps at fixed angles, replacing the default smooth transition (set to 0 to return to smooth mode). When holding Shift + scroll wheel to adjust the center rotation angle, this value is also used as the increment unit. Advanced options are free to try — exporting requires Pro.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/gradient-angle-stepped.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/gradient-angle-stepped__f418fda2.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <div class="section-divider"></div>
+
+          <!-- ==================== Section 3: STP Export ==================== -->
+          <section id="section-export" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-amber-500 mb-6 flex items-center gap-2 pb-2 border-b border-[#2a2a2a]">
+              <svg class="sv-icon text-2xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 15V3" /><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /></svg>
+              Export Guide (STP)
+            </h2>
+
+            <!-- Split Surface -->
+            <article id="export-stp-split-surface" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Split Surface Export
+                <span class="rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Pro</span>
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                To address issues where a large number of holes causes CAD software to lag or fail during import, you can enable the "STP Split" feature to divide the surface into multiple smaller regions for separate export. You can set the number of rows and columns, and under "Split Packaging" choose whether the tiles come back as a "ZIP archive" (one .stp per tile) or as a "Single assembly" (a single .stp holding every tile as a sub-component). All files maintain absolute coordinates, so they automatically align precisely when imported into CAD without manual adjustment. This is a Pro-exclusive feature.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/export-stp-split-surface.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/export-stp-split-surface__bc610ffe.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+              <div class="video-container mt-4">
+                <video loop controls preload="metadata" poster="../tutorial-thumbs/export-stp-split-cad.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/export-stp-split-cad__2501a634.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <div class="section-divider"></div>
+
+          <!-- ==================== Section 4: Custom Editor ==================== -->
+          <section id="section-editor" class="scroll-mt-24">
+            <h2 class="text-xl font-bold text-amber-500 mb-6 flex items-center gap-2 pb-2 border-b border-[#2a2a2a]">
+              <svg class="sv-icon text-2xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m11 10 3 3" /><path d="M6.5 21A3.5 3.5 0 1 0 3 17.5a2.62 2.62 0 0 1-.708 1.792A1 1 0 0 0 3 21z" /><path d="M9.969 17.031 21.378 5.624a1 1 0 0 0-3.002-3.002L6.967 14.031" /></svg>
+              Custom Editor
+            </h2>
+
+            <!-- 16. Mirror -->
+            <article id="editor-mirror" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Mirror
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                In the custom shape editor, turn on "Mirror" in the toolbar and every stroke you draw is repeated live into the other symmetric copies. The count goes from 2 to 12: 2 is a left–right reflection, while 3 and up is radial symmetry, one copy every 360°/N around the centre (3 makes a three-blade propeller, 6 a snowflake). Mirroring is non-destructive — the count is saved with the shape, so you can reopen the editor and change it later. Only "Apply Mirror" expands the copies into independent paths you can edit one by one, and an open path whose endpoints meet the mirror axis is stitched into a single closed path.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/editor-mirror.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/editor-mirror__f539ca26.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- Gradient Response -->
+            <article id="editor-affect-independent" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Gradient Response
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                In the "Point Style" custom editor, each layer chooses how it answers the gradient. "Default (None)" scales with the group, like every other layer. "Independent Unit" works out its own gradient value from where that layer sits, so a multi-layer shape can respond unevenly. "Fixed (Ignore Gradient)" opts the layer out completely — useful for a frame that has to stay the same size while everything inside it grows. Select a layer to set it.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/editor-affect-independent.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/editor-affect-independent__223fbf4e.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+              <div class="video-container mt-4">
+                <video loop controls preload="metadata" poster="../tutorial-thumbs/editor-affect-independent-compare.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/editor-affect-independent-compare__a875a63e.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+            <!-- Boolean Role -->
+            <article id="editor-layer-role" class="scroll-mt-24 mb-10">
+              <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-2">
+                Boolean Role
+              </h3>
+              <p class="text-base text-gray-400 leading-relaxed mb-4">
+                In the Custom Editor of "Dot Style," you can assign a "Boolean Role" to each layer to define how it stacks with the layer below, supporting boolean operations such as Union and Subtract. Combining different roles lets you build richer shape variations and composite designs.
+              </p>
+              <div class="video-container">
+                <video controls preload="metadata" poster="../tutorial-thumbs/editor-layer-role.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/editor-layer-role__1c7c69a3.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+              <div class="video-container mt-4">
+                <video loop controls preload="metadata" poster="../tutorial-thumbs/editor-layer-role-compare.jpg">
+                  <source src="../https://cdn.texture.huescript.com/tutorial/editor-layer-role-compare__41e67ff6.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <svg class="sv-icon text-4xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg>
+                </div>
+              </div>
+            </article>
+
+          </section>
+
+          <!-- Related: /ai 與指南 -->
+          <section id="section-related" class="mt-2 mb-2">
+            <div class="grid gap-3 sm:grid-cols-3">
+              <a href="../ai/index.html" class="block rounded-lg border border-[#2a2a2a] bg-[#141414] p-4 no-underline transition hover:border-amber-500/40">
+                <p class="m-0 text-[15px] font-bold text-gray-200">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></p>
+                <p class="m-0 mt-1 text-sm text-gray-400 leading-relaxed">Connect your own AI assistant (MCP) and design patterns in conversation. Pro.</p>
+              </a>
+              <a href="../guides/export-step-to-cad/index.html" class="block rounded-lg border border-[#2a2a2a] bg-[#141414] p-4 no-underline transition hover:border-amber-500/40">
+                <p class="m-0 text-[15px] font-bold text-gray-200">Export STEP to CAD</p>
+                <p class="m-0 mt-1 text-sm text-gray-400 leading-relaxed">Step-by-step guide: from a finished pattern to a STEP file in your CAD.</p>
+              </a>
+              <a href="../guides/photo-to-halftone/index.html" class="block rounded-lg border border-[#2a2a2a] bg-[#141414] p-4 no-underline transition hover:border-amber-500/40">
+                <p class="m-0 text-[15px] font-bold text-gray-200">Photo to halftone</p>
+                <p class="m-0 mt-1 text-sm text-gray-400 leading-relaxed">Step-by-step guide: turn a photo into a halftone hole pattern.</p>
+              </a>
+            </div>
+          </section>
+
+          <!-- CTA Section -->
+          <section class="text-center py-8 mt-4">
+            <p class="text-gray-400 text-sm mb-2">
+              Have more questions? Check out our <a href="../faq/index.html" class="text-amber-500 hover:underline">FAQ</a> or
+              <a href="../feedback/index.html" class="text-amber-500 hover:underline">fill out our feedback form</a> to let us know!
+            </p>
+            <a href="../index.html" class="inline-block mt-4 bg-amber-500 hover:bg-amber-600 text-black font-bold text-sm px-6 py-3 rounded-lg transition no-underline">
+              Start Using HueScript
+            </a>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- site-chrome:footer:start -->
+    <footer class="border-t border-white/[0.07] px-5 pb-10 pt-14">
+      <div class="mx-auto max-w-[1240px]">
+        <div class="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+          <div class="col-span-2 md:col-span-4 lg:col-span-1">
+            <a href="../index.html" class="inline-flex items-center gap-2.5 no-underline">
+              <svg viewBox="0 0 80.67 77.04" class="h-[26px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+              <span class="text-[22px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+            </a>
+            <p class="mt-5 max-w-[300px] text-[14px] leading-[1.5] text-white/60">
+              A browser-based parametric pattern generator. Design it, export SVG / DXF / STEP, make it.
+            </p>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Product</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../app/index__5a07df1e.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Open the app</a></li>
+              <li><a href="../ai/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a></li>
+              <li></li>
+              <li><a href="../changelog/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Changelog</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Patterns</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../explore/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Explore</a></li>
+              <li><a href="../speaker-grille-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Speaker grille</a></li>
+              <li><a href="../ventilation-hole-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Ventilation holes</a></li>
+              <li><a href="../halftone-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Halftone patterns</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Guides</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Tutorial</a></li>
+              <li><a href="../faq/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">FAQ</a></li>
+              <li><a href="../guides/ipad/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Using on iPad</a></li>
+              <li><a href="../guides/wrap/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Wrap onto curved surfaces</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">About</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../about/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">About HueScript</a></li>
+              <li><button type="button" data-sv-copy="huescript@gmail.com" class="relative p-0 text-left text-[14px] text-white/60 transition hover:text-white" title="huescript@gmail.com">Contact us<span class="sv-copy-toast absolute bottom-full left-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span></button></li>
+              <li><a href="../privacy/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Privacy policy</a></li>
+              <li><a href="../terms/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Terms of service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Community bar -->
+        <div class="mt-12 flex flex-col gap-6 border-t border-white/[0.07] pt-6 lg:flex-row lg:items-center lg:justify-between">
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a href="../app/index__4b616722.html" class="flex items-center gap-2 text-[14px] font-medium text-white/70 no-underline transition hover:text-white">
+              <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" /></svg>
+              Send feedback
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-5">
+            <div class="flex items-center gap-4 text-white/50">
+              <a href="https://www.instagram.com/huescript/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="Instagram">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+              </a>
+              <a href="https://www.youtube.com/@HueScript" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="YouTube">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg>
+              </a>
+              <button type="button" data-sv-copy="huescript@gmail.com" class="relative transition hover:text-white" title="huescript@gmail.com" aria-label="huescript@gmail.com">
+                <svg class="h-[18px] w-[18px] fill-current sv-copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                <svg class="sv-copy-check h-[18px] w-[18px] fill-current text-green-400" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                <span class="sv-copy-toast absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span>
+              </button>
+            </div>
+
+            <!-- Language picker: real links inside a <details>, so every locale
+                 stays crawlable and the control needs no JavaScript. -->
+            
+
+            <div class="flex flex-col leading-tight">
+              <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50">Created by</span>
+              <span class="text-[14px] font-semibold text-white">Yoshi Chen</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="m-0 mt-8 text-center text-[13px] text-white/50">© 2026 HueScript. All rights reserved. <span class="egg-trigger" id="egg-trigger">🥚</span></p>
+
+        <script src="../site-copy.js" defer></script>
+      </div>
+    </footer>
+    <!-- site-chrome:footer:end -->
+
+    <!-- Easter Egg Modal -->
+    <div class="egg-overlay" id="egg-overlay">
+      <div class="egg-modal">
+        <button id="egg-close" class="absolute top-3 right-3 text-gray-500 hover:text-gray-200 transition bg-transparent border-0 cursor-pointer p-1" aria-label="Close">
+          <svg class="sv-icon text-xl" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+        </button>
+        <div class="text-5xl mb-3">🐣</div>
+        <h3 class="text-xl font-bold text-amber-500 mb-2">Congrats, you found the easter egg!</h3>
+        <p class="text-sm text-gray-300 mb-1">Enjoy <span class="text-amber-400 font-bold">15% off</span> a one-year subscription</p>
+        <p class="text-xs text-gray-400 mb-5">Enter this code at checkout</p>
+        <div class="flex items-center justify-center gap-2 bg-[#121212] border border-dashed border-amber-500/50 rounded-lg px-4 py-3 mb-2">
+          <span class="font-mono text-lg font-bold tracking-[0.2em] text-amber-400">M4NTC5MG</span>
+          <button id="egg-copy" class="flex items-center text-gray-400 hover:text-amber-400 transition bg-transparent border-0 cursor-pointer p-1" aria-label="Copy code">
+            <svg class="sv-icon text-lg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+          </button>
+        </div>
+        <p id="egg-copied" class="text-xs text-amber-500 transition-opacity duration-300" style="opacity:0">Code copied!</p>
+      </div>
+    </div>
+
+    <!-- Sidebar scroll-spy & video placeholder logic -->
+    <script src="../site-tutorial.js" defer></script>
+  </body>
+</html>

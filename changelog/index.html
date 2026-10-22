@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js)。初始化在 public/ga-init.js（外部檔，CSP 不開 'unsafe-inline'） -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8W2EV2PJ7W"></script>
+    <script src="../ga-init.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Primary Meta Tags -->
+    <title>Changelog | HueScript</title>
+    <meta name="title" content="Changelog | HueScript">
+    <meta name="description" content="Every HueScript release, newest first: new pattern modes, gradient controls, export fixes and CAD compatibility improvements.">
+    <meta name="author" content="HueScript">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+
+    <!-- Canonical URL & Hreflang -->
+    <link rel="canonical" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="en" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://texture.huescript.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://texture.huescript.com/changelog/en">
+    <meta property="og:title" content="Changelog | HueScript">
+    <meta property="og:description" content="Every HueScript release, newest first: new pattern modes, gradient controls, export fixes and CAD compatibility improvements.">
+    <meta property="og:image" content="https://texture.huescript.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="HueScript">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://texture.huescript.com/changelog/en">
+    <meta name="twitter:title" content="Changelog | HueScript">
+    <meta name="twitter:description" content="Every HueScript release, newest first: new pattern modes, gradient controls, export fixes and CAD compatibility improvements.">
+    <meta name="twitter:image" content="https://texture.huescript.com/og-image.jpg">
+
+    <!-- Tailwind CSS (compiled). Must stay last in <head>. -->
+    <style>
+      summary::-webkit-details-marker { display: none; }
+      .sv-lang[open] .sv-lang-chevron { transform: rotate(180deg); }
+    </style>
+    
+    <link rel="stylesheet" crossorigin href="../assets/tailwind-BFpa3N4E.css">
+  </head>
+  <body class="bg-[#0a0a0a] text-gray-300 antialiased">
+
+    <!-- ============================== NAV ============================== -->
+    <div class="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl">
+      <nav class="mx-auto max-w-[1240px] px-5">
+        <div class="flex h-16 items-center justify-between gap-4">
+          <div class="flex items-center gap-6">
+          <a href="../index.html" class="flex items-center gap-2 no-underline">
+            <svg viewBox="0 0 80.67 77.04" class="h-[17px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+            <span class="text-[15px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+          </a>
+
+          <div class="hidden items-center gap-1 md:flex">
+            <a href="../faq/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">FAQ</a>
+            <a href="../tutorial/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Tutorial</a>
+            <a href="index.html" aria-current="page" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white no-underline transition hover:text-white">Changelog</a>
+            <a href="../explore/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Explore</a>
+            <a href="../ai/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+          </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <!-- Desktop only: on a phone the tool cannot be used, so the whole
+                 mobile site funnels into the send-link form instead. -->
+            <a href="../app/index__5a07df1e.html" class="hidden whitespace-nowrap rounded-lg bg-amber-500 px-3.5 py-2 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400 md:inline-block">Open the app</a>
+            <details class="relative md:hidden">
+              <summary class="flex h-8 w-8 cursor-pointer list-none items-center justify-center rounded-lg border border-white/[0.08] text-gray-400 transition hover:text-white">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              </summary>
+              <div class="absolute right-0 top-10 w-48 rounded-xl border border-white/[0.08] bg-[#141414] p-1.5">
+                <a href="../faq/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">FAQ</a>
+                <a href="../tutorial/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Tutorial</a>
+                <a href="index.html" aria-current="page" class="block rounded-md px-3 py-2 text-[14px] text-white no-underline hover:text-white">Changelog</a>
+                <a href="../explore/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Explore</a>
+                <a href="../ai/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+              </div>
+            </details>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <header class="mx-auto max-w-[1240px] px-5 pb-6 pt-16 sm:pt-24">
+      <h1 class="max-w-[740px] text-[36px] font-medium leading-[1em] tracking-[-0.04em] text-white min-[810px]:text-[42px]">Changelog</h1>
+      <p class="mt-5 max-w-[560px] text-[16px] leading-[1.35] text-white/60 min-[810px]:text-[18px]">Every release, newest first. The same log you see inside the app.</p>
+    </header>
+
+    <main class="mx-auto max-w-[820px] px-5 pb-8 pt-10">
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-10-17" class="text-[15px] font-semibold text-white">2026.10.17</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+            <span class="rounded border border-emerald-500/25 bg-emerald-500/10 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-emerald-400">LATEST</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New: HueScript Wrap (beta). Flatten a curved face of your STEP part, lay your pattern on it and wrap it back as raised, recessed or cut-through shapes, then export STEP. Choose Wrap in the Export menu to send the pattern straight over. How it works: <a href="../guides/wrap/index.html" class="text-amber-400 underline underline-offset-2 hover:text-amber-300">Wrap onto curved surfaces</a>.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-10-14" class="text-[15px] font-semibold text-white">2026.10.14</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New pattern mode, AI Custom: when no built-in mode can produce the layout you want, your AI writes an arrangement rule through the HueScript MCP. The app lists the parameters it exposes so you can adjust them directly, and Point Style and gradients work as usual. Details and a demo: <a href="../ai/index.html" class="text-amber-400 underline underline-offset-2 hover:text-amber-300">AI design</a>.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">AI Custom rules can be kept with Save as my mode and switched from a dropdown later; they are stored in the same place as your Repository. The restore button next to it brings the parameters, Point Style and controllers back to the version the AI gave you.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Smoother large designs: dragging a controller no longer freezes the screen on designs with many holes or custom shapes. Every pattern mode now works out the layout in the background (before, only Flow Lines did), so the controllers and the interface keep up with your hand and the holes follow as soon as they are ready. Custom shapes recompute several times faster, and canvases with tens of thousands of holes redraw more than twice as fast.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-10-09" class="text-[15px] font-semibold text-white">2026.10.09</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Community marketplace designs can now be loaded and liked without signing in. Likes you give while signed out are added to your account when you sign in. Submitting and My submissions still need an account.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Custom editor: double-click a shape with the Selection tool to switch to Direct Select (double-clicking an anchor selects that anchor too), then click an empty spot to go back to the Selection tool. Direct Select picked from the toolbar or with A works as before.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fix: connecting the HueScript MCP in Codex showed only the lookup tools; the tools to design, preview, export and open in the app were missing.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixes: turning on Unify Range could suddenly cover the whole canvas, with the range circle off the canvas and out of reach (it now takes the selected controller's range); with a large and a small closed controller overlapping, clicking the small one selected the large one; and size gradients built by an AI over MCP showed a hole size and Center Scale in the panel that did not match what was on the canvas.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-10-04" class="text-[15px] font-semibold text-white">2026.10.04</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Unsaved canvases now come back after a refresh, a closed tab or a crash.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">SVG/DXF imports in the custom editor now come in at their original size. You are only asked to scale them when they would be too large or too small to see.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">When Pro expires, designs in your cloud repository are kept and are all there if you renew; this computer also gets its own copy in the browser.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The website now has a privacy policy, terms of service and an About page.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixed: two tabs saving over each other, renaming or deleting a local folder touching other files inside it, broken design files crashing the app, blank results on small canvases or very thin round-cap flow lines, distorted SVG corner radii on rectangle holes, missing holes when exporting a custom shape with a boundary, and duplicated synced controllers sharing settings.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-10-01" class="text-[15px] font-semibold text-white">2026.10.01</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Better on iPad: fingers and the Apple Pencil now work the canvas controllers, number fields, panels and the custom editor directly, a long press opens the right-click menu, and the custom editor has on-screen Shift, Alt and Delete keys beside it. STP files downloaded in Safari now open straight in Shapr3D and other apps.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New PNG export: the Export menu now has PNG at the top. It saves the pattern on a transparent background, in the same color as on the canvas, ready to place over slides, product images or textures for rendering. Resolution is based on 300 DPI, and small patterns are scaled up to 2048 px on the long side. It shares the daily free export count with the other formats.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Marketplace: a new Import size choice under the tabs, Original size or Fit to current canvas. With Fit, your canvas keeps its size and the design (holes, spacing, controllers and boundary) is scaled proportionally into it; if the aspect ratio differs, it is sized to fit entirely inside, and patterns that tile the whole canvas fill the extra side. Your last choice is remembered.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixes: with Sync All Parameters on, changing the width or height now also scales Grid Offset and the flow lines' Corner Fillet, and fillets on paths and custom boundaries can still be adjusted in the editor after scaling.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fix: on Flow Lines, a gradient with Hard Edge on and only a small change in line width drew the edge as a long ramp, and the lines flickered while the controller was dragged.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-09-28" class="text-[15px] font-semibold text-white">2026.09.28</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Number fields can now be adjusted by dragging: press on a field and drag sideways to raise or lower the value, hold Shift for large steps or Ctrl for fine ones, and press Esc mid-drag to put the value back. Clicking a field selects the whole value, so typing replaces it.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">UI adjustments: a selected option is now a lighter gray block with only its icon and label in color, replacing the tinted background and colored border. Rows of options such as Point/Line/Curve and Value/Range sit in one dark track with the selected option raised, and standalone toggles (the advanced options, the width and height locks, Invert and so on) use the same gray when on.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Marketplace: the Get More button in the Repository is now called Marketplace, the same name as the window it opens, and has a dark background, an amber border and a storefront icon. On the Community marketplace tab, Submit your design opens the form right inside the Marketplace window instead of switching to another window. My submissions, where you check review results, is on the same tab and no longer in the account menu.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Cloud Repository: its switch is gone from Settings. To keep your designs in the cloud, open Manage project folders… from the Repository and set Storage location to Cloud.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixes: on a typical laptop screen, Buy Now in the Pro window is no longer hidden behind the footer and can be clicked without scrolling; while a window such as the Help Center, Settings or the Marketplace is open, Ctrl+Z, Z and R no longer change the canvas behind it; a floating panel dragged off-screen now stops at the edge and is still there after a reload; in cloud mode, Manage project folders… no longer opens on an empty, nameless folder; when you arrive from a website link (such as the pricing page) or a design link from your AI, Latest News no longer covers the window you came to open; on phones, Send Me the Link tells you right away when the email domain cannot receive mail, and says the link was already sent today once that address reaches the daily limit, instead of reporting success; after importing an SVG with several shapes into the custom editor, exactly the newly imported layers are selected; the shape dialog marks a size of 0 or less in red instead of creating an invisible layer; for custom shapes with curves, boundary checks now follow the curves instead of only the anchor points, so Complete Area drops holes whose curves bulge past the boundary and Boundary Clipping keeps holes whose curves reach inside it.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Shape morph fixes: a layer with its width and height locked still morphs to its target shape (those locks only mean it ignores the size gradient); on a mirrored layer whose target is turned exactly 180°, the mirrored half now turns the opposite way midway instead of the same way as the original; copying, pasting or undoing across Base and Target no longer scrambles the target shape, and a pasted copy takes its target along with the offset; continuing an open path with the Pen from its starting point no longer reverses the target shape; squashing a layer with Lock Corner Radius very flat in Target no longer resets its target; Edit target shape now responds when Gradient Control is a floating panel; when Apply Mirror cannot keep the target shape, a notice tells you it was reset; in short windows the guide card scrolls and closes with Esc instead of locking up the editor.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-09-23" class="text-[15px] font-semibold text-white">2026.09.23</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Shape morph: in a custom shape, a layer set to Fixed (Ignore Gradient) now morphs toward its target shape along your controllers too. Fixed only means the layer ignores the size, angle and density gradients; a layer with a target still morphs. To keep a layer still, draw its target identical to the base.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Shape morph: when the target shape is the whole layer turned (box-rotated in the Target view), the holes in between now travel along the arc instead of shrinking or collapsing halfway. A 90° turn used to shrink to about 70% midway and 180° collapsed to a line; every hole now keeps its full shape. Layers you select and rotate together also turn together about the same center, so the places where they meet stay lined up.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Shape morph: on a layer set to Independent Unit, the pivot you pick under Transform Pivot &amp; Locks now travels with the shape morph. When the target shape moves or resizes the layer, the holes in between scale and turn about the pivot where the layer currently is. Before, they always used the point on the base shape, so a size or angle gradient pushed the holes off their target position.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-09-20" class="text-[15px] font-semibold text-white">2026.09.20</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Shape morph now works with custom shapes. In the custom editor, switch the toolbar to Target and reshape the same anchors: the pattern morphs from the base shape to the target shape along your controllers. Each layer morphs on its own, and layer roles (union, subtract) and gradient responses keep working: a layer set to respond independently morphs by its own position, a layer set to fixed keeps its shape. SVG, DXF and STEP exports carry the morphed shapes. Shape morph is a Pro feature: free to try, Pro to export.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fillets morph too: round a corner on the base, then make that same fillet larger or smaller on the target, and the holes in between blend smoothly. &quot;Reset target shape&quot; in the toolbar puts the selected layers (or all of them) back to match the base. Adding or removing anchors on the base resets that layer's target shape and tells you so.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Also: fixed a number of bugs.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-09-18" class="text-[15px] font-semibold text-white">2026.09.18</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New: MCP (beta). Connect HueScript to Claude, Cursor or any other MCP-capable AI and your assistant designs patterns with the same engine the app uses. Hand it a reference image, a written spec (panel size, hole range, open area, corner radius) or just a photo of your product: it builds the pattern, drops it back onto your photo so you can judge the look, opens the design in the app through a single link for further editing, and exports SVG, DXF or STEP on its own.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Two ways to connect: add it to Claude as a connector (nothing to install, you sign in with your HueScript account), or create a token under Settings → API access for Claude Code, Cursor and your own scripts. MCP and API access are Pro features. Full instructions and demos: <a href="../ai/index.html" class="text-amber-400 underline underline-offset-2 hover:text-amber-300">AI design</a>.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Shape morph: rectangle targets get a W/H toggle next to the aspect ratio. By default the hole diameter is the rectangle width; switch it and the diameter becomes the height, with the width following the ratio.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Also: fixed a number of bugs.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-09-13" class="text-[15px] font-semibold text-white">2026.09.13</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Repository gains Project Folders: designs can be grouped into folders and switched straight from the breadcrumb in the panel header. The management window handles creating, renaming, drag-to-reorder, multi-select moves and deletion (undoable for 8 seconds), and a whole folder can be exported as a zip that rebuilds itself when dragged back in. Individual designs can be renamed in place by double-clicking the name, and the cards themselves can be reordered freely.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Three storage locations to choose from: browser storage, a local folder (written straight into the disk folder you pick) and the cloud (Pro). The switch now lives in the status pill at the right of the header, along with the disk connection state and your cloud quota.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The cloud repository limit goes from 20 saves to 50.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Random Dropout&quot; under Advanced on the Size tab of Gradient Control: points inside a size controller's range disappear at the chosen rate, and anything outside it is untouched. The two buttons beside it split the job: one cycles the direction (more disappear closer to the controller, more disappear near the edge of the range, or evenly regardless of distance), the other rolls a different set of points. With Hard Edge on, the whole range uses one probability.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Corner Fillet&quot; on the Direction tab of Flow Lines: every cusp at a turn, the tip on the convex side and the crossing on the concave side, gets this fixed radius; where it does not fit the radius shrinks on its own, and 0 keeps the original mitred corner.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fill Closed, Hard Edge, Single Side and Symmetric are gone from the Spacing and Bend tabs of Flow Lines: both of those fields relocate the whole field of lines, so any discontinuity tears them apart along the controller and the result is never the one you wanted. The Width tab only sets stroke width, so it keeps them.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Also fixed: after applying a mirror in the custom editor, the selection box of a rotated shape tilts with the original instead of snapping back to horizontal; layers left with a single anchor are cleared out, so no more &quot;dots&quot; that cannot draw a line; controller hit areas no longer shrink on a large canvas; turning off Unify Range leaves the range where it is instead of jumping back to the old radius; and official templates are fetched from source, so a stale cache is never served. With Hard Edge on in the Width tab of flow lines, the lines outside the range are no longer pinched at its edge: the width step now lands exactly on the range boundary, and with Round Caps its shoulders are rounded off.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-09-06" class="text-[15px] font-semibold text-white">2026.09.06</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Flow Lines gains a Direction controller (Pro): draw a line, curve or closed shape on the canvas and the whole field of lines runs parallel to it or spreads out from it, with open ends extending infinitely.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Bend no longer flattens out near the canvas edge. It used to fade away in a band along the border to keep lines inside; now the strength is even across the whole canvas, lines may curve out past the edge and back in, and whatever spills over is simply trimmed.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Better STP exports from Flow Lines: connected curves are merged into a single spline edge, taking the same file from 7531 faces down to 341 and from 11 MB to 2.5 MB. CAD apps open it far faster.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The Advanced options of Gradient Control are now Pro: fill closed, hard edge, single side, infinite extension, symmetric angle, step increment, and Custom controller shape. They stay free to play with — only exporting asks for an upgrade.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Custom controller shape&quot; under Advanced: open the path editor, draw lines or closed shapes with the pen and shape tools, and Import turns them into controllers for the active tab. In Flow Lines only the topmost layer is imported, replacing the current direction controller.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The side panels can now sit in two columns per side: drag a panel to the outer edge to open a second column, and each column keeps its own width.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Also fixed: dragging the direction controller now runs off the main thread and no longer stutters; flat and round line ends finish cleanly against the canvas edge; the extension of an open curve controller now sits tangent to the curve; and on a custom shape, corner radius scales along with an independent layer whose width and height are both locked.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-08-02" class="text-[15px] font-semibold text-white">2026.08.02</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Added &quot;Cross-Row Spin&quot; and &quot;Spin By&quot; to the grid array. Each row down (or each column across) turns its shapes a little further than the one before, and the angle keeps accumulating, so the whole array twists steadily as it goes. &quot;Spin By&quot; offers Row, Column or Both (checker); with Both, the horizontal and vertical amounts add together and the pattern runs on the diagonal. This spin turns each unit on the spot without moving it, so it stays independent of the Rotation field above, which turns the whole drawing as one piece. On a custom shape every layer turns along with it, including layers set to &quot;Fixed (Ignore Gradient)&quot;.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Added &quot;Infinite Extension&quot; to the advanced options of Gradient Control. With it on, line, curve, and polyline controllers continue straight out from both end points, so their influence runs on without end. A gradient sweeping across the whole canvas no longer needs a controller dragged off screen: a short stroke now covers the full width, and &quot;Single Side&quot; still keeps the effect to one side. Closed shapes and point controllers have no open ends, so they behave as before.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixed round line ends in &quot;Flow Lines&quot; being shaved flat against the canvas edge whenever the pattern carried a rotation. The inset that makes room for the cap only accounted for lines meeting the edge head-on, so a line crossing at an angle left its cap center too close to the edge and the canvas clipped the arc. Ends now pull back until the whole cap fits and sits tangent to the edge, so every ending stays perfectly round along all four sides and into the corners.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixed the arrangement's Rotation being thrown off by a custom shape's layer modes. In the Point Style custom editor a layer's gradient response can be set to &quot;Fixed (Ignore Gradient)&quot; or &quot;Independent Unit&quot;, but both modes were changing how rotation behaved too: a fixed layer never turned at all and stayed pointing the original way, while an independent one spun in place around its own pivot instead of travelling around the shape's center. Either way, a change of angle pulled composite shapes apart. Rotation is now simply a rotation of the whole drawing, every layer turning as one rigid piece along with its position, and the layer modes govern only the gradient side of things. Preview and the SVG, DXF and STP exports all agree.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-07-29" class="text-[15px] font-semibold text-white">2026.07.29</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The &quot;Concentric&quot; and &quot;Spiral&quot; pattern modes gain a &quot;Rotate to Path&quot; option: each shape turns automatically to line up with the ring or spiral curve it sits on. Semicircles stack like fish scales with their backs facing outward, thin needles point neatly at the center, and rectangular bars link end to end along the spiral into one continuous ribbon — an effect that used to be exclusive to the Path pattern and now works in all three modes.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The on/off options in the pattern panel are now tile buttons, matching the advanced options in the gradient panel: the whole tile lights up amber when enabled, so the state reads at a glance instead of hunting for a small checkbox. The Path pattern's existing switch was converted too.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Three new recipes for the random roll (dice): Dragon Scale (semicircle scales stacked ring by ring), Radial Quill (concentric rings of needles all pointing at the center), and Turbine Ribbon (bars linked end to end along a spiral).</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-07-26" class="text-[15px] font-semibold text-white">2026.07.26</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The &quot;Spiral&quot; and &quot;Fibonacci&quot; pattern modes no longer place a point at the exact center: it sat right in the middle of the design and never matched the spacing of its neighbours, so it is now skipped. The total point count and the outermost radius are unchanged.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">UI polish pass: all in-app icons switched to a consistent thin outline style; brighter helper text and field labels in the dark UI so small type stays legible; parameter units (mm/°/%) moved out of parentheses and shown as small right-aligned marks, so units line up in a single column; pattern-mode tiles now use a fixed width and support two-line labels, so no language gets truncated or breaks the layout; Export/Apply buttons are now bold on amber, the canvas has rounded corners, and panel spacing is more generous.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixed several known issues.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-07-11" class="text-[15px] font-semibold text-white">2026.07.11</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Flow Lines&quot; pattern mode (marked NEW): fills the canvas with continuous lines that curve naturally and swell and thin along their length — for water-flow, wood-grain, or contour-map textures. Adjust line spacing, line width and overall rotation, with three end-cap styles: flat (perpendicular cut), round cap, and boundary-conforming (cookie-cutter clip along the boundary curve). In this mode the gradient panel is remapped: Size = line thickness, Spacing = density, Angle = bend (twirl); the Shape gradient and Point Style don't apply and are disabled automatically. Full SVG/DXF/STP export and boundary clipping support.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixed several known issues.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-07-07" class="text-[15px] font-semibold text-white">2026.07.07</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Stone Cracks (Voronoi)&quot; pattern mode (marked NEW): the canvas is split into interlocking polygon cells via a Voronoi algorithm, producing stone-slab / crackle textures. Adjust cell size, irregularity, crack width, corner radius and rotation, with a reshuffle-seed button. The Size gradient widens cracks locally and the Spacing gradient densifies cells locally. Angle/Shape gradients and Point Style don't apply in this mode and are disabled automatically. Full SVG/DXF/STP export and boundary clipping support.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Lock Corner Radius&quot; (layers whose gradient behavior is &quot;Independent&quot;): when on, still-adjustable corner fillets keep their radius while the shape is scaled — a 5 mm fillet stays 5 mm at any scale, shrinking automatically to the largest value the geometry allows if the shape gets too small. Hovering the button highlights all still-adjustable fillets in amber.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fillet adjustability data is now saved with the shape, so fillets remain editable after reopening the editor. Note: fillets created before this update need to be re-applied once to gain locking and re-editing.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixed several known issues.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-06-14" class="text-[15px] font-semibold text-white">2026.06.14</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Single Side&quot; toggle in the gradient controls (available in Size, Spacing, Angle, and Shape modes): when applied to a line, curve, or polyline controller, the gradient effect acts on only one side of the controller while the other side keeps the base value — perfect for converging toward just one side of a line. A swap button appears once it's on, letting you flip to the opposite side in one click. (Point controllers have no sides, so this only applies to line, curve, and polyline controllers.)</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Sync&quot; for gradient controllers: right-click a controller and tick the other modes (Size, Spacing, Angle, Shape) in the &quot;Sync&quot; submenu to mirror that controller's position and shape into them — no need to redraw the same controller in each mode. Synced controllers share identical geometry, so moving or reshaping one updates its twins in the other modes live, while each mode still keeps its own target value, influence range, and advanced toggles. Deleting a synced controller removes all of its twins across modes too.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-06-12" class="text-[15px] font-semibold text-white">2026.06.12</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Image as Controller&quot; in the gradient controls: upload a picture in the Background Image panel and let its luminance drive hole size, spacing, angle, or shape morphing — by default dark areas apply the target value and bright areas keep the base value, for effortless halftone-style imagery rendered in holes. Flip the effect direction with a one-click &quot;Invert&quot;, and use the &quot;Contrast&quot; slider to sharpen or soften the transition. Available independently for Size, Spacing, Angle, and Shape modes.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The custom shape editor's &quot;Add Shape&quot; now uses a dialog-based workflow: clicking Circle, Rectangle, Polygon, or Star opens a size dialog (width/height, radius, sides, points, etc.); on confirm the shape is created at the canvas center, auto-selected, and the tool returns to Select. The dialog remembers your last-used values.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Smart Snap&quot; in the custom shape editor: when moving or resizing objects with the Select tool, their edges and centers automatically snap and align to other objects, the canvas center crosshair, and the mirror axis, with magenta alignment guides shown live for intuitive, precise alignment. Toggle it in the editor toolbar, and hold Ctrl while dragging to temporarily suspend it.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Performance Mode&quot; (toggle in Settings): when on, the preview no longer recomputes in real time while you adjust parameters — it updates once you release a slider, press Enter, or stop scrolling. When dragging gradient control points, the handle follows live and the effect is applied on release. Greatly reduces lag with complex patterns (lots of points).</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">When lag is detected, you're prompted to enable Performance Mode, with a &quot;Don't show again&quot; option.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-06-01" class="text-[15px] font-semibold text-white">2026.06.01</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">STP export: the &quot;Plate with Holes&quot; mode has been removed. It was prone to producing invalid geometry, so it has now been retired as previously announced. All STP exports now output &quot;Shapes Only&quot; — just the faces or solids of the shapes themselves.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-05-18" class="text-[15px] font-semibold text-white">2026.05.18</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">STP export now has a Draft Angle option: set how much the side walls converge inward so injection-molded, silicone, or resin parts release cleanly from the mold. Before export, the offset profile is validated and you get an immediate warning — with the offending location highlighted — if the angle causes self-intersection, a hole escaping the outer profile, or a contour collapsing to zero area, so you don't end up with broken solids in CAD.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-05-09" class="text-[15px] font-semibold text-white">2026.05.09</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Number inputs now commit on blur or Enter instead of every keystroke: typing &quot;15&quot; no longer fires an intermediate update at &quot;1&quot;, so aspect-ratio lock and other linked values stay put while you're still typing. Scroll-wheel adjustments still apply instantly.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-04-29" class="text-[15px] font-semibold text-white">2026.04.29</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">DXF export now matches STP for overlap and boundary handling: overlapping holes are auto-unioned into a single outline before output, and Independent/Fixed layers run their own out-of-bounds check using the current boundary mode (only that layer is hidden). No more self-intersecting outlines in CAD — preview and export stay perfectly in sync.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The gradient editor's &quot;Force Select Line&quot; shortcut moved from Alt+L-Click to Ctrl+L-Click, so it no longer collides with Alt+Drag duplicate. The top-left interaction hint and the shortcut table both reflect the new binding.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Hard Edge&quot; toggle in the Gradient panel's advanced options: when on, in-range points jump straight to the target value with no gradient falloff — perfect for crisp on/off region effects. Available independently for Size, Spacing, Angle, and Shape modes.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-04-26" class="text-[15px] font-semibold text-white">2026.04.26</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The &quot;Independent Layer&quot; in custom shapes now lives up to its name: density gradient and boundary detection are evaluated at the layer's own position alongside size and angle. When out of bounds, only that layer is hidden — siblings stay put — and the test follows the current boundary mode (Area by default).</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">&quot;Fixed Layer&quot; is now truly fixed: it is no longer pulled by density gradient or spacing noise and stays anchored at its original grid position. It also runs its own out-of-bounds check using the current mode. Fixed an issue where setting size gradient to a negative value would also make Fixed layers disappear.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Overlapping shapes are auto-unioned on STP export: the collision warning no longer blocks the export, and overlapping holes are merged into a single geometry before output — eliminating self-intersecting solids and boolean failures when opening the file in CAD.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-04-19" class="text-[15px] font-semibold text-white">2026.04.19</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">You can now assign a boolean role (Union, Subtract, or Normal) to each layer of a custom shape independently — combine them to create cut-outs, composites, and layered designs with ease. Preview and SVG/DXF/STP export stay perfectly in sync.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">See the merged result live while you edit: subtract areas appear transparent, union areas stay solid, so you can shape each outline and watch the final form take shape — no more flipping back and forth to check.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-04-13" class="text-[15px] font-semibold text-white">2026.04.13</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Scroll wheel auto-adapts to canvas size: Value adjustment steps now scale proportionally with canvas dimensions — no more overshooting on small canvases.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Auto-scale parameters on pattern switch: When switching pattern modes (array, spiral, etc.), spacing and radius parameters automatically adapt to the current canvas size, preventing invisible patterns.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-04-11" class="text-[15px] font-semibold text-white">2026.04.11</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Gradient controller hit-detection fix: Clicks inside a controller with corner rounding are now correctly recognized — no more missed hits on rounded interiors.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Gradient panel layout polish: Button labels now adapt to panel width — full labels on wide panels, compact labels on narrow ones.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Tooltip readability: Panel button tooltips are now split into &quot;title + description&quot; for clearer, layered information.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-04-06" class="text-[15px] font-semibold text-white">2026.04.06</time>
+            <span class="rounded border border-white/[0.14] bg-white/[0.06] text-white/70 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">UPDATE</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Gradient panel revamped: New &quot;Unified Value&quot; mode lets you adjust all control points at once, or switch to independent mode to configure each point separately.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New advanced options for finer gradient control to meet complex shaping needs.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-03-29" class="text-[15px] font-semibold text-white">2026.03.29</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Added multi-language support: Spanish, Portuguese, Italian, Turkish, and Thai, enabling more users to operate in their native language.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-03-26" class="text-[15px] font-semibold text-white">2026.03.26</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Reset Parameters&quot; button: Click the reset icon to the left of the dice button in the toolbar to instantly restore all parameters to their default values.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-03-15" class="text-[15px] font-semibold text-white">2026.03.15</time>
+            <span class="rounded border border-emerald-500/25 bg-emerald-500/10 text-emerald-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">FIX</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">DXF Export Fix: Resolved extrusion failures in some CAD software (e.g. Onshape) when the gradient morph target is a straight-edged shape (e.g. sharp rectangle).</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-03-07" class="text-[15px] font-semibold text-white">2026.03.07</time>
+            <span class="rounded border border-emerald-500/25 bg-emerald-500/10 text-emerald-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">FIX</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">SVG Export: Boundary lines are now exported as transparent, eliminating unwanted black outlines in the output.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixed and optimized the &quot;Step History&quot; feature for improved stability and accuracy.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Added &quot;Proportional Scale&quot; toggle to the canvas size panel: when enabled, adjusting canvas width or height proportionally scales all mm-based parameters (spacing, point size, path nodes, gradient influence ranges, etc.), effectively resizing the entire design.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-03-04" class="text-[15px] font-semibold text-white">2026.03.04</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Canvas Zoom&quot;: Click the zoom icon in the toolbar, then Alt + scroll to zoom (centered on cursor) and Space + drag to pan. Disabling resets to default view.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">New &quot;Ruler Tool&quot;: Click the ruler icon in the toolbar to drag-measure distances (mm) on the canvas. The measurement line disappears on mouse release.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-03-01" class="text-[15px] font-semibold text-white">2026.03.01</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Plan Update: Free users now receive 3 free exports per day.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Experience Optimization: Fine-tuned the transition logic for shape gradients to provide smoother and more natural visual effects.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-02-21" class="text-[15px] font-semibold text-white">2026.02.21</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Custom Editor Upgrade: Support for precise dimension input for professional scaling.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Added DXF format import support for seamless design integration.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixed path parsing issues for certain SVG file imports.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Export Feature Expansion: Added DXF format export to enhance cross-software collaboration.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">STP Export: New &quot;Output Content&quot; option — choose between &quot;Plate with Holes&quot; or &quot;Shapes Only&quot; mode for flexible manufacturing workflows.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">STP settings moved from Settings modal to the Export menu — hover over the STP option for quick access to export parameters.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-02-13" class="text-[15px] font-semibold text-white">2026.02.13</time>
+            <span class="rounded border border-emerald-500/25 bg-emerald-500/10 text-emerald-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">FIX</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixed issue where gradient controllers were difficult to operate on large or small canvases.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-02-09" class="text-[15px] font-semibold text-white">2026.02.09</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Introduced &quot;Update Log&quot; to keep you in sync with the latest updates.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Fixed cloud storage issues to ensure stable data synchronization.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2026-02-05" class="text-[15px] font-semibold text-white">2026.02.05</time>
+            <span class="rounded border border-emerald-500/25 bg-emerald-500/10 text-emerald-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">FIX</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Optimized interface display and readability of the Pro Modal.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Launched &quot;Shape Gradient&quot; feature to add more depth to your designs.</li>
+          </ul>
+        </article>
+        <article class="border-t border-white/[0.07] py-10 first:border-t-0 first:pt-0">
+          <div class="flex flex-wrap items-center gap-3">
+            <time datetime="2025-12-04" class="text-[15px] font-semibold text-white">2025.12.04</time>
+            <span class="rounded border border-amber-500/25 bg-amber-500/10 text-amber-400 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-[0.12em]">NEW</span>
+          </div>
+          <ul class="mt-4 space-y-2.5 p-0" style="list-style:none">
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">HueScript is officially live. Open a browser tab and build speaker grilles, ventilation holes and gradient dot patterns. Nothing to install, no account needed, and every parameter updates the preview as you change it.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">The gradient controller sits right on the canvas: move it and the holes grow larger and denser around it, so you shape density and size by eye. Layout, hole shape and spacing are all parameters you can go back and change at any time.</li>
+            <li class="relative pl-5 text-[15px] leading-[1.6] text-white/70 before:absolute before:left-0 before:top-[0.6em] before:h-[5px] before:w-[5px] before:rounded-full before:bg-white/25">Export SVG, DXF and STEP in one click. SVG and DXF go straight to laser cutting and CNC; STEP opens in SolidWorks or Fusion 360, ready to cut the pattern into your own enclosure.</li>
+          </ul>
+        </article>
+    </main>
+
+    <p class="mx-auto mb-20 max-w-[820px] px-5 text-[14px] leading-[1.6] text-white/50">
+      Older releases are archived. Have a bug or a feature request?
+      <a href="../app/index__4b616722.html" class="text-white/70 underline decoration-white/25 underline-offset-2 transition hover:text-white hover:decoration-white">Send feedback</a>
+    </p>
+
+    <footer class="border-t border-white/[0.07] px-5 pb-10 pt-14">
+      <div class="mx-auto max-w-[1240px]">
+        <div class="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+          <div class="col-span-2 md:col-span-4 lg:col-span-1">
+            <a href="../index.html" class="inline-flex items-center gap-2.5 no-underline">
+              <svg viewBox="0 0 80.67 77.04" class="h-[26px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+              <span class="text-[22px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+            </a>
+            <p class="mt-5 max-w-[300px] text-[14px] leading-[1.5] text-white/60">
+              A browser-based parametric pattern generator. Design it, export SVG / DXF / STEP, make it.
+            </p>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Product</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../app/index__5a07df1e.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Open the app</a></li>
+              <li><a href="../ai/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a></li>
+              <li></li>
+              <li><a href="index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Changelog</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Patterns</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../explore/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Explore</a></li>
+              <li><a href="../speaker-grille-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Speaker grille</a></li>
+              <li><a href="../ventilation-hole-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Ventilation holes</a></li>
+              <li><a href="../halftone-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Halftone patterns</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Guides</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../tutorial/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Tutorial</a></li>
+              <li><a href="../faq/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">FAQ</a></li>
+              <li><a href="../guides/ipad/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Using on iPad</a></li>
+              <li><a href="../guides/wrap/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Wrap onto curved surfaces</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">About</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../about/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">About HueScript</a></li>
+              <li><button type="button" data-sv-copy="huescript@gmail.com" class="relative p-0 text-left text-[14px] text-white/60 transition hover:text-white" title="huescript@gmail.com">Contact us<span class="sv-copy-toast absolute bottom-full left-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span></button></li>
+              <li><a href="../privacy/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Privacy policy</a></li>
+              <li><a href="../terms/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Terms of service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Community bar -->
+        <div class="mt-12 flex flex-col gap-6 border-t border-white/[0.07] pt-6 lg:flex-row lg:items-center lg:justify-between">
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a href="../app/index__4b616722.html" class="flex items-center gap-2 text-[14px] font-medium text-white/70 no-underline transition hover:text-white">
+              <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" /></svg>
+              Send feedback
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-5">
+            <div class="flex items-center gap-4 text-white/50">
+              <a href="https://www.instagram.com/huescript/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="Instagram">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+              </a>
+              <a href="https://www.youtube.com/@HueScript" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="YouTube">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg>
+              </a>
+              <button type="button" data-sv-copy="huescript@gmail.com" class="relative transition hover:text-white" title="huescript@gmail.com" aria-label="huescript@gmail.com">
+                <svg class="h-[18px] w-[18px] fill-current sv-copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                <svg class="sv-copy-check h-[18px] w-[18px] fill-current text-green-400" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                <span class="sv-copy-toast absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span>
+              </button>
+            </div>
+
+            <!-- Language picker: real links inside a <details>, so every locale
+                 stays crawlable and the control needs no JavaScript. -->
+            
+
+            <div class="flex flex-col leading-tight">
+              <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50">Created by</span>
+              <span class="text-[14px] font-semibold text-white">Yoshi Chen</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="m-0 mt-8 text-center text-[13px] text-white/50">© 2026 HueScript. All rights reserved.</p>
+
+        <script src="../site-copy.js" defer></script>
+      </div>
+    </footer>
+
+  </body>
+</html>

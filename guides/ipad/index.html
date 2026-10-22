@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js)。初始化在 public/ga-init.js（外部檔，CSP 不開 'unsafe-inline'） -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8W2EV2PJ7W"></script>
+    <script src="../../ga-init.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Primary Meta Tags -->
+    <title>Using HueScript on iPad: Home Screen App, Apple Pencil &amp; CAD Apps</title>
+    <meta name="title" content="Using HueScript on iPad: Home Screen App, Apple Pencil &amp; CAD Apps">
+    <meta name="description" content="Run HueScript on iPad with nothing to install: add it to your Home Screen as an app, work with your finger or Apple Pencil, use the on-screen Shift and Alt keys, slide number fields to adjust values, and open your STEP files in Shapr3D or Onshape.">
+    <meta name="author" content="HueScript">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+
+    <!-- Canonical URL & Hreflang -->
+    <link rel="canonical" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="en" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://texture.huescript.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://texture.huescript.com/guides/ipad/en">
+    <meta property="og:title" content="Using HueScript on iPad: Home Screen App, Apple Pencil &amp; CAD Apps">
+    <meta property="og:description" content="Add HueScript to your iPad Home Screen, work with your finger or Apple Pencil, and take your STEP files straight into Shapr3D or Onshape.">
+    <meta property="og:image" content="https://texture.huescript.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="HueScript">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://texture.huescript.com/guides/ipad/en">
+    <meta name="twitter:title" content="Using HueScript on iPad: Home Screen App, Apple Pencil &amp; CAD Apps">
+    <meta name="twitter:description" content="Add HueScript to your iPad Home Screen, work with your finger or Apple Pencil, and take your STEP files straight into Shapr3D or Onshape.">
+    <meta name="twitter:image" content="https://texture.huescript.com/og-image.jpg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://texture.huescript.com/guides/ipad/en#article",
+          "headline": "Using HueScript on iPad: Home Screen App, Apple Pencil & CAD Apps",
+          "description": "Run HueScript on iPad with nothing to install: add it to your Home Screen as an app, work with your finger or Apple Pencil, use the on-screen Shift and Alt keys, slide number fields to adjust values, and open your STEP files in Shapr3D or Onshape.",
+          "inLanguage": "en",
+          "image": "https://texture.huescript.com/og-image.jpg",
+          "datePublished": "2026-10-01",
+          "dateModified": "2026-10-01",
+          "author": {
+            "@type": "Organization",
+            "name": "HueScript",
+            "url": "https://texture.huescript.com/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "HueScript",
+            "url": "https://texture.huescript.com/"
+          },
+          "mainEntityOfPage": "https://texture.huescript.com/guides/ipad/en",
+          "video": {
+            "@id": "https://texture.huescript.com/guides/ipad/en#video"
+          }
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://texture.huescript.com/guides/ipad/en#video",
+          "name": "One iPad, from pattern to finished part",
+          "description": "Slide number fields and drag a gradient controller with the Pencil, and the pattern follows live; export, and one extrude in Shapr3D cuts it through the housing. Every clip runs at real speed.",
+          "thumbnailUrl": "https://cdn.texture.huescript.com/Demovideo/ipad-workflow.webp?v=b02b9328",
+          "contentUrl": "https://cdn.texture.huescript.com/Demovideo/ipad-workflow.mp4?v=4256c821",
+          "uploadDate": "2026-10-01",
+          "duration": "PT21S",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://texture.huescript.com/guides/ipad/en#faq",
+          "inLanguage": "en",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is there a HueScript app for iPad?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There is nothing to download from the App Store: the full editor runs in Safari. Add it to your Home Screen and it opens full screen with its own icon, just like an app."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does it work with the Apple Pencil?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The Pencil and your finger both drag controllers, open the right-click menu with a press and hold, adjust number fields by sliding, and draw in the custom editor."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why can’t I hold Shift with a finger while drawing with the Pencil?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "While the Pencil is touching the screen, iPadOS doesn’t pass finger touches to web pages, so the held finger never reaches the editor. Tap the on-screen Shift or Alt key to lock it on instead, and tap it again to release it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why do I see the phone layout on my iPad?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The editor needs a window at least 768 px wide. An iPad mini in portrait (744 px) and a half-screen Split View window fall short. Rotate to landscape or give HueScript the wider side of the split."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I open the STEP file in Shapr3D or Onshape?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Safari saves the .stp file to Downloads in the Files app. Import it from there in Shapr3D, Onshape or any CAD app that reads STEP, or tap the file in Files and share it to the app."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are my designs shared between Safari and the Home Screen app?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. The Home Screen app keeps its own storage, so designs saved to browser storage in one don’t appear in the other, and you sign in again once. Stick to one of them, or save to the Cloud (Pro)."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://texture.huescript.com/guides/ipad/en#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "HueScript",
+              "item": "https://texture.huescript.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Using HueScript on iPad"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Fonts are self-hosted; @font-face lives in styles/tailwind.css -->
+
+    <style>
+      html { scroll-behavior: smooth; }
+      body { -webkit-font-smoothing: antialiased; }
+      .sv-faq summary { list-style: none; cursor: pointer; }
+      .sv-faq[open] .sv-faq-icon { transform: rotate(45deg); }
+
+      /* ---- Canvas explainers (public/site-ipad-demos.js). The canvas fills
+         the square frame; chips, readouts and step captions are HTML on top
+         so every word is translated in the markup, not in the script. ---- */
+      .ip-frame { position: relative; overflow: hidden; aspect-ratio: 1 / 1; border: 1px solid rgba(255,255,255,.07); border-radius: 12px; background: #111; }
+      @media (min-width: 640px) { .ip-frame { border-radius: 16px; } }
+      .ip-frame canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+      .ip-chips { position: absolute; left: 10px; top: 10px; display: flex; flex-wrap: wrap; gap: 2px; max-width: calc(100% - 20px); padding: 3px; border-radius: 10px; background: rgba(10,10,10,.78); border: 1px solid rgba(255,255,255,.07); }
+      .ip-chip { display: inline-flex; align-items: center; padding: 5px 9px; border-radius: 7px; font-size: 12px; line-height: 1.2; color: rgba(255,255,255,.62); white-space: nowrap; transition: background-color .3s, color .3s; }
+      .ip-chip.is-on { background: #2a2a2a; color: #f59e0b; }
+      .ip-pill { position: absolute; right: 10px; bottom: 10px; display: flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: rgba(10,10,10,.78); border: 1px solid rgba(255,255,255,.08); font-size: 12px; line-height: 1.2; color: rgba(255,255,255,.62); white-space: nowrap; font-variant-numeric: tabular-nums; }
+      .ip-pill b { font-weight: 600; color: #fff; transition: color .3s; }
+      .ip-pill b.is-short { color: #f87171; }
+      .ip-pill b.is-wide { color: #f59e0b; }
+      .ip-steps { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+      .ip-steps li { display: flex; align-items: center; gap: 6px; padding: 4px 10px 4px 4px; border-radius: 999px; background: rgba(10,10,10,.78); border: 1px solid rgba(255,255,255,.07); font-size: 12px; line-height: 1.2; color: rgba(255,255,255,.62); transition: color .3s, border-color .3s; }
+      .ip-steps li span { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: #2a2a2a; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.75); transition: background-color .3s, color .3s; }
+      .ip-steps li.is-on { color: #fff; border-color: rgba(245,158,11,.5); }
+      .ip-steps li.is-on span { background: #f59e0b; color: #000; }
+      @media (max-width: 480px) {
+        .ip-chip { padding: 4px 7px; font-size: 11px; }
+        .ip-pill, .ip-steps li { font-size: 11px; }
+      }
+
+      /* ---- Copy ---- */
+      .ip-n { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; background: #f59e0b; color: #000; font-size: 13px; font-weight: 700; line-height: 1; }
+      .ip-dot { flex: none; width: 12px; height: 2px; margin-top: .8em; border-radius: 2px; background: #f59e0b; }
+      /* CJK headings wrap at spaces and punctuation instead of mid-phrase. */
+      html[lang^="zh"] :is(h1, h2), html[lang="ja"] :is(h1, h2), html[lang="ko"] :is(h1, h2) { word-break: keep-all; overflow-wrap: break-word; }
+      .key { display: inline-block; min-width: 1.6em; padding: 0 .45em; border: 1px solid #3a3a3a; border-bottom-width: 2px; border-radius: 6px; background: #1a1a1a; color: #e5e5e5; font-size: .82em; font-weight: 600; line-height: 1.6; text-align: center; white-space: nowrap; }
+
+      /* ---- Add to Home Screen demo (renderHomeDemo). One loop = --hs-t.
+         Scene positions are % of the 4:3 screen (1cqw = 1% of its width,
+         so y% = cqw / 0.75); hs-move aims the finger at them. ---- */
+      .hs-demo { --hs-t: 16s; }
+      .hs-device { padding: clamp(8px, 2.2vw, 14px); border-radius: clamp(18px, 4vw, 30px); background: #1c1c1e; box-shadow: 0 0 0 1px #2e2e30, 0 24px 60px rgba(0,0,0,.55); }
+      .hs-screen { position: relative; aspect-ratio: 4 / 3; overflow: hidden; container-type: inline-size; border-radius: clamp(8px, 1.6vw, 14px); background: #0a0a0a; color: #e5e5e5; font-size: 12px; font-size: 2cqw; line-height: 1.25; }
+      .hs-scene { position: absolute; inset: 0; }
+      .hs-screen b { font-weight: 600; }
+
+      .hs-safari { animation: hs-safari var(--hs-t) infinite; }
+      .hs-bar { position: absolute; left: 0; right: 0; top: 0; height: 9%; background: #1f1f22; border-bottom: 1px solid #2c2c2e; }
+      .hs-bar svg { position: absolute; top: 50%; width: 3.4cqw; height: 3.4cqw; transform: translateY(-50%); }
+      .hs-ic-side { left: 2.5%; } .hs-ic-back { left: 8%; } .hs-ic-fwd { left: 12.5%; }
+      .hs-ic-share { right: 14%; } .hs-ic-plus { right: 8.5%; } .hs-ic-tabs { right: 3%; }
+      .hs-url { position: absolute; left: 30%; right: 30%; top: 20%; bottom: 20%; border-radius: 999px; background: #2c2c2e; display: flex; align-items: center; justify-content: center; font-size: 1.7cqw; color: #d1d5db; }
+      .hs-page { position: absolute; left: 0; right: 0; top: 9%; bottom: 0; }
+
+      .hs-ed { position: absolute; inset: 0; background: #0f0f0f; }
+      .hs-ed-top { position: absolute; left: 0; right: 0; top: 0; height: 7%; background: #151515; border-bottom: 1px solid #262626; }
+      .hs-ed-top::before { content: ''; position: absolute; left: 2%; top: 25%; height: 50%; aspect-ratio: 1; border-radius: 25%; background: #f59e0b; }
+      .hs-ed-top::after { content: ''; position: absolute; right: 2%; top: 22%; height: 56%; width: 9%; border-radius: .6cqw; background: #f59e0b; }
+      .hs-ed-l, .hs-ed-r { position: absolute; top: 7%; bottom: 0; width: 17%; background: #141414; padding: 1.4cqw 1.2cqw; display: flex; flex-direction: column; gap: 1.1cqw; }
+      .hs-ed-l { left: 0; border-right: 1px solid #262626; }
+      .hs-ed-r { right: 0; border-left: 1px solid #262626; }
+      .hs-ed-l i, .hs-ed-r i { display: block; height: 1.6cqw; border-radius: .4cqw; background: #262626; }
+      .hs-ed-l i:nth-child(3n+1), .hs-ed-r i:nth-child(3n+1) { width: 55%; height: 1.1cqw; background: #3a3a3a; }
+      .hs-ed-c { position: absolute; top: 7%; bottom: 0; left: 17%; right: 17%; overflow: hidden; }
+      .hs-ed-c::before { content: ''; position: absolute; inset: 6%; background-image: radial-gradient(circle, #f59e0b 0 36%, transparent 38%); background-size: 3.2cqw 3.2cqw; background-position: center; -webkit-mask-image: radial-gradient(closest-side, #000 35%, rgba(0,0,0,.2) 100%); mask-image: radial-gradient(closest-side, #000 35%, rgba(0,0,0,.2) 100%); }
+      .hs-ed-c::after { content: ''; position: absolute; left: 50%; top: 50%; width: 3cqw; height: 3cqw; margin: -1.5cqw 0 0 -1.5cqw; border-radius: 50%; border: .4cqw solid #fff; box-shadow: 0 0 0 .4cqw rgba(0,0,0,.5); }
+
+      .hs-pop { position: absolute; top: 10.5%; left: 66%; width: 32%; height: 44%; border-radius: 1.6cqw; background: #2c2c2e; box-shadow: 0 1.5cqw 4cqw rgba(0,0,0,.6); transform-origin: 57% 0; opacity: 0; animation: hs-pop var(--hs-t) infinite; }
+      .hs-pop::before { content: ''; position: absolute; top: -.8cqw; left: calc(57% - .8cqw); width: 1.6cqw; height: 1.6cqw; background: #2c2c2e; transform: rotate(45deg); border-radius: .3cqw; }
+      .hs-pop-head { position: absolute; left: 0; right: 0; top: 0; height: 27%; display: flex; align-items: center; gap: 1.2cqw; padding: 0 1.6cqw; border-bottom: 1px solid #3a3a3c; }
+      .hs-pop-head img { width: 4.6cqw; height: 4.6cqw; border-radius: 22%; }
+      .hs-pop-head b { display: block; font-size: 1.7cqw; color: #fff; }
+      .hs-pop-head small { display: block; font-size: 1.35cqw; color: #9ca3af; }
+      .hs-row { position: absolute; left: 0; right: 0; height: 17%; display: flex; align-items: center; gap: 1.2cqw; padding: 0 1.6cqw; }
+      .hs-r1 { top: 27%; } .hs-r2 { top: 44%; } .hs-r3 { top: 61%; } .hs-r4 { top: 78%; border-radius: 0 0 1.6cqw 1.6cqw; }
+      .hs-ph-ic { flex: none; width: 2.6cqw; height: 2.6cqw; border-radius: .6cqw; background: #48484a; }
+      .hs-ph-bar { height: 1.2cqw; width: 55%; border-radius: .6cqw; background: #48484a; }
+      .hs-r2 .hs-ph-bar { width: 40%; } .hs-r4 .hs-ph-bar { width: 48%; }
+      .hs-r3 { animation: hs-row var(--hs-t) infinite; }
+      .hs-r3 svg { flex: none; width: 2.6cqw; height: 2.6cqw; }
+      .hs-r3 span { min-width: 0; font-size: 1.7cqw; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+      .hs-dim { position: absolute; inset: 0; background: rgba(0,0,0,.5); opacity: 0; animation: hs-dim var(--hs-t) infinite; }
+      .hs-dialog { position: absolute; left: 27%; top: 12%; width: 46%; height: 60%; border-radius: 2cqw; background: #1c1c1e; box-shadow: 0 2cqw 5cqw rgba(0,0,0,.6); opacity: 0; animation: hs-dialog var(--hs-t) infinite; }
+      .hs-dlg-head { position: absolute; left: 0; right: 0; top: 0; height: 15%; border-bottom: 1px solid #2c2c2e; }
+      .hs-btn { position: absolute; top: 50%; width: 24%; transform: translateY(-50%); padding: .5cqw 0; border-radius: .8cqw; text-align: center; font-size: 1.7cqw; color: #0a84ff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .hs-cancel { left: 3%; }
+      .hs-add { right: 3%; font-weight: 700; animation: hs-add var(--hs-t) infinite; }
+      .hs-dlg-title { position: absolute; left: 28%; right: 28%; top: 50%; transform: translateY(-50%); text-align: center; font-size: 1.7cqw; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .hs-dlg-icon { position: absolute; left: 6%; top: 23%; width: 19%; height: auto; border-radius: 22%; }
+      .hs-dlg-name { position: absolute; left: 31%; right: 6%; top: 25%; padding-bottom: .8cqw; border-bottom: 1px solid #3a3a3c; font-size: 2cqw; color: #fff; }
+      .hs-dlg-url { position: absolute; left: 31%; right: 6%; top: 39%; font-size: 1.5cqw; color: #8e8e93; }
+      .hs-tgl-row { position: absolute; left: 5%; right: 5%; top: 64%; height: 18%; padding: 0 3%; border-radius: 1.2cqw; background: #2c2c2e; display: flex; align-items: center; justify-content: space-between; gap: 2cqw; animation: hs-glow var(--hs-t) infinite; }
+      .hs-tgl-row span:first-child { min-width: 0; font-size: 1.7cqw; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .hs-tgl { flex: none; position: relative; width: 6.4cqw; height: 3.8cqw; border-radius: 999px; background: #30d158; }
+      .hs-tgl::after { content: ''; position: absolute; right: .35cqw; top: .35cqw; width: 3.1cqw; height: 3.1cqw; border-radius: 50%; background: #fff; }
+
+      .hs-home { background: linear-gradient(155deg, #274b7a 0%, #4b3576 50%, #151a33 100%); opacity: 0; animation: hs-home var(--hs-t) infinite; }
+      .hs-grid { position: absolute; left: 8cqw; top: 7cqw; display: grid; grid-template-columns: repeat(6, 14cqw); grid-auto-rows: 13cqw; justify-items: center; align-items: start; }
+      .hs-grid b, .hs-dock b { display: block; width: 7.6cqw; height: 7.6cqw; border-radius: 22%; }
+      .hs-grid b:nth-child(6n+1), .hs-dock b:nth-child(1) { background: linear-gradient(#60a5fa, #2563eb); }
+      .hs-grid b:nth-child(6n+2), .hs-dock b:nth-child(2) { background: linear-gradient(#4ade80, #16a34a); }
+      .hs-grid b:nth-child(6n+3), .hs-dock b:nth-child(3) { background: linear-gradient(#fdba74, #ea580c); }
+      .hs-grid b:nth-child(6n+4), .hs-dock b:nth-child(4) { background: linear-gradient(#e5e7eb, #9ca3af); }
+      .hs-grid b:nth-child(6n+5), .hs-dock b:nth-child(5) { background: linear-gradient(#c4b5fd, #7c3aed); }
+      .hs-grid b:nth-child(6n) { background: linear-gradient(#f9a8d4, #db2777); }
+      .hs-sv { display: flex; flex-direction: column; align-items: center; gap: .6cqw; animation: hs-pop-in var(--hs-t) infinite; }
+      .hs-sv img { width: 7.6cqw; height: 7.6cqw; border-radius: 22%; box-shadow: 0 .6cqw 1.6cqw rgba(0,0,0,.45); }
+      .hs-sv span { font-size: 1.5cqw; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.6); }
+      .hs-dock { position: absolute; left: 50%; bottom: 2.5%; transform: translateX(-50%); display: flex; gap: 2cqw; padding: 1.4cqw 2cqw; border-radius: 3cqw; background: rgba(255,255,255,.18); }
+      .hs-dock b { width: 6.6cqw; height: 6.6cqw; }
+
+      .hs-app { opacity: 0; transform-origin: 43% 31.7%; animation: hs-app var(--hs-t) infinite; }
+
+      .hs-finger { position: absolute; left: 50%; top: 60%; width: 5.2cqw; height: 5.2cqw; margin: -2.6cqw 0 0 -2.6cqw; border-radius: 50%; background: rgba(255,255,255,.28); border: .35cqw solid rgba(255,255,255,.9); box-shadow: 0 .4cqw 1.4cqw rgba(0,0,0,.45); opacity: 0; animation: hs-move var(--hs-t) infinite, hs-fade var(--hs-t) infinite, hs-tap var(--hs-t) infinite; }
+      .hs-finger::after { content: ''; position: absolute; inset: -.35cqw; border-radius: 50%; border: .35cqw solid #fff; opacity: 0; animation: hs-ripple var(--hs-t) infinite; }
+
+      .hs-caps { display: grid; margin: .9rem 0 0; }
+      .hs-cap { grid-area: 1 / 1; display: flex; align-items: center; justify-content: center; gap: .55rem; margin: 0; text-align: center; font-size: 14px; line-height: 1.4; color: #d1d5db; opacity: 0; }
+      .hs-num { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 1.45rem; height: 1.45rem; border-radius: 50%; background: #f59e0b; color: #000; font-size: 12px; font-weight: 700; }
+      .hs-cap1 { animation: hs-cap1 var(--hs-t) infinite; }
+      .hs-cap2 { animation: hs-cap2 var(--hs-t) infinite; }
+      .hs-cap3 { animation: hs-cap3 var(--hs-t) infinite; }
+      .hs-cap4 { animation: hs-cap4 var(--hs-t) infinite; }
+
+      /* Timeline: 1 tap Share (0–13%) · 2 Add to Home Screen (13–29%) ·
+         3 Open as Web App stays on, tap Add (29–49%) · 4 Home Screen, tap the
+         icon, app opens full screen (49–96%) · back to Safari. */
+      @keyframes hs-safari { 0%, 48% { opacity: 1 } 51%, 95% { opacity: 0 } 99%, 100% { opacity: 1 } }
+      @keyframes hs-pop { 0%, 13% { opacity: 0; transform: scale(.92) } 15.5%, 27.5% { opacity: 1; transform: scale(1) } 29.5%, 100% { opacity: 0; transform: scale(1) } }
+      @keyframes hs-row { 0%, 25.5% { background: transparent } 26.5%, 29% { background: #48484a } 30%, 100% { background: transparent } }
+      @keyframes hs-dim { 0%, 29% { opacity: 0 } 31.5%, 46.5% { opacity: 1 } 49%, 100% { opacity: 0 } }
+      @keyframes hs-dialog { 0%, 29% { opacity: 0; transform: translateY(3%) scale(.97) } 32%, 46.5% { opacity: 1; transform: none } 49%, 100% { opacity: 0; transform: none } }
+      @keyframes hs-glow { 0%, 33% { box-shadow: 0 0 0 0 rgba(245,158,11,0) } 36%, 41% { box-shadow: 0 0 0 .5cqw rgba(245,158,11,.75) } 44%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0) } }
+      @keyframes hs-add { 0%, 44.5% { background: transparent } 45.5%, 47% { background: rgba(10,132,255,.25) } 48%, 100% { background: transparent } }
+      @keyframes hs-home { 0%, 48% { opacity: 0 } 51%, 78% { opacity: 1 } 81%, 100% { opacity: 0 } }
+      @keyframes hs-pop-in { 0%, 53% { opacity: 0; transform: scale(0) } 57% { opacity: 1; transform: scale(1.15) } 60%, 100% { opacity: 1; transform: scale(1) } }
+      @keyframes hs-app { 0%, 71.9% { opacity: 0; transform: scale(.08) } 72% { opacity: 1; transform: scale(.08) } 78%, 94% { opacity: 1; transform: scale(1) } 98%, 100% { opacity: 0; transform: scale(1) } }
+      @keyframes hs-move {
+        0%, 3% { left: 50%; top: 60% }
+        10%, 17% { left: 84.3%; top: 4.5% }
+        24%, 30% { left: 80%; top: 41% }
+        42%, 50% { left: 66.1%; top: 16.5% }
+        58%, 61% { left: 62%; top: 62% }
+        67%, 100% { left: 43%; top: 31.7% }
+      }
+      @keyframes hs-fade { 0% { opacity: 0 } 3%, 48% { opacity: 1 } 50%, 58% { opacity: 0 } 61%, 72% { opacity: 1 } 75%, 100% { opacity: 0 } }
+      @keyframes hs-tap { 0%, 10.5% { transform: scale(1) } 11.5% { transform: scale(.78) } 13%, 25.5% { transform: scale(1) } 26.5% { transform: scale(.78) } 28%, 44.5% { transform: scale(1) } 45.5% { transform: scale(.78) } 47%, 68.5% { transform: scale(1) } 69.5% { transform: scale(.78) } 71%, 100% { transform: scale(1) } }
+      @keyframes hs-ripple {
+        0%, 11% { opacity: 0; transform: scale(.5) } 11.5% { opacity: .9; transform: scale(.5) } 15% { opacity: 0; transform: scale(2) }
+        15.1%, 26% { opacity: 0; transform: scale(.5) } 26.5% { opacity: .9; transform: scale(.5) } 30% { opacity: 0; transform: scale(2) }
+        30.1%, 45% { opacity: 0; transform: scale(.5) } 45.5% { opacity: .9; transform: scale(.5) } 49% { opacity: 0; transform: scale(2) }
+        49.1%, 69% { opacity: 0; transform: scale(.5) } 69.5% { opacity: .9; transform: scale(.5) } 73% { opacity: 0; transform: scale(2) }
+        73.1%, 100% { opacity: 0; transform: scale(.5) }
+      }
+      @keyframes hs-cap1 { 0%, 12.5% { opacity: 1 } 13.5%, 98% { opacity: 0 } 100% { opacity: 1 } }
+      @keyframes hs-cap2 { 0%, 13.5% { opacity: 0 } 14.5%, 28% { opacity: 1 } 29%, 100% { opacity: 0 } }
+      @keyframes hs-cap3 { 0%, 29% { opacity: 0 } 30%, 48% { opacity: 1 } 49%, 100% { opacity: 0 } }
+      @keyframes hs-cap4 { 0%, 49% { opacity: 0 } 50%, 95% { opacity: 1 } 96%, 100% { opacity: 0 } }
+
+      /* Reduced motion: hold the frame at 40% — the Add dialog, step 3. */
+      @media (prefers-reduced-motion: reduce) {
+        .hs-demo *, .hs-demo *::after { animation-play-state: paused !important; animation-delay: calc(var(--hs-t) * -0.4) !important; }
+      }
+
+      summary::-webkit-details-marker { display: none; }
+      .sv-lang[open] .sv-lang-chevron { transform: rotate(180deg); }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+    <!-- Tailwind CSS (compiled). Must stay last in <head>: utilities must override the Material Symbols stylesheet's 24px font-size default. -->
+    
+    <link rel="stylesheet" crossorigin href="../../assets/tailwind-BFpa3N4E.css">
+  </head>
+  <body class="bg-[#0a0a0a] text-gray-300 antialiased">
+
+    <!-- ============================== NAV ============================== -->
+    <div class="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl">
+      <nav class="mx-auto max-w-[1240px] px-5">
+        <div class="flex h-16 items-center justify-between gap-4">
+          <div class="flex items-center gap-6">
+          <a href="../../index.html" class="flex items-center gap-2 no-underline">
+            <svg viewBox="0 0 80.67 77.04" class="h-[17px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+            <span class="text-[15px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+          </a>
+
+          <div class="hidden items-center gap-1 md:flex">
+            <a href="../../faq/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">FAQ</a>
+            <a href="../../tutorial/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Tutorial</a>
+            <a href="../../changelog/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Changelog</a>
+            <a href="../../explore/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Explore</a>
+            <a href="../../ai/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+          </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <!-- Desktop only: on a phone the tool cannot be used, so the whole
+                 mobile site funnels into the send-link form instead. -->
+            <a href="../../app/index__5a07df1e.html" class="hidden whitespace-nowrap rounded-lg bg-amber-500 px-3.5 py-2 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400 md:inline-block">Open the app</a>
+            <details class="relative md:hidden">
+              <summary class="flex h-8 w-8 cursor-pointer list-none items-center justify-center rounded-lg border border-white/[0.08] text-gray-400 transition hover:text-white">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              </summary>
+              <div class="absolute right-0 top-10 w-48 rounded-xl border border-white/[0.08] bg-[#141414] p-1.5">
+                <a href="../../faq/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">FAQ</a>
+                <a href="../../tutorial/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Tutorial</a>
+                <a href="../../changelog/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Changelog</a>
+                <a href="../../explore/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Explore</a>
+                <a href="../../ai/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+              </div>
+            </details>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ============================== HERO ============================== -->
+    <header class="mx-auto max-w-[1240px] px-5 pb-6 pt-14 sm:pt-20">
+      <div class="mb-6 text-[13px] text-white/50">
+        <a href="../../index.html" class="text-white/50 no-underline transition hover:text-amber-500">Home</a>
+        <span class="mx-2">/</span>
+        <span>Guides</span>
+        <span class="mx-2">/</span>
+        <span class="text-white/70">Using on iPad</span>
+      </div>
+      <h1 class="max-w-[860px] text-balance text-[36px] font-medium leading-[1.05em] tracking-[-0.04em] text-white min-[810px]:text-[42px] min-[1200px]:text-[54px]">Using HueScript on iPad</h1>
+      <p class="mb-0 mt-5 max-w-[720px] text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">HueScript runs in Safari on iPad, with nothing to download from the App Store. Work with your finger or the <strong class="font-medium text-white">Apple Pencil</strong>, then open your exports in <strong class="font-medium text-white">Shapr3D or Onshape</strong> on the same iPad, from pattern to 3D model without a computer.</p>
+      <div class="mt-6 flex flex-wrap items-center gap-2">
+        <a href="../../app/index__5a07df1e.html" class="whitespace-nowrap rounded-lg bg-amber-500 px-4 py-2.5 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400">Open the app · Free</a>
+        <a href="../../tutorial/index.html" class="whitespace-nowrap rounded-lg border border-white/[0.12] px-4 py-2.5 text-[14px] font-medium text-white/80 no-underline transition hover:border-white/30 hover:text-white">Watch the tutorial</a>
+        <span class="text-[14px] text-white/60 sm:pl-1">No install · No account · Free forever</span>
+      </div>
+
+      <figure class="m-0 mt-10">
+        <div class="overflow-hidden rounded-xl border border-white/[0.07] bg-black sm:rounded-2xl">
+          <video
+            src="../../https://cdn.texture.huescript.com/Demovideo/ipad-workflow__bf923343.mp4"
+            poster="../../https://cdn.texture.huescript.com/Demovideo/ipad-workflow__0c31a2c4.webp"
+            width="1920" height="1080"
+            autoplay muted loop playsinline preload="metadata"
+            data-ip-video
+            class="block aspect-video h-auto w-full"
+            aria-label="Video: on an iPad, the Apple Pencil slides number fields and drags a gradient controller in HueScript; the exported DXF then opens in Shapr3D and is cut through a speaker housing."></video>
+        </div>
+        <figcaption class="mt-5 max-w-[720px] text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">
+          <span class="text-white">One iPad, from pattern to finished part.</span>
+          Slide number fields and drag a gradient controller with the Pencil, and the pattern follows live; export, and one extrude in Shapr3D cuts it through the housing. Every clip runs at real speed.
+        </figcaption>
+      </figure>
+    </header>
+
+    <main>
+
+      <section id="before" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div>
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Before you start: the window needs to be 768 px wide</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Anything narrower gets the phone layout, which has no editor. Every iPad is wide enough in landscape; an <strong class="font-medium text-white">iPad mini in portrait</strong> or a half-screen Split View window is not. Rotate the iPad or widen the window.</p>
+          </div>
+          <figure class="m-0">
+          <div class="ip-frame" data-ip-demo="ipad-width">
+            <canvas role="img" aria-label="Animation: an iPad mini in portrait is 744 px wide and shows the phone layout; turned to landscape it shows the editor. In Split View a half-width window drops back to the phone layout until it is dragged wider than 768 px."></canvas>
+            <div class="ip-chips" aria-hidden="true"><span class="ip-chip is-on" data-ip-chip="c:0">Phone layout</span><span class="ip-chip" data-ip-chip="c:1">Editor</span></div>
+            <div class="ip-pill" aria-hidden="true"><span>Window width</span><b data-ip-out="width">744</b><span>px</span></div>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="home-screen" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div class="md:order-2">
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Add it to your Home Screen</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">It then opens full screen like an app, with no address bar over the canvas.</p>
+            <ol class="ip-list m-0 mt-5 list-none space-y-3 p-0">
+              <li class="flex gap-3"><span class="ip-n">1</span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">In Safari, open <a href="../../app/index__5a07df1e.html" class="text-gray-200 underline decoration-white/25 underline-offset-2 transition hover:decoration-white">texture.huescript.com/app</a>.</span></li>
+              <li class="flex gap-3"><span class="ip-n">2</span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Tap <strong class="font-medium text-white">Share</strong>, then <strong class="font-medium text-white">Add to Home Screen</strong>.</span></li>
+              <li class="flex gap-3"><span class="ip-n">3</span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Leave <strong class="font-medium text-white">Open as Web App</strong> on (iPadOS 26 and later) and tap <strong class="font-medium text-white">Add</strong>.</span></li>
+            </ol>
+            <div class="mt-5 rounded-xl border border-amber-500/20 bg-amber-500/[0.06] p-4">
+              <p class="m-0 text-[15px] leading-[1.5] text-white/70"><strong class="font-medium text-white">The Home Screen app keeps its own storage, separate from Safari</strong>: designs saved to browser storage in Safari won’t show up in it. Stick to one, or save to the Cloud (Pro).</p>
+            </div>
+          </div>
+          <figure class="m-0">
+          <div class="hs-demo" role="img" aria-label="Animation: adding HueScript to the iPad Home Screen">
+            <div class="hs-device">
+              <div class="hs-screen" aria-hidden="true">
+                <div class="hs-scene hs-safari">
+                  <div class="hs-bar"><svg class="hs-ic-side" viewBox="0 0 24 24" fill="none" stroke="#0a84ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M9 5v14"/></svg><svg class="hs-ic-back" viewBox="0 0 24 24" fill="none" stroke="#0a84ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg><svg class="hs-ic-fwd" viewBox="0 0 24 24" fill="none" stroke="#0a84ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".35"><path d="M9 5l7 7-7 7"/></svg><div class="hs-url">texture.huescript.com/app</div><svg class="hs-ic-share" viewBox="0 0 24 24" fill="none" stroke="#0a84ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M8.5 10H6.5a1.5 1.5 0 0 0-1.5 1.5v8A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5v-8a1.5 1.5 0 0 0-1.5-1.5h-2"/></svg><svg class="hs-ic-plus" viewBox="0 0 24 24" fill="none" stroke="#0a84ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><svg class="hs-ic-tabs" viewBox="0 0 24 24" fill="none" stroke="#0a84ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="12" height="12" rx="2"/><path d="M8 4h10a2 2 0 0 1 2 2v10"/></svg></div>
+                  <div class="hs-page"><div class="hs-ed"><div class="hs-ed-top"></div><div class="hs-ed-l"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hs-ed-c"></div><div class="hs-ed-r"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+                  <div class="hs-pop">
+                    <div class="hs-pop-head"><img src="../../apple-touch-icon.png" alt=""><div><b>HueScript</b><small>texture.huescript.com</small></div></div>
+                    <div class="hs-row hs-r1"><span class="hs-ph-ic"></span><span class="hs-ph-bar"></span></div><div class="hs-row hs-r2"><span class="hs-ph-ic"></span><span class="hs-ph-bar"></span></div>
+                    <div class="hs-row hs-r3"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3.5"/><path d="M12 8.5v7M8.5 12h7"/></svg><span>Add to Home Screen</span></div>
+                    <div class="hs-row hs-r4"><span class="hs-ph-ic"></span><span class="hs-ph-bar"></span></div>
+                  </div>
+                  <div class="hs-dim"></div>
+                  <div class="hs-dialog">
+                    <div class="hs-dlg-head"><span class="hs-btn hs-cancel">Cancel</span><b class="hs-dlg-title">Add to Home Screen</b><span class="hs-btn hs-add">Add</span></div>
+                    <img class="hs-dlg-icon" src="../../apple-touch-icon.png" alt="">
+                    <div class="hs-dlg-name">HueScript</div>
+                    <div class="hs-dlg-url">texture.huescript.com</div>
+                    <div class="hs-tgl-row"><span>Open as Web App</span><span class="hs-tgl"></span></div>
+                  </div>
+                </div>
+                <div class="hs-scene hs-home">
+                  <div class="hs-grid"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><div class="hs-sv"><img src="../../apple-touch-icon.png" alt=""><span>HueScript</span></div><b></b><b></b><b></b><b></b><b></b><b></b></div>
+                  <div class="hs-dock"><b></b><b></b><b></b><b></b><b></b></div>
+                </div>
+                <div class="hs-scene hs-app"><div class="hs-ed"><div class="hs-ed-top"></div><div class="hs-ed-l"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hs-ed-c"></div><div class="hs-ed-r"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+                <div class="hs-finger"></div>
+              </div>
+            </div>
+            <div class="hs-caps" aria-hidden="true">
+              <p class="hs-cap hs-cap1"><span class="hs-num">1</span><span>Tap Share</span></p>
+              <p class="hs-cap hs-cap2"><span class="hs-num">2</span><span>Choose Add to Home Screen</span></p>
+              <p class="hs-cap hs-cap3"><span class="hs-num">3</span><span>Keep Open as Web App on, then tap Add</span></p>
+              <p class="hs-cap hs-cap4"><span class="hs-num">4</span><span>Tap the new icon: HueScript opens full screen</span></p>
+            </div>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="touch" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div>
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Finger and Apple Pencil basics</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Tap and drag work as they do with a mouse. The differences:</p>
+            <dl class="m-0 mt-6 divide-y divide-white/[0.07] border-y border-white/[0.07]">
+              <div class="py-3.5">
+                <dt class="text-[16px] font-medium leading-[1.4] text-white">Press and hold for half a second</dt>
+                <dd class="m-0 mt-1 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Opens the right-click menu. Scale, Rotate and Adjust Fillet follow your finger while you drag; lift to confirm.</dd>
+              </div>
+              <div class="py-3.5">
+                <dt class="text-[16px] font-medium leading-[1.4] text-white">Add a second finger while dragging a controller</dt>
+                <dd class="m-0 mt-1 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Two-finger rotate and scale.</dd>
+              </div>
+              <div class="py-3.5">
+                <dt class="text-[16px] font-medium leading-[1.4] text-white">Drag a sidebar edge or a panel title bar</dt>
+                <dd class="m-0 mt-1 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Resizes the column, or pulls the panel out into a floating window.</dd>
+              </div>
+            </dl>
+          </div>
+          <figure class="m-0">
+          <div class="ip-frame" data-ip-demo="ipad-touch" data-ip-l-add="Add Point" data-ip-l-fillet="Add Fillet" data-ip-l-scale="Scale" data-ip-l-rotate="Rotate" data-ip-l-del="Delete">
+            <canvas role="img" aria-label="Animation: a finger presses and holds on a line controller to open the right-click menu, then drags Scale to stretch the line; a second finger joins to rotate and scale it, and the holes along the line resize as it moves."></canvas>
+            <div class="ip-chips" aria-hidden="true"><span class="ip-chip is-on" data-ip-chip="c:0">Press and hold: menu</span><span class="ip-chip" data-ip-chip="c:1">Second finger: rotate and scale</span></div>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="number-fields" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div class="md:order-2">
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Number fields: slide to adjust</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">You rarely need to type into a number field:</p>
+            <ul class="m-0 mt-5 list-none space-y-3 p-0">
+              <li class="flex gap-3"><span class="ip-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]"><strong class="font-medium text-white">Slide left or right</strong> to adjust the value and watch the pattern follow.</span></li>
+              <li class="flex gap-3"><span class="ip-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]"><strong class="font-medium text-white">Tap</strong> to open a small number pad beside the field, instead of the system keyboard.</span></li>
+              <li class="flex gap-3"><span class="ip-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]"><strong class="font-medium text-white">Slide up or down</strong> to scroll the panel as usual.</span></li>
+            </ul>
+          </div>
+          <figure class="m-0">
+          <div class="ip-frame" data-ip-demo="ipad-fields" data-ip-l-w="Width (mm)" data-ip-l-h="Height (mm)" data-ip-l-xs="X Spacing (mm)" data-ip-l-zs="Z Spacing (mm)" data-ip-l-rot="Rotation (°)" data-ip-l-cr="Corner R (mm)">
+            <canvas role="img" aria-label="Animation: the Apple Pencil slides the Width and X Spacing fields left and right and the slots change as it moves; a tap on Height opens a number pad beside the field; a finger swipes the panel up to scroll it."></canvas>
+            <div class="ip-chips" aria-hidden="true"><span class="ip-chip is-on" data-ip-chip="c:0">Slide to adjust</span><span class="ip-chip" data-ip-chip="c:1">Tap for the number pad</span><span class="ip-chip" data-ip-chip="c:2">Swipe up to scroll</span></div>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="custom-editor" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div>
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">The custom editor: on-screen Shift, Alt and Delete</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">While the Apple Pencil touches the screen, iPadOS passes no finger touches to web pages, so you can’t hold a key with one hand and draw with the other. The editor puts large keys at the edge of the screen instead:</p>
+            <ul class="m-0 mt-5 list-none space-y-3 p-0">
+              <li class="flex gap-3"><span class="ip-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]"><strong class="font-medium text-white">Tap</strong> <span class="key">Shift</span> or <span class="key">Alt</span> to lock it on; tap again to release it.</span></li>
+              <li class="flex gap-3"><span class="ip-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]"><span class="key">Delete</span> removes the selection.</span></li>
+              <li class="flex gap-3"><span class="ip-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">The top button moves the keys under <strong class="font-medium text-white">the hand without the Pencil</strong>.</span></li>
+            </ul>
+          </div>
+          <figure class="m-0">
+          <div class="ip-frame" data-ip-demo="ipad-keys" data-ip-l-shift="Shift" data-ip-l-alt="Alt" data-ip-l-del="Delete">
+            <canvas role="img" aria-label="Animation: a finger taps the on-screen Shift key to lock it and the Apple Pencil scales a shape in proportion; with Alt locked the Pencil drags out a copy; Delete removes the copy; the top button moves the keys to the other side."></canvas>
+            <ol class="ip-steps" aria-hidden="true"><li class="is-on" data-ip-chip="step:0"><span>1</span>Shift: keep proportions</li><li class="" data-ip-chip="step:1"><span>2</span>Alt: drag out a copy</li><li class="" data-ip-chip="step:2"><span>3</span>Delete the selection</li><li class="" data-ip-chip="step:3"><span>4</span>Swap sides</li></ol>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="cad" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div class="md:order-2">
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">From pattern to 3D model on the same iPad</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">CAD apps on iPad open HueScript exports directly:</p>
+            <ol class="ip-list m-0 mt-5 list-none space-y-3 p-0">
+              <li class="flex gap-3"><span class="ip-n">1</span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]"><strong class="font-medium text-white">Export STEP.</strong> Safari saves it to <strong class="font-medium text-white">Downloads</strong> in the Files app.</span></li>
+              <li class="flex gap-3"><span class="ip-n">2</span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Import it in <strong class="font-medium text-white">Shapr3D or Onshape</strong>, or tap the file in Files and share it to the app.</span></li>
+              <li class="flex gap-3"><span class="ip-n">3</span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">To model the holes yourself, export <strong class="font-medium text-white">DXF</strong> and bring it in as a sketch.</span></li>
+            </ol>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">The full workflow is in the <a href="../../export-step-to-cad/index.html" class="text-gray-200 underline decoration-white/25 underline-offset-2 transition hover:decoration-white">STEP export guide</a>.</p>
+          </div>
+          <figure class="m-0">
+          <div class="ip-frame" data-ip-demo="ipad-cad" data-ip-l-export="Export" data-ip-l-files="Files" data-ip-l-downloads="Downloads" data-ip-l-file="HueScript_Pattern.stp">
+            <canvas role="img" aria-label="Animation: the Apple Pencil taps Export and STP, the file lands in Downloads in the Files app and is shared to a CAD app, where the holes are cut through the part."></canvas>
+            <ol class="ip-steps" aria-hidden="true"><li class="is-on" data-ip-chip="step:0"><span>1</span>Export STEP</li><li class="" data-ip-chip="step:1"><span>2</span>Saved to Downloads</li><li class="" data-ip-chip="step:2"><span>3</span>Cut through in CAD</li></ol>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ---------- More ---------- -->
+      <section id="more" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">More that works well on iPad</h2>
+        <div class="mt-8 grid gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-3">
+          <div class="bg-[#0f0f0f] p-6">
+            <span class="material-symbols-outlined text-[22px] text-amber-400" aria-hidden="true">photo_camera</span>
+            <h3 class="m-0 mt-3 text-[18px] font-medium leading-[1.3] text-white">Photo to halftone, from the camera</h3>
+            <p class="m-0 mt-2 text-[15px] leading-[1.5] text-white/60">Take a picture in the Background Image panel and turn on Image as Controller: its brightness sets the hole sizes. Walkthrough in the <a href="../../photo-to-halftone/index.html" class="text-gray-200 underline decoration-white/25 underline-offset-2 transition hover:decoration-white">photo to halftone guide</a>.</p>
+          </div>
+          <div class="bg-[#0f0f0f] p-6">
+            <span class="material-symbols-outlined text-[22px] text-amber-400" aria-hidden="true">keyboard</span>
+            <h3 class="m-0 mt-3 text-[18px] font-medium leading-[1.3] text-white">Keyboard, mouse and trackpad</h3>
+            <p class="m-0 mt-2 text-[15px] leading-[1.5] text-white/60">With a Magic Keyboard or a Bluetooth mouse attached, it works just like on a computer.</p>
+          </div>
+          <div class="bg-[#0f0f0f] p-6">
+            <span class="material-symbols-outlined text-[22px] text-amber-400" aria-hidden="true">cloud_sync</span>
+            <h3 class="m-0 mt-3 text-[18px] font-medium leading-[1.3] text-white">Where your designs are saved</h3>
+            <p class="m-0 mt-2 text-[15px] leading-[1.5] text-white/60">On iPad, in the Browser or the Cloud (Pro). The Local folder option needs desktop Chrome or Edge.</p>
+          </div>
+          <div class="bg-[#0f0f0f] p-6">
+            <span class="material-symbols-outlined text-[22px] text-amber-400" aria-hidden="true">speed</span>
+            <h3 class="m-0 mt-3 text-[18px] font-medium leading-[1.3] text-white">Heavy patterns</h3>
+            <p class="m-0 mt-2 text-[15px] leading-[1.5] text-white/60">Turn on Performance Mode in Settings and the preview updates when you let go.</p>
+          </div>
+          <div class="bg-[#0f0f0f] p-6 sm:col-span-2">
+            <span class="material-symbols-outlined text-[22px] text-amber-400" aria-hidden="true">draw</span>
+            <h3 class="m-0 mt-3 text-[18px] font-medium leading-[1.3] text-white">Where iPad shines</h3>
+            <p class="m-0 mt-2 text-[15px] leading-[1.5] text-white/60">Sketching ideas, drawing shapes with the Pencil, reviewing designs with a client. For long, precise sessions a computer is still fastest.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------- FAQ ---------- -->
+      <section id="faq" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Frequently asked questions</h2>
+        <div class="mt-8 max-w-3xl divide-y divide-white/[0.07] overflow-hidden rounded-xl border border-white/[0.07] bg-[#0f0f0f]">
+          <details class="sv-faq px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 text-left text-[17px] font-normal text-white">
+              Is there a HueScript app for iPad?
+              <span class="sv-faq-icon shrink-0 text-[20px] leading-none text-white/50 transition-transform">+</span>
+            </summary>
+            <p class="mb-0 mt-3 text-[16px] leading-[1.5] text-white/60">There is nothing to download from the App Store: the full editor runs in Safari. Add it to your Home Screen and it opens full screen with its own icon, just like an app.</p>
+          </details>
+          <details class="sv-faq px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 text-left text-[17px] font-normal text-white">
+              Does it work with the Apple Pencil?
+              <span class="sv-faq-icon shrink-0 text-[20px] leading-none text-white/50 transition-transform">+</span>
+            </summary>
+            <p class="mb-0 mt-3 text-[16px] leading-[1.5] text-white/60">Yes. The Pencil and your finger both drag controllers, open the right-click menu with a press and hold, adjust number fields by sliding, and draw in the custom editor.</p>
+          </details>
+          <details class="sv-faq px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 text-left text-[17px] font-normal text-white">
+              Why can’t I hold Shift with a finger while drawing with the Pencil?
+              <span class="sv-faq-icon shrink-0 text-[20px] leading-none text-white/50 transition-transform">+</span>
+            </summary>
+            <p class="mb-0 mt-3 text-[16px] leading-[1.5] text-white/60">While the Pencil is touching the screen, iPadOS doesn’t pass finger touches to web pages, so the held finger never reaches the editor. Tap the on-screen Shift or Alt key to lock it on instead, and tap it again to release it.</p>
+          </details>
+          <details class="sv-faq px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 text-left text-[17px] font-normal text-white">
+              Why do I see the phone layout on my iPad?
+              <span class="sv-faq-icon shrink-0 text-[20px] leading-none text-white/50 transition-transform">+</span>
+            </summary>
+            <p class="mb-0 mt-3 text-[16px] leading-[1.5] text-white/60">The editor needs a window at least 768 px wide. An iPad mini in portrait (744 px) and a half-screen Split View window fall short. Rotate to landscape or give HueScript the wider side of the split.</p>
+          </details>
+          <details class="sv-faq px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 text-left text-[17px] font-normal text-white">
+              Can I open the STEP file in Shapr3D or Onshape?
+              <span class="sv-faq-icon shrink-0 text-[20px] leading-none text-white/50 transition-transform">+</span>
+            </summary>
+            <p class="mb-0 mt-3 text-[16px] leading-[1.5] text-white/60">Yes. Safari saves the .stp file to Downloads in the Files app. Import it from there in Shapr3D, Onshape or any CAD app that reads STEP, or tap the file in Files and share it to the app.</p>
+          </details>
+          <details class="sv-faq px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 text-left text-[17px] font-normal text-white">
+              Are my designs shared between Safari and the Home Screen app?
+              <span class="sv-faq-icon shrink-0 text-[20px] leading-none text-white/50 transition-transform">+</span>
+            </summary>
+            <p class="mb-0 mt-3 text-[16px] leading-[1.5] text-white/60">No. The Home Screen app keeps its own storage, so designs saved to browser storage in one don’t appear in the other, and you sign in again once. Stick to one of them, or save to the Cloud (Pro).</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ---------- Closing CTA ---------- -->
+      <section class="mx-auto max-w-[1240px] px-5 pb-24 pt-20 sm:pt-28">
+        <div class="rounded-2xl border border-white/[0.07] bg-[#0f0f0f] px-6 py-14 text-center">
+          <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Open HueScript on your iPad</h2>
+          <p class="mx-auto mb-0 mt-4 max-w-[480px] text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Open it in Safari, add it to your Home Screen, and start with your finger or the Pencil. Free, nothing to install.</p>
+          <a href="../../app/index__5a07df1e.html" class="mt-7 inline-block rounded-lg bg-amber-500 px-5 py-3 text-[15px] font-medium text-black no-underline transition hover:bg-amber-400">Open the app · Free</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="border-t border-white/[0.07] px-5 pb-10 pt-14">
+      <div class="mx-auto max-w-[1240px]">
+        <div class="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+          <div class="col-span-2 md:col-span-4 lg:col-span-1">
+            <a href="../../index.html" class="inline-flex items-center gap-2.5 no-underline">
+              <svg viewBox="0 0 80.67 77.04" class="h-[26px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+              <span class="text-[22px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+            </a>
+            <p class="mt-5 max-w-[300px] text-[14px] leading-[1.5] text-white/60">
+              A browser-based parametric pattern generator. Design it, export SVG / DXF / STEP, make it.
+            </p>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Product</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../../app/index__5a07df1e.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Open the app</a></li>
+              <li><a href="../../ai/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a></li>
+              <li></li>
+              <li><a href="../../changelog/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Changelog</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Patterns</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../../explore/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Explore</a></li>
+              <li><a href="../../speaker-grille-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Speaker grille</a></li>
+              <li><a href="../../ventilation-hole-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Ventilation holes</a></li>
+              <li><a href="../../halftone-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Halftone patterns</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Guides</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../../tutorial/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Tutorial</a></li>
+              <li><a href="../../faq/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">FAQ</a></li>
+              <li><a href="index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Using on iPad</a></li>
+              <li><a href="../../wrap/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Wrap onto curved surfaces</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">About</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../../about/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">About HueScript</a></li>
+              <li><button type="button" data-sv-copy="huescript@gmail.com" class="relative p-0 text-left text-[14px] text-white/60 transition hover:text-white" title="huescript@gmail.com">Contact us<span class="sv-copy-toast absolute bottom-full left-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span></button></li>
+              <li><a href="../../privacy/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Privacy policy</a></li>
+              <li><a href="../../terms/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Terms of service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Community bar -->
+        <div class="mt-12 flex flex-col gap-6 border-t border-white/[0.07] pt-6 lg:flex-row lg:items-center lg:justify-between">
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a href="../../app/index__4b616722.html" class="flex items-center gap-2 text-[14px] font-medium text-white/70 no-underline transition hover:text-white">
+              <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" /></svg>
+              Send feedback
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-5">
+            <div class="flex items-center gap-4 text-white/50">
+              <a href="https://www.instagram.com/huescript/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="Instagram">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+              </a>
+              <a href="https://www.youtube.com/@HueScript" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="YouTube">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg>
+              </a>
+              <button type="button" data-sv-copy="huescript@gmail.com" class="relative transition hover:text-white" title="huescript@gmail.com" aria-label="huescript@gmail.com">
+                <svg class="h-[18px] w-[18px] fill-current sv-copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                <svg class="sv-copy-check h-[18px] w-[18px] fill-current text-green-400" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                <span class="sv-copy-toast absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span>
+              </button>
+            </div>
+
+            <!-- Language picker: real links inside a <details>, so every locale
+                 stays crawlable and the control needs no JavaScript. -->
+            
+
+            <div class="flex flex-col leading-tight">
+              <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50">Created by</span>
+              <span class="text-[14px] font-semibold text-white">Yoshi Chen</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="m-0 mt-8 text-center text-[13px] text-white/50">© 2026 HueScript. All rights reserved.</p>
+
+        <script src="../../site-copy.js" defer></script>
+      </div>
+    </footer>
+
+    <script src="../../site-ipad-demos.js" defer></script>
+  </body>
+</html>

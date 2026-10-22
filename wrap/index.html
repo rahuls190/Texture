@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HueScript Wrap</title>
+    <!-- 分頁圖示跟主 App 同一套（apps/studio/public 的 favicon.svg／apple-touch-icon.png，owner 10-14） -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <!-- 對外網址是主 App 網域底下的 /wrap/（代理過來的）；直接開 *.netlify.app 那份不要被當成另一個頁面 -->
+    <link rel="canonical" href="index.html" />
+    <meta name="description" content="把 STEP 曲面展平、套上 HueScript 圖紋、再包覆回曲面。檔案只在你的電腦裡處理。" />
+    <style>
+      /* 色票跟 studio 同一套（apps/studio/index.html），RGB 三元組讓 Tailwind 能加透明度 */
+      :root {
+        --color-bg: 10 10 10;
+        --color-panel: 30 30 30;
+        --color-surface: 30 30 30;
+        --color-surface-raised: 38 38 38;
+        --color-control: 42 42 42;
+        --color-control-hover: 51 51 51;
+        --color-control-active: 68 68 68;
+        --color-border: 51 51 51;
+        --color-border-strong: 68 68 68;
+        --color-border-hover: 85 85 85;
+      }
+      .sv-icon { line-height: 1 !important; }
+      body { background-color: rgb(var(--color-bg)); color: #ffffff; overflow: hidden; font-size: 13px; -webkit-user-select: none; -moz-user-select: none; user-select: none; margin: 0; }
+      /* 載入畫面跟主 App 同一個樣子（apps/studio/index.html 的 #loading-msg）。
+         Tailwind 是 JS 帶進來的，這時還沒載，所以全寫在這裡；React 掛上 #root 時整塊被換掉 */
+      #loading-msg {
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        text-align: center; color: #8f8f8f; pointer-events: none;
+        font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      }
+      #loading-msg h1 { font-size: 20px; line-height: 28px; font-weight: 700; margin: 0 0 8px; }
+      #loading-msg p { margin: 0; }
+      /* 8 秒後才浮出來，網路正常的人看不到 */
+      @keyframes loading-hint-in { from { opacity: 0; } to { opacity: 1; } }
+      #loading-vpn-hint {
+        margin-top: 16px !important; font-size: 12px; color: #888; line-height: 1.7;
+        opacity: 0; animation: loading-hint-in 0.5s ease 8s forwards;
+      }
+    </style>
+    <script type="module" crossorigin src="assets/index-CylCLbS4.js"></script>
+    <link rel="stylesheet" crossorigin href="assets/index-DYgJ7H8h.css">
+  </head>
+  <body>
+    <div id="root">
+      <div id="loading-msg">
+        <h1>HueScript Wrap</h1>
+        <p>Loading application...</p>
+        <p id="loading-vpn-hint">
+          載入時間過久？您所在地區的網路可能無法連上部分資源，可嘗試開啟 VPN 後重新整理頁面。<br>
+          Taking too long? Your network may be unable to reach some resources — try a VPN and refresh.
+        </p>
+        <noscript><p style="margin-top: 16px;">此工具需要啟用 JavaScript。This tool requires JavaScript.</p></noscript>
+      </div>
+    </div>
+  </body>
+</html>

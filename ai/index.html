@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js)。初始化在 public/ga-init.js（外部檔，CSP 不開 'unsafe-inline'） -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8W2EV2PJ7W"></script>
+    <script src="../ga-init.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Primary Meta Tags -->
+    <title>Design patterns with your own AI (MCP) | HueScript</title>
+    <meta name="title" content="Design patterns with your own AI (MCP) | HueScript">
+    <meta name="description" content="Connect HueScript to Claude, Cursor or any MCP client. Give your AI a reference image, a written spec or a photo of your product, and it designs the perforation pattern, previews it and exports SVG, DXF or STEP.">
+    <meta name="author" content="HueScript">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+
+    <!-- Canonical URL & Hreflang -->
+    <link rel="canonical" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="en" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://texture.huescript.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://texture.huescript.com/en">
+    <meta property="og:title" content="Design patterns with your own AI (MCP) | HueScript">
+    <meta property="og:description" content="Connect HueScript to Claude, Cursor or any MCP client. Give your AI a reference image, a written spec or a photo of your product, and it designs the perforation pattern, previews it and exports SVG, DXF or STEP.">
+    <meta property="og:image" content="https://cdn.texture.huescript.com/HueScript%20Preset/%23016.png?v=9fac76ef">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="HueScript">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://texture.huescript.com/en">
+    <meta name="twitter:title" content="Design patterns with your own AI (MCP) | HueScript">
+    <meta name="twitter:description" content="Connect HueScript to Claude, Cursor or any MCP client. Give your AI a reference image, a written spec or a photo of your product, and it designs the perforation pattern, previews it and exports SVG, DXF or STEP.">
+    <meta name="twitter:image" content="https://cdn.texture.huescript.com/HueScript%20Preset/%23016.png?v=9fac76ef">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://texture.huescript.com/en#page",
+      "name": "Design patterns with your own AI (MCP) | HueScript",
+      "description": "Connect HueScript to Claude, Cursor or any MCP client. Give your AI a reference image, a written spec or a photo of your product, and it designs the perforation pattern, previews it and exports SVG, DXF or STEP.",
+      "url": "https://texture.huescript.com/en",
+      "inLanguage": "en",
+      "isPartOf": { "@type": "WebSite", "name": "HueScript", "url": "https://texture.huescript.com/" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://texture.huescript.com/en#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Which AI apps can use it?", "acceptedAnswer": { "@type": "Answer", "text": "Any app that supports the Model Context Protocol (MCP): Claude on the web and desktop, Claude Code, Cursor and others. Apps that take a server URL with sign-in use the connector; the rest use a token." } },
+        { "@type": "Question", "name": "Do I need Pro?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. HueScript MCP and the API are Pro features: every tool, from preview to STEP export, needs a Pro account. The app itself stays free to use." } },
+        { "@type": "Question", "name": "How close does it get to my reference?", "acceptedAnswer": { "@type": "Answer", "text": "Looks from the preset library are reproduced exactly from their recipes. For other pictures the AI rebuilds the look from its measurements, which usually gets close; open the design in the app to finish the details. When no built-in arrangement can place the holes, the AI switches to AI Custom on its own and writes the arrangement rule itself." } },
+        { "@type": "Question", "name": "What can the AI access?", "acceptedAnswer": { "@type": "Answer", "text": "Only the HueScript design tools under your account: previews, exports and design links, not your other files or account settings. Download links work for 24 hours; the files and design links are deleted after two days. Each tool call is logged with the tool name, whether it succeeded and how long it took (never your design, pictures or prompts) and kept for 180 days. You can revoke a token or disconnect the connector at any time." } },
+        { "@type": "Question", "name": "Are there limits?", "acceptedAnswer": { "@type": "Answer", "text": "Up to 120 exports per hour and 10 tokens per account. Reference pictures up to 6 MB and 16 megapixels; designs up to 200,000 holes. When your Pro plan ends, every tool stops until you renew; the app itself stays free." } }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://texture.huescript.com/en#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://texture.huescript.com/" },
+        { "@type": "ListItem", "position": 2, "name": "AI design" }
+      ]
+    }
+  ]
+}
+    </script>
+
+    <!-- Demo animation. Synchronous on purpose: it marks <html> before first paint so the demos start hidden instead of flashing. -->
+    <script src="../site-ai.js"></script>
+
+    <!-- Tailwind CSS (compiled). Must stay last in <head>. -->
+    <style>
+      summary::-webkit-details-marker { display: none; }
+      .sv-lang[open] .sv-lang-chevron { transform: rotate(180deg); }
+
+      header p, main p, main h2, main h3, main summary { text-wrap: pretty; }
+      header p.inline-block, .sv-card p, .sv-main p, main p.text-\[13px\] { text-wrap: balance; }
+      /* 手機上 h1 會落單一個字（「…設計圖／紋」）；balance 讓兩行等長 */
+      header h1 { text-wrap: balance; }
+
+      /* 逐步出現：每一步依內容停多久由 data-hold 決定（site-ai.js） */
+      .sv-js [data-at] { opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .45s cubic-bezier(.2,.7,.2,1); }
+      .sv-js [data-at].is-on { opacity: 1; transform: none; }
+
+      .sv-window { border: 1px solid rgba(255,255,255,.08); border-radius: 16px; background: #111; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,.8); }
+      .sv-bar { display: flex; align-items: center; gap: 6px; height: 34px; padding: 0 10px 0 14px; border-bottom: 1px solid rgba(255,255,255,.06); background: #151515; }
+      .sv-bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.14); }
+      .sv-bar b { margin-left: 8px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,.45); }
+      .sv-replay { margin-left: auto; display: inline-flex; align-items: center; gap: 5px; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; background: transparent; padding: 2px 10px; font-family: inherit; font-size: 12px; font-weight: 500; line-height: 1.4; color: rgba(255,255,255,.7); cursor: pointer; transition: color .2s, border-color .2s; }
+      .sv-replay:hover { color: #fff; border-color: rgba(255,255,255,.3); }
+      .sv-replay[hidden] { display: none; }
+      .sv-replay svg { width: 12px; height: 12px; }
+
+      .sv-chat { display: flex; flex-direction: column; gap: 10px; padding: 16px; }
+      .sv-msg { max-width: 88%; border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.5; }
+      .sv-msg p { margin: 0; }
+      .sv-user { align-self: flex-end; background: #262626; color: #e5e7eb; }
+      .sv-ai { align-self: flex-start; border: 1px solid rgba(255,255,255,.07); background: #151515; color: #d1d5db; }
+      .sv-ai .sv-after { margin-top: 10px; }
+      /* 工具呼叫之間的 AI 旁白：不包氣泡，跟真的 AI 應用一樣 */
+      .sv-msg.sv-plain { max-width: 100%; border: 0; background: none; padding: 0 2px; }
+
+      /* 使用者丟進去的東西要看得出來是什麼：縮圖放大、示範一拿掉濾鏡 */
+      .sv-attach { display: flex; gap: 14px; align-items: flex-start; }
+      .sv-thumb { flex: none; width: 96px; height: 96px; border-radius: 10px; border: 1px solid rgba(255,255,255,.1); background: #0b0b0b; -o-object-fit: cover; object-fit: cover; }
+      .sv-thumb-tall { width: 60px; height: 111px; }
+      .sv-photo { filter: grayscale(.6) sepia(.35) contrast(.9) brightness(.85); transform: rotate(-3deg); }
+      @container (max-width: 420px) {
+        .sv-thumb { width: 80px; height: 80px; }
+        .sv-thumb-tall { width: 54px; height: 100px; }
+      }
+      /* 示範二：需求裡的數字標亮，跟尺寸圖上的標註同色 */
+      .sv-hl { font-weight: 600; color: #fbbf24; }
+
+      /* 工具標籤：出現時是「跑中」（灰點閃），下一步開始才變「完成」（綠點） */
+      .sv-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+      .sv-chip { display: inline-flex; align-items: center; gap: 7px; border: 1px solid rgba(255,255,255,.09); border-radius: 999px; background: rgba(255,255,255,.03); padding: 4px 11px 4px 8px; font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #9ca3af; }
+      .sv-chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.15); transition: background .25s, box-shadow .25s; }
+      .sv-js .sv-chip:not(.is-done)::before { background: rgba(255,255,255,.45); box-shadow: 0 0 0 3px rgba(255,255,255,.08); animation: sv-blink .8s ease-in-out infinite; }
+      @keyframes sv-blink { 50% { opacity: .3; } }
+      @container (max-width: 420px) { .sv-chip { padding: 3px 9px 3px 7px; font-size: 11px; } }
+
+      /* AI 回覆前的「…」：疊在下一則回覆的位置上，回覆出來就收掉 */
+      .sv-slot { position: relative; display: flex; flex-direction: column; align-items: flex-start; }
+      .sv-dots { display: none; }
+      .sv-js .sv-dots { position: absolute; top: 0; left: 0; display: flex; gap: 5px; align-items: center; border: 1px solid rgba(255,255,255,.07); border-radius: 14px; background: #151515; padding: 14px 16px; }
+      .sv-dots i { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.5); animation: sv-dot 1s ease-in-out infinite; }
+      .sv-dots i:nth-child(2) { animation-delay: .15s; }
+      .sv-dots i:nth-child(3) { animation-delay: .3s; }
+      @keyframes sv-dot { 0%, 60%, 100% { transform: none; opacity: .4; } 30% { transform: translateY(-3px); opacity: 1; } }
+
+      .sv-result { max-width: 260px; overflow: hidden; border-radius: 10px; border: 1px solid rgba(255,255,255,.07); background: #0a0a0a; }
+      .sv-result img { display: block; width: 100%; height: auto; aspect-ratio: 1; }
+      /* 結果圖從中心往外展開，像孔一圈一圈打出來 */
+      .sv-js .sv-punch { clip-path: circle(75% at 50% 50%); transition: clip-path 1.3s cubic-bezier(.3,.6,.2,1) .15s; }
+      .sv-js [data-at]:not(.is-on) .sv-punch { clip-path: circle(0% at 50% 50%); }
+      .sv-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+      .sv-act { border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 6px 12px; font-size: 13px; color: #e5e7eb; }
+      .sv-act-primary { border-color: transparent; background: #f59e0b; color: #000; font-weight: 500; }
+      .sv-drawing { display: block; width: 100%; max-width: 300px; height: auto; margin: 6px auto; }
+      /* 示範二的尺寸線：結果出來後畫出來，數字跟著淡入 */
+      .sv-js .sv-dim { stroke-dasharray: 1; stroke-dashoffset: 0; transition: stroke-dashoffset .7s ease .7s; }
+      .sv-js [data-at]:not(.is-on) .sv-dim { stroke-dashoffset: 1; }
+      .sv-js .sv-dimfade { transition: opacity .4s ease 1.2s; }
+      .sv-js [data-at]:not(.is-on) .sv-dimfade { opacity: 0; }
+
+      .sv-msg.sv-wide { max-width: 100%; }
+      .sv-msg.sv-props-msg { max-width: min(100%, 420px); }
+      .sv-props { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0 0 4px; }
+      .sv-props figure { margin: 0; }
+      .sv-pickwrap { position: relative; display: block; }
+      .sv-props img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(255,255,255,.07); background: #0a0a0a; }
+      .sv-props figcaption { margin-top: 6px; text-align: center; font-size: 11px; line-height: 1.3; color: rgba(255,255,255,.5); }
+      /* 示範三最後：標出其中一張，暗示下一步是選一個 */
+      .sv-pick { position: absolute; inset: -3px; border: 2px solid #f59e0b; border-radius: 12px; pointer-events: none; }
+      .sv-pick::after { content: "✓"; position: absolute; top: -9px; right: -9px; display: flex; width: 20px; height: 20px; align-items: center; justify-content: center; border-radius: 50%; background: #f59e0b; font-size: 12px; font-weight: 700; color: #000; }
+      .sv-js .sv-pick[data-at] { transform: scale(1.04); }
+      .sv-js .sv-pick[data-at].is-on { transform: none; }
+
+      #ai-custom { scroll-margin-top: 96px; }
+      [data-sv-demo] { container-type: inline-size; }
+      .sv-split { display: grid; gap: 14px; margin: 0 0 4px; }
+      @container (min-width: 520px) { .sv-split { grid-template-columns: 1fr 1fr; align-items: center; } }
+      .sv-split .sv-drawing { max-width: 200px; margin: 0 auto; }
+      .sv-panel { display: grid; gap: 10px; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; background: #0f0f0f; padding: 14px; }
+      .sv-panel-h { font-size: 12px; font-weight: 600; color: rgba(255,255,255,.55); }
+      .sv-panel-sel { display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; padding: 7px 10px; font-size: 13px; color: #fff; }
+      .sv-panel-sel span { font-size: 10px; color: rgba(255,255,255,.4); }
+      .sv-pfs { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 8px 10px; }
+      .sv-pf { display: grid; gap: 4px; min-width: 0; }
+      .sv-pf-l { display: flex; justify-content: space-between; gap: 6px; font-size: 11px; line-height: 1.3; color: rgba(255,255,255,.5); }
+      .sv-pf-v { min-height: 26px; border: 1px solid rgba(255,255,255,.1); border-radius: 6px; background: #1a1a1a; padding: 4px 8px; text-align: right; font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #e5e7eb; }
+      .sv-pf-v b { font-weight: 400; }
+      /* 示範四：AI 宣告的參數一格一格填進去 */
+      .sv-js .sv-panel .sv-pf-v b { opacity: 0; transition: opacity .2s ease calc(.4s + var(--i) * 110ms); }
+      .sv-js .sv-panel.is-on .sv-pf-v b { opacity: 1; }
+      .sv-js .sv-panel.is-on .sv-pf-v { animation: sv-fill .7s ease-out calc(.4s + var(--i) * 110ms); }
+      @keyframes sv-fill { from { border-color: rgba(245,158,11,.85); background: rgba(245,158,11,.14); } }
+      /* 九個參數只列前四個，其餘收成一行 */
+      .sv-pf-more { margin: 0; font-size: 11px; color: rgba(255,255,255,.45); }
+
+      .sv-steps { display: grid; gap: 20px; }
+      @media (min-width: 1024px) { .sv-steps { grid-template-columns: 340px 1fr; align-items: stretch; } }
+      .sv-steplist { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; align-content: start; }
+      .sv-steplist button { position: relative; display: flex; width: 100%; gap: 12px; align-items: flex-start; overflow: hidden; border: 1px solid transparent; border-radius: 12px; background: transparent; padding: 12px 14px; text-align: left; font: inherit; font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.55); cursor: pointer; transition: background .3s, border-color .3s, color .3s; }
+      .sv-steplist button:hover { color: #fff; }
+      .sv-steplist button.is-on { border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.06); color: #fff; }
+      /* 目前這一步的進度條：看得出來它會自己換下一步；點過步驟就停住、不顯示 */
+      .sv-js .sv-steplist button.is-on::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: rgba(245,158,11,.75); transform-origin: left; transform: scaleX(0); animation: sv-progress var(--dur, 2600ms) linear forwards; }
+      .sv-steps.is-manual .sv-steplist button.is-on::after, .sv-steps.is-paused .sv-steplist button.is-on::after { display: none; }
+      @keyframes sv-progress { to { transform: scaleX(1); } }
+      .sv-num { flex: none; display: inline-flex; width: 24px; height: 24px; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); font-size: 12px; font-weight: 600; }
+      .is-on > .sv-num { border-color: #f59e0b; background: #f59e0b; color: #000; }
+      /* 手機：四個步驟縮成一排編號，目前那一步的字整行放在下面（.sv-stepcap，JS 填），畫面緊接著 */
+      .sv-stepcap { display: none; }
+      @media (max-width: 1023px) {
+        .sv-js .sv-steplist { display: flex; gap: 6px; }
+        .sv-js .sv-steplist li { flex: 1 1 0; }
+        .sv-js .sv-steplist button { justify-content: center; padding: 8px; border-color: rgba(255,255,255,.08); }
+        .sv-js .sv-steplist button > span:last-child { display: none; }
+        .sv-js .sv-stepcap { display: block; margin: -8px 0 0; min-height: 3em; font-size: 14px; line-height: 1.5; color: #fff; }
+      }
+      .sv-stage { position: relative; min-height: 320px; }
+      .sv-screen { position: absolute; inset: 0; display: flex; flex-direction: column; }
+      .sv-js .sv-screen { opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .4s ease, transform .4s ease, visibility 0s .4s; }
+      .sv-js .sv-screen.is-on { opacity: 1; visibility: visible; transform: none; transition: opacity .4s ease, transform .4s ease; }
+      html:not(.sv-js) .sv-screen:not([data-screen="0"]) { display: none; }
+      .sv-screen .sv-window { flex: 1; display: flex; flex-direction: column; }
+      .sv-pane { flex: 1; display: flex; }
+      .sv-side { width: 150px; border-right: 1px solid rgba(255,255,255,.06); padding: 14px 10px; display: grid; gap: 4px; align-content: start; font-size: 13px; color: rgba(255,255,255,.45); }
+      .sv-side span { border-radius: 6px; padding: 6px 10px; }
+      .sv-side .on { background: rgba(255,255,255,.07); color: #fff; }
+      .sv-main { flex: 1; padding: 20px; display: flex; flex-direction: column; gap: 14px; font-size: 14px; color: #d1d5db; }
+      .sv-center { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
+      .sv-h { margin: 0; font-size: 16px; font-weight: 600; color: #fff; }
+      .sv-muted { margin: 0; font-size: 12px; color: rgba(255,255,255,.45); }
+      .sv-btn { align-self: flex-start; border-radius: 8px; border: 1px solid rgba(255,255,255,.14); padding: 7px 14px; font-size: 13px; color: #fff; }
+      .sv-btn-amber { border-color: transparent; background: #f59e0b; color: #000; font-weight: 500; }
+      /* 連接器清單：假畫面不要大半是空的 */
+      .sv-list { display: grid; border: 1px solid rgba(255,255,255,.08); border-radius: 10px; }
+      .sv-list span { display: flex; align-items: center; justify-content: space-between; padding: 9px 12px; font-size: 13px; color: rgba(255,255,255,.75); }
+      .sv-list span + span { border-top: 1px solid rgba(255,255,255,.06); }
+      .sv-list em { width: 26px; height: 15px; border-radius: 999px; background: rgba(255,255,255,.18); position: relative; }
+      .sv-list em::after { content: ""; position: absolute; top: 2px; right: 2px; width: 11px; height: 11px; border-radius: 50%; background: #fff; }
+      .sv-card { width: 100%; max-width: 380px; border: 1px solid rgba(255,255,255,.09); border-radius: 14px; background: #161616; padding: 20px; display: grid; gap: 12px; }
+      .sv-field { display: grid; gap: 5px; }
+      .sv-field label { font-size: 12px; color: rgba(255,255,255,.5); }
+      .sv-input { min-height: 36px; display: flex; align-items: center; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; background: #0d0d0d; padding: 0 10px; font: 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #fff; overflow: hidden; white-space: nowrap; }
+      .sv-row { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; }
+      /* 打字由 JS 一個字一個字打（會換行，什麼文字都行）；沒有 JS 時直接是完整的字 */
+      .sv-type.is-typing::after { content: ""; display: inline-block; width: 1px; height: 1.05em; margin-left: 1px; vertical-align: -2px; background: currentColor; animation: sv-blink .8s step-end infinite; }
+      .sv-js .sv-press.is-press { animation: sv-press 1s ease-out 2; }
+      @keyframes sv-press { 0% { box-shadow: 0 0 0 0 rgba(245,158,11,.7); } 100% { box-shadow: 0 0 0 12px rgba(245,158,11,0); } }
+      .sv-term { flex: 1; margin: 0; padding: 18px; font: 13px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #d1d5db; white-space: pre-wrap; word-break: break-all; }
+      .sv-term .p { color: #f59e0b; }
+      .sv-js .is-on .sv-wipe { animation: sv-wipe 1.2s steps(60) .15s both; }
+      @keyframes sv-wipe { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+      .sv-token { border: 1px dashed rgba(245,158,11,.5); border-radius: 8px; background: rgba(245,158,11,.06); padding: 10px 12px; font: 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #fbbf24; word-break: break-all; }
+      .sv-conn { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; border: 1px solid rgba(255,255,255,.1); border-radius: 999px; padding: 5px 12px 5px 6px; font-size: 13px; color: #e5e7eb; }
+      .sv-conn img { width: 20px; height: 20px; border-radius: 5px; background: #fff; padding: 2px; }
+      .sv-conn em { font-style: normal; color: #22c55e; }
+      .sv-ask { margin-top: auto; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 12px 14px; font-size: 14px; color: #fff; }
+
+      /* 程式碼區塊：標籤和複製鈕放在標頭列，手機上不再蓋住程式碼 */
+      .sv-code { min-width: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.08); border-radius: 12px; background: #0d0d0d; }
+      .sv-code-h { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid rgba(255,255,255,.06); padding: 8px 10px 8px 16px; font-size: 12px; color: rgba(255,255,255,.55); }
+      .sv-code pre { margin: 0; overflow-x: auto; padding: 14px 16px; font: 13px/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #e5e7eb; }
+      .sv-copy { flex: none; border: 1px solid rgba(255,255,255,.14); border-radius: 7px; background: #1a1a1a; padding: 3px 10px; font-size: 12px; color: #d1d5db; cursor: pointer; }
+      .sv-copy:hover { color: #fff; border-color: rgba(255,255,255,.3); }
+
+      .sv-gets { display: grid; gap: 12px; max-width: 760px; margin: 28px auto 0; text-align: left; }
+      @media (min-width: 768px) { .sv-gets { grid-template-columns: 1fr 1fr; gap: 20px; } }
+      .sv-gets > div { display: flex; gap: 10px; }
+      .sv-gets b { flex: none; display: inline-flex; width: 20px; height: 20px; margin-top: 2px; align-items: center; justify-content: center; border-radius: 50%; background: rgba(245,158,11,.15); font-size: 11px; color: #fbbf24; }
+      .sv-gets h3 { margin: 0; font-size: 15px; font-weight: 500; color: #fff; }
+      .sv-gets p { margin: 4px 0 0; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,.55); }
+
+      @media (max-width: 640px) { .sv-side { display: none; } .sv-stage { min-height: 300px; } }
+      @media (prefers-reduced-motion: reduce) {
+        .sv-js [data-at], .sv-js .sv-screen, .sv-js .sv-punch, .sv-js .sv-dim, .sv-js .sv-dimfade, .sv-js .sv-panel .sv-pf-v b { transition: none !important; }
+        .sv-js .sv-chip::before, .sv-js .sv-panel .sv-pf-v, .sv-js .sv-press, .sv-js .is-on .sv-wipe, .sv-js .sv-steplist button.is-on::after { animation: none !important; }
+      }
+    </style>
+    
+    <link rel="stylesheet" crossorigin href="../assets/tailwind-BFpa3N4E.css">
+  </head>
+  <body class="bg-[#0a0a0a] text-gray-300 antialiased">
+
+    <!-- ============================== NAV ============================== -->
+    <div class="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl">
+      <nav class="mx-auto max-w-[1240px] px-5">
+        <div class="flex h-16 items-center justify-between gap-4">
+          <div class="flex items-center gap-6">
+          <a href="../index.html" class="flex items-center gap-2 no-underline">
+            <svg viewBox="0 0 80.67 77.04" class="h-[17px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+            <span class="text-[15px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+          </a>
+
+          <div class="hidden items-center gap-1 md:flex">
+            <a href="../faq/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">FAQ</a>
+            <a href="../tutorial/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Tutorial</a>
+            <a href="../changelog/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Changelog</a>
+            <a href="../explore/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Explore</a>
+            <a href="index.html" aria-current="page" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+          </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <!-- Desktop only: on a phone the tool cannot be used, so the whole
+                 mobile site funnels into the send-link form instead. -->
+            <a href="../app/index__5a07df1e.html" class="hidden whitespace-nowrap rounded-lg bg-amber-500 px-3.5 py-2 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400 md:inline-block">Open the app</a>
+            <details class="relative md:hidden">
+              <summary class="flex h-8 w-8 cursor-pointer list-none items-center justify-center rounded-lg border border-white/[0.08] text-gray-400 transition hover:text-white">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              </summary>
+              <div class="absolute right-0 top-10 w-48 rounded-xl border border-white/[0.08] bg-[#141414] p-1.5">
+                <a href="../faq/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">FAQ</a>
+                <a href="../tutorial/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Tutorial</a>
+                <a href="../changelog/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Changelog</a>
+                <a href="../explore/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Explore</a>
+                <a href="index.html" aria-current="page" class="block rounded-md px-3 py-2 text-[14px] text-white no-underline hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+              </div>
+            </details>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <header class="mx-auto max-w-[1240px] px-5 pb-6 pt-16 sm:pt-24">
+      <div class="mb-6 text-[12px] text-white/40">
+        <a href="../index.html" class="text-white/40 no-underline transition hover:text-amber-500">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-white/60">AI design</span>
+      </div>
+      <h1 class="max-w-[820px] text-[36px] font-medium leading-[1.05em] tracking-[-0.04em] text-white min-[810px]:text-[48px]">Let your AI design the pattern<span class="ml-3 inline-block rounded border border-amber-500/40 px-1.5 py-1 align-middle text-[12px] font-semibold uppercase leading-none tracking-wider text-amber-400">Beta</span></h1>
+      <p class="mt-5 max-w-[680px] text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[18px]">HueScript works as an MCP server: your AI assistant gets the same pattern engine as the app. Show it a picture, spell out the numbers, or just hand it a photo of your product. It builds, checks and hands back a design you can still edit.</p>
+      <p class="mt-6 inline-block rounded-full border border-white/[0.12] px-3 py-1 text-[12px] font-medium tracking-[0.04em] text-white/60">Works with Claude, Claude Code, Cursor and other MCP clients</p>
+    </header>
+
+    <main class="mx-auto max-w-[1240px] px-5 pb-8">
+      <section class="pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <div>
+            <h2 class="text-balance text-[28px] font-medium leading-[1.1] tracking-[-0.04em] text-white min-[810px]:text-[36px] min-[1200px]:text-[44px]">Give it a picture you like</h2>
+            <p class="mt-5 max-w-[520px] text-pretty text-[16px] leading-[1.45] text-white/60 min-[810px]:text-[18px]">A screenshot, a photo, an image from a mood board. The AI measures spacing, proportion and rhythm and rebuilds the look with the tools.</p>
+          </div>
+          <div class="min-w-0">
+        <div class="sv-window" data-sv-demo>
+          <div class="sv-bar"><i></i><i></i><i></i><b>MCP · HueScript</b><button type="button" class="sv-replay" hidden><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9" /><path d="M2.5 2.5v3h3" /></svg>Replay</button></div>
+          <div class="sv-chat">
+            <div class="sv-msg sv-user" data-at="1" data-hold="800">
+              <div class="sv-attach">
+                <img src="../https://cdn.texture.huescript.com/HueScript Preset/#016__a952dfe4.png" alt="" width="96" height="96" loading="lazy" decoding="async" class="sv-thumb" />
+                <p>Make this pattern on a 300 × 300 mm panel.</p>
+              </div>
+            </div>
+            <div class="sv-tools">
+              <span class="sv-chip" data-at="2" data-hold="420">get_pattern_schema array</span>
+              <span class="sv-chip" data-at="3" data-hold="420">preview_design</span>
+              <span class="sv-chip" data-at="4" data-hold="420">preview_design · compare</span>
+            </div>
+            <div class="sv-slot">
+              <div class="sv-dots" data-at="5" data-off="6" data-hold="750" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="sv-msg sv-ai" data-at="6" data-hold="1300">
+                <div class="sv-result"><img src="../reference-result.svg" alt="Overlapping arc pattern generated by HueScript from the reference image" width="300" height="300" loading="lazy" decoding="async" class="sv-punch" /></div>
+                <p class="sv-after" data-at="7" data-hold="600">Done: 53 cells on a 300 × 300 mm panel, every parameter still editable.</p>
+              </div>
+            </div>
+            <div class="sv-actions" data-at="8"><span class="sv-act sv-act-primary">Open in HueScript ↗</span><span class="sv-act">Export STEP</span></div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <div class="lg:order-2">
+            <h2 class="text-balance text-[28px] font-medium leading-[1.1] tracking-[-0.04em] text-white min-[810px]:text-[36px] min-[1200px]:text-[44px]">Or just spell out the numbers</h2>
+            <p class="mt-5 max-w-[520px] text-pretty text-[16px] leading-[1.45] text-white/60 min-[810px]:text-[18px]">No picture needed. Give it the panel size, the hole range, which way the gradient runs, the open area you are after and the corner radius it has to respect. The AI picks the arrangement, hits the numbers and shows you the result before anything is exported.</p>
+          </div>
+          <div class="min-w-0">
+        <div class="sv-window" data-sv-demo>
+          <div class="sv-bar"><i></i><i></i><i></i><b>MCP · HueScript</b><button type="button" class="sv-replay" hidden><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9" /><path d="M2.5 2.5v3h3" /></svg>Replay</button></div>
+          <div class="sv-chat">
+            <div class="sv-msg sv-user" data-at="1" data-hold="1200"><p>Speaker panel <b class="sv-hl">120 × 80 mm</b>, corner radius <b class="sv-hl">12</b>. Round holes, biggest in the middle and fading toward the edge, <b class="sv-hl">4 mm</b> max. Open area around <b class="sv-hl">18%</b>.</p></div>
+            <div class="sv-tools">
+              <span class="sv-chip" data-at="2" data-hold="420">get_pattern_schema array</span>
+              <span class="sv-chip" data-at="3" data-hold="420">preview_design</span>
+            </div>
+            <div class="sv-slot">
+              <div class="sv-dots" data-at="4" data-off="5" data-hold="750" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="sv-msg sv-ai" data-at="5" data-hold="1700">
+                <svg viewBox="0 0 200 150" class="sv-drawing" role="img" aria-label="Perforated 120 × 80 mm panel generated by HueScript from a written spec" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="28" width="140" height="93.33" rx="14" fill="#141414" stroke="rgba(255,255,255,.28)" stroke-width="1.2" />
+            <g class="sv-punch"><image href="../panel-result.svg" x="30" y="28" width="140" height="93.33" /></g>
+            <g stroke="rgba(251,191,36,.6)" stroke-width=".6" fill="none">
+              <path class="sv-dim" pathLength="1" d="M30 18h140" />
+              <path class="sv-dim" pathLength="1" d="M20 28v93.33" />
+              <path class="sv-dimfade" d="M30 15v6M170 15v6M17 28h6M17 121.33h6" />
+            </g>
+            <text class="sv-dimfade" x="100" y="13" text-anchor="middle" font-size="7" fill="#fbbf24" font-family="ui-monospace, monospace">120</text>
+            <text class="sv-dimfade" x="12" y="74.7" text-anchor="middle" font-size="7" fill="#fbbf24" font-family="ui-monospace, monospace" transform="rotate(-90 12 74.7)">80</text>
+            <text class="sv-dimfade" x="100" y="138" text-anchor="middle" font-size="7.5" fill="#fbbf24" font-family="system-ui, sans-serif">Open area 17.6%</text>
+          </svg>
+                <p class="sv-after" data-at="6" data-hold="600">Hexagonal grid, 307 holes, 1.5–4.0 mm, radial gradient from the centre, clipped to the R12 corners.</p>
+              </div>
+            </div>
+            <div class="sv-actions" data-at="7"><span class="sv-act sv-act-primary">Open in HueScript ↗</span><span class="sv-act">Export STEP</span></div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <div>
+            <h2 class="text-balance text-[28px] font-medium leading-[1.1] tracking-[-0.04em] text-white min-[810px]:text-[36px] min-[1200px]:text-[44px]">Not sure yet? Show it the product</h2>
+            <p class="mt-5 max-w-[520px] text-pretty text-[16px] leading-[1.45] text-white/60 min-[810px]:text-[18px]">Send a photo and say which face needs the holes. The AI works up a few directions and drops each one back onto your photo, so you can judge the look on the real object before committing. Pick one and it hands over the editable design.</p>
+            <p class="mb-0 mt-5 max-w-[520px] text-[13px] leading-[1.6] text-white/50">The three mock-ups are the AI putting the pattern back on your photo, so you can compare the look. Dimensions, open area and the manufacturable file always come from the engine.</p>
+          </div>
+          <div class="min-w-0">
+        <div class="sv-window" data-sv-demo>
+          <div class="sv-bar"><i></i><i></i><i></i><b>MCP · HueScript</b><button type="button" class="sv-replay" hidden><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9" /><path d="M2.5 2.5v3h3" /></svg>Replay</button></div>
+          <div class="sv-chat">
+            <div class="sv-msg sv-user" data-at="1" data-hold="800">
+              <div class="sv-attach">
+                <img src="../product-photo.webp" alt="" width="60" height="111" loading="lazy" decoding="async" class="sv-thumb sv-thumb-tall" />
+                <p>This is my product housing. The front face needs vents, show me three directions.</p>
+              </div>
+            </div>
+            <div class="sv-tools">
+              <span class="sv-chip" data-at="2" data-hold="420">list_patterns</span>
+              <span class="sv-chip" data-at="3" data-hold="420">preview_design · 3</span>
+            </div>
+            <div class="sv-slot">
+              <div class="sv-dots" data-at="4" data-off="5" data-hold="750" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="sv-msg sv-ai sv-props-msg" data-at="5" data-hold="450">
+                <div class="sv-props">
+                <figure><span class="sv-pickwrap"><img src="../product-array.webp" alt="The Array pattern shown on a photo of a product housing" width="440" height="814" loading="lazy" decoding="async" /></span><figcaption>Array</figcaption></figure>
+                <figure data-at="6" data-hold="450"><span class="sv-pickwrap"><img src="../product-flow.webp" alt="The Flow Lines pattern shown on a photo of a product housing" width="440" height="814" loading="lazy" decoding="async" /><span class="sv-pick" data-at="9" aria-hidden="true"></span></span><figcaption>Flow Lines</figcaption></figure>
+                <figure data-at="7" data-hold="800"><span class="sv-pickwrap"><img src="../product-cracks.webp" alt="The Stone Cracks pattern shown on a photo of a product housing" width="440" height="814" loading="lazy" decoding="async" /></span><figcaption>Stone Cracks</figcaption></figure>
+                </div>
+                <p class="sv-after" data-at="8" data-hold="1500">Three directions, each on your own photo: array, flow lines and stone cracks. Say which one and I will turn it into an editable design.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ai-custom" class="pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <div class="lg:order-2">
+            <h2 class="text-balance text-[28px] font-medium leading-[1.1] tracking-[-0.04em] text-white min-[810px]:text-[36px] min-[1200px]:text-[44px]">When the built-in patterns can’t place it</h2>
+            <p class="mt-5 max-w-[520px] text-pretty text-[16px] leading-[1.45] text-white/60 min-[810px]:text-[18px]">The same number of holes on every ring, every other ring offset half a step, rings closing up toward the rim: arrangements none of the built-in patterns can place. The AI measures your picture and tries the built-in patterns first; when none fits, it switches to AI Custom on its own, writes the arrangement rule itself and turns what is worth adjusting into parameters you edit in the app.</p>
+            <p class="mb-0 mt-5 max-w-[520px] text-[13px] leading-[1.6] text-white/50">In the app you adjust the parameters of AI Custom; to change the arrangement itself, give the exported SVG or saved JSON back to your AI.</p>
+          </div>
+          <div class="min-w-0">
+        <div class="sv-window" data-sv-demo>
+          <div class="sv-bar"><i></i><i></i><i></i><b>MCP · HueScript</b><button type="button" class="sv-replay" hidden><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 8a5.5 5.5 0 1 0 1.6-3.9" /><path d="M2.5 2.5v3h3" /></svg>Replay</button></div>
+          <div class="sv-chat">
+            <div class="sv-msg sv-user" data-at="1" data-hold="800">
+              <div class="sv-attach">
+                <img src="../custom-photo.svg" alt="" width="96" height="96" loading="lazy" decoding="async" class="sv-thumb sv-photo" />
+                <p>Make the hole layout of this speaker grille.</p>
+              </div>
+            </div>
+            <div class="sv-tools">
+              <span class="sv-chip" data-at="2" data-hold="480">preview_design · measure</span>
+            </div>
+            <div class="sv-slot">
+              <div class="sv-dots" data-at="3" data-off="4" data-hold="750" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="sv-msg sv-ai sv-plain" data-at="4" data-hold="2600"><p>Measured: rings of 32 holes, every other ring offset half a step, closing up toward the rim, then three double rings outside. The built-in concentric pattern cannot fix the number of holes per ring, so I am switching to AI Custom: I write the rule, and you adjust its parameters in the app.</p></div>
+            </div>
+            <div class="sv-tools">
+              <span class="sv-chip" data-at="5" data-hold="420">get_pattern_schema ai_custom</span>
+              <span class="sv-chip" data-at="6" data-hold="420">preview_design · compare</span>
+            </div>
+            <div class="sv-slot">
+              <div class="sv-dots" data-at="7" data-off="8" data-hold="750" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="sv-msg sv-ai sv-wide" data-at="8" data-hold="1100">
+                <div class="sv-split">
+                <svg viewBox="0 0 200 200" class="sv-drawing" role="img" aria-label="Speaker grille of staggered 32-hole rings, generated by HueScript from an AI Custom rule" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="100" cy="100" r="92" fill="#141414" stroke="rgba(255,255,255,.28)" stroke-width="1.2" />
+                  <g class="sv-punch"><image href="../custom-result.svg" x="8" y="8" width="184" height="184" /></g>
+                </svg>
+                <div class="sv-panel" data-at="9" data-hold="1700">
+                  <p class="sv-panel-h">Pattern Mode</p>
+                  <p class="sv-panel-sel">AI Custom<span aria-hidden="true">▼</span></p>
+                  <div class="sv-pfs">
+                    <div class="sv-pf" style="--i:0"><span class="sv-pf-l"><span>Holes per ring</span></span><span class="sv-pf-v"><b>32</b></span></div>
+                    <div class="sv-pf" style="--i:1"><span class="sv-pf-l"><span>First ring radius</span><span>mm</span></span><span class="sv-pf-v"><b>45.7</b></span></div>
+                    <div class="sv-pf" style="--i:2"><span class="sv-pf-l"><span>Ring gap</span><span>mm</span></span><span class="sv-pf-v"><b>10</b></span></div>
+                    <div class="sv-pf" style="--i:3"><span class="sv-pf-l"><span>Outer rings tighten</span><span>mm</span></span><span class="sv-pf-v"><b>0.18</b></span></div>
+                  </div>
+                  <p class="sv-pf-more">+ 5 more parameters</p>
+                </div>
+                </div>
+                <p class="sv-after" data-at="10" data-hold="800">Done: 512 holes, in the same positions as the photo. Hole sizes come from ordinary size gradients: small in the middle, larger further out, small again in the outer rings. These nine parameters are number fields in the app.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pt-24" id="setup">
+        <h2 class="m-0 text-[28px] font-medium tracking-[-0.02em] text-white">How to connect</h2>
+        <p class="mt-3 max-w-[680px] text-[15px] leading-[1.6] text-white/60">Both need a HueScript Pro account. The connector needs no install; a token works in any tool that can run an MCP server.</p>
+
+        <div class="mt-10 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 sm:p-8">
+          <p class="m-0 inline-block rounded-full bg-amber-500/10 px-2.5 py-0.5 text-[12px] font-medium text-amber-400">A · No install</p>
+          <h3 class="mt-3 text-[22px] font-medium tracking-[-0.02em] text-white">Add it as a connector</h3>
+          <p class="mb-6 mt-2 max-w-[680px] text-[14px] leading-[1.6] text-white/60">For Claude on the web and desktop. You sign in with your HueScript account; there is no token to copy.</p>
+        <div class="sv-steps" data-sv-steps>
+          <ol class="sv-steplist">
+            <li><button type="button" data-goto="0" class="is-on"><span class="sv-num">1</span><span>In Claude, open Settings → Connectors → Add custom connector.</span></button></li>
+            <li><button type="button" data-goto="1"><span class="sv-num">2</span><span>Name it HueScript and paste the server URL below.</span></button></li>
+            <li><button type="button" data-goto="2"><span class="sv-num">3</span><span>Sign in to HueScript and press Allow.</span></button></li>
+            <li><button type="button" data-goto="3"><span class="sv-num">4</span><span>Start a chat and describe the pattern you need.</span></button></li>
+          </ol>
+          <p class="sv-stepcap" aria-hidden="true">In Claude, open Settings → Connectors → Add custom connector.</p>
+          <div class="sv-stage">
+            <div class="sv-screen is-on" data-screen="0">
+              <div class="sv-window"><div class="sv-bar"><i></i><i></i><i></i><b>Settings</b></div>
+                <div class="sv-pane">
+                  <div class="sv-side"><span>General</span><span>Account</span><span class="on">Connectors</span></div>
+                  <div class="sv-main">
+                    <p class="sv-h">Connectors</p>
+                    <div class="sv-list"><span>Google Drive<em></em></span><span>GitHub<em></em></span></div>
+                    <span class="sv-btn sv-press">+ Add custom connector</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sv-screen" data-screen="1">
+              <div class="sv-window"><div class="sv-bar"><i></i><i></i><i></i><b>Settings</b></div>
+                <div class="sv-center">
+                  <div class="sv-card">
+                    <p class="sv-h">Add custom connector</p>
+                    <div class="sv-field"><label>Name</label><div class="sv-input"><span class="sv-type" data-type="HueScript">HueScript</span></div></div>
+                    <div class="sv-field"><label>Remote MCP server URL</label><div class="sv-input"><span class="sv-type" data-type="https://texture.huescript.com/mcp">https://texture.huescript.com/mcp</span></div></div>
+                    <div class="sv-row"><span class="sv-btn sv-btn-amber sv-press">Add</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sv-screen" data-screen="2">
+              <div class="sv-window"><div class="sv-bar"><i></i><i></i><i></i><b>texture.huescript.com</b></div>
+                <div class="sv-center">
+                  <div class="sv-card">
+                    <img src="../logo-w.svg" alt="HueScript" width="28" height="28" />
+                    <p class="sv-h">An AI app wants to use your HueScript account</p>
+                    <p class="sv-muted">you@example.com</p>
+                    <div class="sv-row"><span class="sv-btn">Deny</span><span class="sv-btn sv-btn-amber sv-press">Allow</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sv-screen" data-screen="3">
+              <div class="sv-window"><div class="sv-bar"><i></i><i></i><i></i><b>Chat</b></div>
+                <div class="sv-main">
+                  <span class="sv-conn"><img src="../logo-b.svg" alt="" width="20" height="20" />HueScript · <em>Connected</em> · 9 tools</span>
+                  <div class="sv-ask"><span class="sv-type" data-type="Design a vent for a 200 mm panel…">Design a vent for a 200 mm panel…</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="mt-6">
+        <div class="sv-code">
+          <div class="sv-code-h"><span>Server URL</span><button type="button" class="sv-copy" data-sv-copytext="https://texture.huescript.com/mcp" data-copied="Copied">Copy</button></div>
+          <pre><code>https://texture.huescript.com/mcp</code></pre>
+        </div>
+          </div>
+          <p class="mb-0 mt-4 text-[13px] leading-[1.6] text-white/50">Connector sign-in has been tested with Claude. Other AI apps that accept a remote MCP server URL with sign-in follow the same steps.</p>
+        </div>
+
+        <div class="mt-8 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 sm:p-8">
+          <p class="m-0 inline-block rounded-full bg-white/[0.06] px-2.5 py-0.5 text-[12px] font-medium text-gray-300">B · For developers</p>
+          <h3 class="mt-3 text-[22px] font-medium tracking-[-0.02em] text-white">Use an API token</h3>
+          <p class="mb-4 mt-2 max-w-[680px] text-[14px] leading-[1.6] text-white/60">For Claude Code, Claude Desktop, Cursor and your own scripts: anything that can call an MCP server.</p>
+          <!-- Desktop only, like the nav's "Open the app": the editor cannot be used on a phone. -->
+          <a href="../app/index__ac5bd1b6.html" class="mb-6 hidden rounded-lg bg-amber-500 px-4 py-2 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400 md:inline-block">Open API access in the app ↗</a>
+        <div class="sv-steps" data-sv-steps>
+          <ol class="sv-steplist">
+            <li><button type="button" data-goto="0" class="is-on"><span class="sv-num">1</span><span>In the HueScript app, open Settings → API access and create a token.</span></button></li>
+            <li><button type="button" data-goto="1"><span class="sv-num">2</span><span>Copy it straight away: it is only shown once.</span></button></li>
+            <li><button type="button" data-goto="2"><span class="sv-num">3</span><span>Add HueScript to your tool with the command or config below.</span></button></li>
+            <li><button type="button" data-goto="3"><span class="sv-num">4</span><span>Ask for a design. You can revoke the token in the same place at any time.</span></button></li>
+          </ol>
+          <p class="sv-stepcap" aria-hidden="true">In the HueScript app, open Settings → API access and create a token.</p>
+          <div class="sv-stage">
+            <div class="sv-screen is-on" data-screen="0">
+              <div class="sv-window"><div class="sv-bar"><i></i><i></i><i></i><b>HueScript</b></div>
+                <div class="sv-center">
+                  <div class="sv-card">
+                    <p class="sv-h">API access</p>
+                    <p class="sv-muted">Available with Pro.</p>
+                    <div class="sv-field"><label>Token name (e.g. Claude)</label><div class="sv-input"><span class="sv-type" data-type="Claude">Claude</span></div></div>
+                    <span class="sv-btn sv-btn-amber sv-press">Create token</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sv-screen" data-screen="1">
+              <div class="sv-window"><div class="sv-bar"><i></i><i></i><i></i><b>HueScript</b></div>
+                <div class="sv-center">
+                  <div class="sv-card">
+                    <p class="sv-h">API access</p>
+                    <div class="sv-token">sv_3f9a1c07e4b2…d81e</div>
+                    <p class="sv-muted" style="color:#fcd34d">Copy it now. This token will not be shown again.</p>
+                    <span class="sv-btn sv-press">Copy</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sv-screen" data-screen="2" data-hold="2600">
+              <div class="sv-window"><div class="sv-bar"><i></i><i></i><i></i><b>Terminal</b></div>
+                <pre class="sv-term"><span class="sv-wipe" style="display:block"><span class="p">$</span> claude mcp add --transport http huescript https://texture.huescript.com/mcp --header &quot;Authorization: Bearer sv_3f9a1c07e4b2…d81e&quot;</span></pre>
+              </div>
+            </div>
+            <div class="sv-screen" data-screen="3">
+              <div class="sv-window"><div class="sv-bar"><i></i><i></i><i></i><b>Claude Code</b></div>
+                <div class="sv-main">
+                  <div class="sv-ask" style="margin-top:0"><span class="sv-type" data-type="Design a vent for a 200 mm panel…">Design a vent for a 200 mm panel…</span></div>
+                  <div class="sv-tools"><span class="sv-chip">get_pattern_schema</span><span class="sv-chip">preview_design</span><span class="sv-chip">export_design stp</span></div>
+                  <p class="sv-muted">→ huescript-vent.stp</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <div class="mt-6 grid gap-5">
+        <div class="sv-code">
+          <div class="sv-code-h"><span>Claude Code: remote server</span><button type="button" class="sv-copy" data-sv-copytext="claude mcp add --transport http huescript https://texture.huescript.com/mcp --header &quot;Authorization: Bearer sv_YOUR_TOKEN&quot;" data-copied="Copied">Copy</button></div>
+          <pre><code>claude mcp add --transport http huescript https://texture.huescript.com/mcp --header &quot;Authorization: Bearer sv_YOUR_TOKEN&quot;</code></pre>
+        </div>
+        <div class="sv-code">
+          <div class="sv-code-h"><span>Claude Desktop, Cursor and others: local server (the engine runs on your computer)</span><button type="button" class="sv-copy" data-sv-copytext="{
+  &quot;mcpServers&quot;: {
+    &quot;huescript&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;huescript-mcp@latest&quot;],
+      &quot;env&quot;: { &quot;SOLIDVENTS_TOKEN&quot;: &quot;sv_YOUR_TOKEN&quot; }
+    }
+  }
+}" data-copied="Copied">Copy</button></div>
+          <pre><code>{
+  &quot;mcpServers&quot;: {
+    &quot;huescript&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;huescript-mcp@latest&quot;],
+      &quot;env&quot;: { &quot;SOLIDVENTS_TOKEN&quot;: &quot;sv_YOUR_TOKEN&quot; }
+    }
+  }
+}</code></pre>
+        </div>
+          </div>
+          <p class="mb-0 mt-4 text-[13px] leading-[1.6] text-white/50">Replace sv_YOUR_TOKEN with your own token. Keep it private, like a password.</p>
+        </div>
+      </section>
+
+      <section class="pt-24">
+        <h2 class="m-0 text-[28px] font-medium tracking-[-0.02em] text-white">Questions</h2>
+        <div class="mt-6 divide-y divide-white/[0.07] border-y border-white/[0.07]">
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-white">Which AI apps can use it?<span class="text-white/40 transition group-open:rotate-45">+</span></summary>
+            <p class="mb-0 mt-3 max-w-[760px] text-[14px] leading-[1.7] text-white/60">Any app that supports the Model Context Protocol (MCP): Claude on the web and desktop, Claude Code, Cursor and others. Apps that take a server URL with sign-in use the connector; the rest use a token.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-white">Do I need Pro?<span class="text-white/40 transition group-open:rotate-45">+</span></summary>
+            <p class="mb-0 mt-3 max-w-[760px] text-[14px] leading-[1.7] text-white/60">Yes. HueScript MCP and the API are Pro features: every tool, from preview to STEP export, needs a Pro account. The app itself stays free to use.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-white">How close does it get to my reference?<span class="text-white/40 transition group-open:rotate-45">+</span></summary>
+            <p class="mb-0 mt-3 max-w-[760px] text-[14px] leading-[1.7] text-white/60">Looks from the preset library are reproduced exactly from their recipes. For other pictures the AI rebuilds the look from its measurements, which usually gets close; open the design in the app to finish the details. When no built-in arrangement can place the holes, the AI switches to AI Custom on its own and writes the arrangement rule itself.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-white">What can the AI access?<span class="text-white/40 transition group-open:rotate-45">+</span></summary>
+            <p class="mb-0 mt-3 max-w-[760px] text-[14px] leading-[1.7] text-white/60">Only the HueScript design tools under your account: previews, exports and design links, not your other files or account settings. Download links work for 24 hours; the files and design links are deleted after two days. Each tool call is logged with the tool name, whether it succeeded and how long it took (never your design, pictures or prompts) and kept for 180 days. You can revoke a token or disconnect the connector at any time.</p>
+          </details>
+          <details class="group py-5">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-medium text-white">Are there limits?<span class="text-white/40 transition group-open:rotate-45">+</span></summary>
+            <p class="mb-0 mt-3 max-w-[760px] text-[14px] leading-[1.7] text-white/60">Up to 120 exports per hour and 10 tokens per account. Reference pictures up to 6 MB and 16 megapixels; designs up to 200,000 holes. When your Pro plan ends, every tool stops until you renew; the app itself stays free.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <section class="mx-auto mb-20 mt-16 max-w-[1240px] px-5">
+      <div class="rounded-2xl border border-white/[0.07] bg-white/[0.03] px-6 py-10 text-center">
+        <h2 class="m-0 text-[24px] font-medium tracking-[-0.02em] text-white">Try it with your own AI</h2>
+        <p class="mx-auto mt-4 max-w-[620px] text-[15px] leading-[1.6] text-white/60">Add the connector or create a token, then tell it the pattern you need.</p>
+        <div class="sv-gets">
+          <div><b aria-hidden="true">✓</b><div><h3>An editable design</h3><p>One link opens the design in HueScript, with every spacing, gradient and shape ready to fine-tune by hand.</p></div></div>
+          <div><b aria-hidden="true">✓</b><div><h3>Straight into your workflow</h3><p>In an AI modelling workflow the AI exports the STEP itself and hands it to your CAD, or SVG / DXF for laser cutting and drawings. No detour back to the app to export by hand.</p></div></div>
+        </div>
+        <div class="mt-8 flex flex-wrap justify-center gap-3">
+          <a href="../app/index__5a07df1e.html" class="inline-block rounded-lg bg-amber-500 px-5 py-2.5 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400">Open the app</a>
+          
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/[0.07] px-5 pb-10 pt-14">
+      <div class="mx-auto max-w-[1240px]">
+        <div class="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+          <div class="col-span-2 md:col-span-4 lg:col-span-1">
+            <a href="../index.html" class="inline-flex items-center gap-2.5 no-underline">
+              <svg viewBox="0 0 80.67 77.04" class="h-[26px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+              <span class="text-[22px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+            </a>
+            <p class="mt-5 max-w-[300px] text-[14px] leading-[1.5] text-white/60">
+              A browser-based parametric pattern generator. Design it, export SVG / DXF / STEP, make it.
+            </p>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Product</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../app/index__5a07df1e.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Open the app</a></li>
+              <li><a href="index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a></li>
+              <li></li>
+              <li><a href="../changelog/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Changelog</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Patterns</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../explore/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Explore</a></li>
+              <li><a href="../speaker-grille-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Speaker grille</a></li>
+              <li><a href="../ventilation-hole-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Ventilation holes</a></li>
+              <li><a href="../halftone-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Halftone patterns</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Guides</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../tutorial/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Tutorial</a></li>
+              <li><a href="../faq/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">FAQ</a></li>
+              <li><a href="../guides/ipad/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Using on iPad</a></li>
+              <li><a href="../guides/wrap/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Wrap onto curved surfaces</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">About</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../about/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">About HueScript</a></li>
+              <li><button type="button" data-sv-copy="huescript@gmail.com" class="relative p-0 text-left text-[14px] text-white/60 transition hover:text-white" title="huescript@gmail.com">Contact us<span class="sv-copy-toast absolute bottom-full left-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span></button></li>
+              <li><a href="../privacy/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Privacy policy</a></li>
+              <li><a href="../terms/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Terms of service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Community bar -->
+        <div class="mt-12 flex flex-col gap-6 border-t border-white/[0.07] pt-6 lg:flex-row lg:items-center lg:justify-between">
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a href="../app/index__4b616722.html" class="flex items-center gap-2 text-[14px] font-medium text-white/70 no-underline transition hover:text-white">
+              <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" /></svg>
+              Send feedback
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-5">
+            <div class="flex items-center gap-4 text-white/50">
+              <a href="https://www.instagram.com/huescript/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="Instagram">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+              </a>
+              <a href="https://www.youtube.com/@HueScript" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="YouTube">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg>
+              </a>
+              <button type="button" data-sv-copy="huescript@gmail.com" class="relative transition hover:text-white" title="huescript@gmail.com" aria-label="huescript@gmail.com">
+                <svg class="h-[18px] w-[18px] fill-current sv-copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                <svg class="sv-copy-check h-[18px] w-[18px] fill-current text-green-400" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                <span class="sv-copy-toast absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span>
+              </button>
+            </div>
+
+            <!-- Language picker: real links inside a <details>, so every locale
+                 stays crawlable and the control needs no JavaScript. -->
+            
+
+            <div class="flex flex-col leading-tight">
+              <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50">Created by</span>
+              <span class="text-[14px] font-semibold text-white">Yoshi Chen</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="m-0 mt-8 text-center text-[13px] text-white/50">© 2026 HueScript. All rights reserved.</p>
+
+        <script src="../site-copy.js" defer></script>
+      </div>
+    </footer>
+
+  </body>
+</html>

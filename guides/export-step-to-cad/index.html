@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8W2EV2PJ7W"></script>
+    <script src="../ga-init.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Primary Meta Tags -->
+    <title>Export Hole Patterns to SolidWorks & Fusion 360 as STEP Files</title>
+    <meta name="title" content="Export Hole Patterns to SolidWorks & Fusion 360 as STEP Files">
+    <meta name="description" content="Skip modeling hundreds of holes by hand. Design a perforated pattern in your browser and export it as a STEP file that imports cleanly into SolidWorks, Fusion 360, CATIA, Inventor, or Rhino.">
+    <meta name="author" content="HueScript">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://texture.huescript.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://texture.huescript.com/guides/export-step-to-cad">
+    <meta property="og:title" content="Export Hole Patterns to SolidWorks & Fusion 360 as STEP Files">
+    <meta property="og:description" content="Design perforated patterns in your browser and export STEP files that import cleanly into SolidWorks, Fusion 360, CATIA, Inventor, or Rhino.">
+    <meta property="og:image" content="https://texture.huescript.com/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="HueScript">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://texture.huescript.com/guides/export-step-to-cad">
+    <meta name="twitter:title" content="Export Hole Patterns to SolidWorks & Fusion 360 as STEP Files">
+    <meta name="twitter:description" content="Design perforated patterns in your browser and export STEP files that import cleanly into SolidWorks, Fusion 360, CATIA, Inventor, or Rhino.">
+    <meta name="twitter:image" content="https://texture.huescript.com/og-image.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HowTo",
+          "@id": "https://texture.huescript.com/guides/export-step-to-cad#howto",
+          "name": "How to Export a Hole Pattern to SolidWorks or Fusion 360 as a STEP File",
+          "description": "Design a perforated pattern in the browser with HueScript and bring it into SolidWorks, Fusion 360, or any CAD package as a STEP file.",
+          "totalTime": "PT10M",
+          "tool": [
+            { "@type": "HowToTool", "name": "A web browser (Chrome, Edge, Firefox, or Safari)" },
+            { "@type": "HowToTool", "name": "CAD software that opens STEP files (SolidWorks, Fusion 360, CATIA, Inventor, Rhino)" }
+          ],
+          "video": { "@id": "https://texture.huescript.com/guides/export-step-to-cad#video" },
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Design the pattern in your browser",
+              "text": "Open a HueScript pattern generator and build the hole pattern parametrically: choose an array mode, set hole size and spacing, and add gradients or a boundary shape.",
+              "url": "https://texture.huescript.com/guides/export-step-to-cad#step-1"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Check the pattern at manufacturing scale",
+              "text": "Verify hole sizes, spacing, and the boundary against your real part dimensions before export, so the geometry lands in CAD at the right scale.",
+              "url": "https://texture.huescript.com/guides/export-step-to-cad#step-2"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Export a STEP (.stp) file",
+              "text": "Choose STEP in the export menu and download the file. STEP is a neutral 3D format that every major CAD package imports natively.",
+              "url": "https://texture.huescript.com/guides/export-step-to-cad#step-3"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Import into SolidWorks or Fusion 360",
+              "text": "Open the STEP file in your CAD software. The pattern arrives as exact geometry you can position on your part, thicken into a solid, or use to cut the perforation into an existing body.",
+              "url": "https://texture.huescript.com/guides/export-step-to-cad#step-4"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Use split export for very dense patterns",
+              "text": "If the pattern has thousands of holes, enable STP Split to export the surface as multiple smaller regions. All pieces keep absolute coordinates and align automatically in CAD.",
+              "video": { "@id": "https://texture.huescript.com/guides/export-step-to-cad#video-cad" },
+              "url": "https://texture.huescript.com/guides/export-step-to-cad#step-5"
+            }
+          ]
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://texture.huescript.com/guides/export-step-to-cad#video",
+          "name": "Split Surface STEP Export: HueScript Tutorial",
+          "description": "Demo of the HueScript STP Split feature: divide a dense hole pattern into multiple STEP regions that import smoothly into CAD and align automatically thanks to absolute coordinates.",
+          "contentUrl": "https://cdn.texture.huescript.com/tutorial/export-stp-split-surface.mp4?v=37e6590d",
+          "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/export-stp-split-surface.jpg",
+          "uploadDate": "2026-04-14"
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://texture.huescript.com/guides/export-step-to-cad#video-cad",
+          "name": "Split STEP Files Reassembling in CAD",
+          "description": "Nine STEP files from a single 3x3 split export, imported into one FreeCAD document one at a time with no repositioning. Every tile carries absolute coordinates, so each lands in its own place and the nine close up into the original perforated sheet.",
+          "contentUrl": "https://cdn.texture.huescript.com/tutorial/export-stp-split-cad.mp4?v=b66af6ae",
+          "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/export-stp-split-cad.jpg",
+          "uploadDate": "2026-09-08"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://texture.huescript.com/guides/export-step-to-cad#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Which CAD software can open the exported STEP files?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "STEP (.stp) is a neutral 3D exchange format, so the files open natively in SolidWorks, Fusion 360, CATIA, Inventor, Rhino, FreeCAD, and virtually every other CAD package."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is STEP export free?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The free plan includes STEP, SVG, and DXF export, up to 3 exports per day. The Pro plan removes the daily limit and adds split STEP export for very dense patterns."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "My CAD software freezes when importing a pattern with thousands of holes. What can I do?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Use the STP Split feature: it divides the surface into a grid of smaller regions exported as separate STEP files (optionally zipped). Each file keeps absolute coordinates, so the pieces align automatically in CAD. Import them one by one to keep your session responsive."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can the holes still be edited after importing into CAD?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "STEP carries exact geometry, not feature history, so you edit the pattern parametrically in HueScript: change the parameters, re-export, and re-import. Cloud-saved projects make this round trip quick."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you also export 2D formats for laser cutting?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. The same pattern exports as SVG for graphic tools and laser cutters, or DXF for AutoCAD and CNC workflows. One design, 2D and 3D outputs."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://texture.huescript.com/guides/export-step-to-cad#breadcrumb",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "HueScript", "item": "https://texture.huescript.com/" },
+            { "@type": "ListItem", "position": 2, "name": "STEP Export to CAD Guide" }
+          ]
+        }
+      ]
+    }
+    </script>
+
+
+    <!-- Fonts are self-hosted; @font-face lives in styles/tailwind.css -->
+
+    <style>
+      body {
+        background-color: #0a0a0a;
+        color: #e5e5e5;
+        margin: 0;
+        padding: 0;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+      html { scroll-behavior: smooth; }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        background: #1a1a1a;
+        border: 1px solid #2a2a2a;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .video-container video {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 9999px;
+        background: rgba(245, 158, 11, 0.12);
+        border: 1px solid rgba(245, 158, 11, 0.4);
+        color: #f59e0b;
+        font-weight: 700;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+
+      summary::-webkit-details-marker { display: none; }
+      .sv-lang[open] .sv-lang-chevron { transform: rotate(180deg); }
+      /* On-this-page contents (public/site-toc.js marks the section being read). */
+      .sv-toc a[aria-current="true"] { color: #fff; border-left-color: #f59e0b; }
+    </style>
+    <!-- Tailwind CSS (compiled). Must stay last in <head>: utilities must override the Material Symbols stylesheet's 24px font-size default (same order the old Play CDN produced). -->
+    <link rel="stylesheet" crossorigin href="../assets/tailwind-BFpa3N4E.css">
+  </head>
+  <body class="bg-[#0a0a0a] text-gray-300 antialiased">
+    <!-- site-chrome:nav:start -->
+    <!-- ============================== NAV ============================== -->
+    <div class="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl">
+      <nav class="mx-auto max-w-[1240px] px-5">
+        <div class="flex h-16 items-center justify-between gap-4">
+          <div class="flex items-center gap-6">
+          <a href="../index.html" class="flex items-center gap-2 no-underline">
+            <svg viewBox="0 0 80.67 77.04" class="h-[17px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+            <span class="text-[15px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+          </a>
+
+          <div class="hidden items-center gap-1 md:flex">
+            <a href="../faq/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">FAQ</a>
+            <a href="../tutorial/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Tutorial</a>
+            <a href="../changelog/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Changelog</a>
+            <a href="../explore/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Explore</a>
+            <a href="../ai/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+          </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <!-- Desktop only: on a phone the tool cannot be used, so the whole
+                 mobile site funnels into the send-link form instead. -->
+            <a href="../app/index__5a07df1e.html" class="hidden whitespace-nowrap rounded-lg bg-amber-500 px-3.5 py-2 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400 md:inline-block">Open the app</a>
+            <details class="relative md:hidden">
+              <summary class="flex h-8 w-8 cursor-pointer list-none items-center justify-center rounded-lg border border-white/[0.08] text-gray-400 transition hover:text-white">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              </summary>
+              <div class="absolute right-0 top-10 w-48 rounded-xl border border-white/[0.08] bg-[#141414] p-1.5">
+                <a href="../faq/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">FAQ</a>
+                <a href="../tutorial/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Tutorial</a>
+                <a href="../changelog/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Changelog</a>
+                <a href="../explore/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Explore</a>
+                <a href="../ai/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+              </div>
+            </details>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- site-chrome:nav:end -->
+
+    <!-- Article -->
+    <div class="mx-auto max-w-[1240px] px-5 pb-12 pt-16 sm:pt-24 lg:flex lg:items-start lg:justify-between lg:gap-16">
+      <main class="min-w-0 max-w-3xl flex-1">
+
+      <!-- Breadcrumb -->
+      <div class="text-xs text-gray-400 mb-6">
+        <a href="../index.html" class="hover:text-amber-500 no-underline text-gray-500">Home</a>
+        <span class="mx-2">/</span>
+        <span class="text-gray-400">Guides</span>
+        <span class="mx-2">/</span>
+        <span class="text-gray-400">STEP Export to CAD</span>
+      </div>
+
+      <h1 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
+        Export Perforated Patterns to SolidWorks / Fusion 360 as STEP Files
+      </h1>
+      <p class="text-gray-400 text-base mb-8">
+        Modeling a hole pattern directly in CAD is slow in a way every mechanical engineer knows: sketch one hole, run a linear or circular pattern, wait for the rebuild, discover the spacing looks wrong, and start over. Gradients make it worse, because most CAD pattern features can't vary hole size across a surface at all. The faster workflow is to design the pattern <em>parametrically in the browser</em>, then hand your CAD software a finished <strong class="text-gray-200 font-semibold">STEP file</strong>. This guide walks through that workflow with <a href="../speaker-grille-pattern-generator/index.html" class="text-amber-500 hover:text-amber-400 no-underline font-medium">HueScript</a>, including how to keep imports fast when the pattern has thousands of holes.
+      </p>
+
+      <!-- Video -->
+      <div class="video-container mb-3">
+        <video controls preload="metadata" poster="../tutorial-thumbs/export-stp-split-surface.jpg">
+          <source src="../https://cdn.texture.huescript.com/tutorial/export-stp-split-surface__bc610ffe.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="text-xs text-gray-400 mb-10">Split STEP export in action: a dense pattern divided into regions that align automatically when imported into CAD.</p>
+
+      <!-- Steps -->
+      <h2 id="the-pattern-to-step-workflow-step-by-step" class="scroll-mt-24 text-2xl font-bold text-white mb-6">The pattern-to-STEP workflow, step by step</h2>
+
+      <article id="step-1" class="mb-8 scroll-mt-24">
+        <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-3">
+          <span class="step-number">1</span> Design the pattern in your browser
+        </h3>
+        <p class="text-gray-400">
+          Open the generator that matches your part: the <a href="../speaker-grille-pattern-generator/index.html" class="text-amber-500 hover:text-amber-400 no-underline font-medium">speaker grille generator</a> for audio panels, the <a href="../ventilation-hole-pattern-generator/index.html" class="text-amber-500 hover:text-amber-400 no-underline font-medium">ventilation hole generator</a> for cooling openings, or the <a href="../halftone-pattern-generator/index.html" class="text-amber-500 hover:text-amber-400 no-underline font-medium">halftone generator</a> for decorative perforation. Build the pattern with on-canvas controllers and numeric fields: array mode (grid, hex, concentric, spiral…), hole size and spacing, size gradients, and a boundary shape to clip the pattern to your panel outline. What takes an afternoon of pattern features in CAD takes minutes here.
+        </p>
+      </article>
+
+      <article id="step-2" class="mb-8 scroll-mt-24">
+        <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-3">
+          <span class="step-number">2</span> Check the pattern at manufacturing scale
+        </h3>
+        <p class="text-gray-400">
+          Before exporting, sanity-check the numbers against the real part: smallest hole diameter, minimum web (the material between adjacent holes), and the boundary dimensions. The exported geometry comes in at the scale you designed, so catching a too-small hole here is much cheaper than re-importing later. If you're designing for acoustics or airflow, this is also the moment to eyeball the open area: our <a href="../speaker-grille-design/index.html" class="text-amber-500 hover:text-amber-400 no-underline font-medium">speaker grille design guide</a> covers the guideline numbers.
+        </p>
+      </article>
+
+      <article id="step-3" class="mb-8 scroll-mt-24">
+        <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-3">
+          <span class="step-number">3</span> Export a STEP (.stp) file
+        </h3>
+        <p class="text-gray-400">
+          Pick <strong class="text-gray-300 font-semibold">STEP</strong> in the export menu and download the file. STEP is the neutral 3D exchange format of the CAD world. Unlike a mesh (STL) it carries exact analytic geometry, so circles stay true circles instead of polygon approximations. The free plan includes 3 exports per day; Pro removes the limit.
+        </p>
+      </article>
+
+      <article id="step-4" class="mb-8 scroll-mt-24">
+        <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-3">
+          <span class="step-number">4</span> Import into SolidWorks, Fusion 360, or any CAD
+        </h3>
+        <p class="text-gray-400">
+          In SolidWorks, use <strong class="text-gray-300 font-semibold">File → Open</strong> and select the .stp file; in Fusion 360, upload it to your project or use <strong class="text-gray-300 font-semibold">Insert → Insert CAD</strong>. The pattern arrives as exact surface geometry. From there, the usual moves are to thicken it into a solid panel, or use it as the cutting geometry to perforate an existing body. Because the geometry is exact, downstream features (fillets, shells, drafts) behave just like native geometry.
+        </p>
+      </article>
+
+      <article id="step-5" class="mb-8 scroll-mt-24">
+        <h3 class="text-lg font-bold text-gray-200 mb-2 flex items-center gap-3">
+          <span class="step-number">5</span> Dense pattern? Use split STEP export
+        </h3>
+        <p class="text-gray-400">
+          A grille with thousands of holes can make any CAD import crawl, since one giant face with thousands of inner loops is heavy to parse and heavier to rebuild. The <strong class="text-gray-300 font-semibold">STP Split</strong> feature (Pro) solves this by dividing the surface into a grid of smaller regions (you choose the rows and columns) exported as separate STEP files, optionally packaged as one ZIP. Every piece keeps <strong class="text-gray-300 font-semibold">absolute coordinates</strong>, so when you import them into the same CAD assembly they align precisely with zero manual positioning.
+        </p>
+
+        <div class="video-container mt-5 mb-3">
+          <video loop controls preload="metadata" poster="../tutorial-thumbs/export-stp-split-cad.jpg">
+            <source src="../https://cdn.texture.huescript.com/tutorial/export-stp-split-cad__2501a634.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="text-xs text-gray-400">
+          What &ldquo;absolute coordinates&rdquo; buys you, in CAD. A 500 &times; 500&nbsp;mm halftone surface was exported with STP Split at 3 rows &times; 3 columns, then all nine STEP files were imported into one FreeCAD document &mdash; one at a time, untouched. No moving, no mating, no alignment step: each tile arrives already in its own place, and the nine of them close up into the original sheet.
+        </p>
+      </article>
+
+      <!-- Why STEP -->
+      <h2 id="why-step-instead-of-dxf-or-stl" class="scroll-mt-24 text-2xl font-bold text-white mb-4 mt-12">Why STEP instead of DXF or STL?</h2>
+      <p class="text-gray-400 mb-4">
+        Each format has a job. <strong class="text-gray-300 font-semibold">DXF</strong> is 2D: perfect for laser cutting and AutoCAD drawings, but your CAD model then needs an extrude-and-cut rebuild. <strong class="text-gray-300 font-semibold">STL</strong> is a triangle mesh: fine for direct 3D printing, useless for precise engineering because every circle becomes a polygon. <strong class="text-gray-300 font-semibold">STEP</strong> is the only one of the three that hands your CAD system exact, manufacturable 3D geometry it can treat as first-class: measure it, reference it, cut with it, thicken it.
+      </p>
+      <p class="text-gray-400 mb-10">
+        HueScript exports all three from the same design, which is the point: one parametric pattern, a 2D vector path for the graphics and laser-cut route, and a 3D STEP for the engineering route. No redrawing between tools.
+      </p>
+
+      <!-- FAQ -->
+      <h2 id="frequently-asked-questions" class="scroll-mt-24 text-2xl font-bold text-white mb-6">Frequently asked questions</h2>
+      <div class="space-y-4 mb-12">
+        <details class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 group" open>
+          <summary class="text-white font-semibold cursor-pointer list-none flex justify-between items-center">
+            <span>Which CAD software can open the exported STEP files?</span>
+            <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="text-gray-400 text-sm mt-3">STEP (.stp) is a neutral 3D exchange format, so the files open natively in SolidWorks, Fusion 360, CATIA, Inventor, Rhino, FreeCAD, and virtually every other CAD package.</p>
+        </details>
+        <details class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 group">
+          <summary class="text-white font-semibold cursor-pointer list-none flex justify-between items-center">
+            <span>Is STEP export free?</span>
+            <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="text-gray-400 text-sm mt-3">Yes. The free plan includes STEP, SVG, and DXF export, up to 3 exports per day. The Pro plan removes the daily limit and adds split STEP export for very dense patterns.</p>
+        </details>
+        <details class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 group">
+          <summary class="text-white font-semibold cursor-pointer list-none flex justify-between items-center">
+            <span>My CAD freezes importing thousands of holes. What can I do?</span>
+            <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="text-gray-400 text-sm mt-3">Use the STP Split feature: it divides the surface into a grid of smaller regions exported as separate STEP files (optionally zipped). Each file keeps absolute coordinates, so the pieces align automatically in CAD. Import them one by one to keep your session responsive.</p>
+        </details>
+        <details class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 group">
+          <summary class="text-white font-semibold cursor-pointer list-none flex justify-between items-center">
+            <span>Can the holes still be edited after importing into CAD?</span>
+            <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="text-gray-400 text-sm mt-3">STEP carries exact geometry, not feature history, so you edit the pattern parametrically in HueScript: change the parameters, re-export, and re-import. Cloud-saved projects make this round trip quick.</p>
+        </details>
+        <details class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 group">
+          <summary class="text-white font-semibold cursor-pointer list-none flex justify-between items-center">
+            <span>Do you also export 2D formats for laser cutting?</span>
+            <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
+          </summary>
+          <p class="text-gray-400 text-sm mt-3">Yes. The same pattern exports as SVG for graphic tools and laser cutters, or DXF for AutoCAD and CNC workflows. One design, 2D and 3D outputs.</p>
+        </details>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center bg-white/[0.03] border border-amber-500/20 rounded-2xl px-6 py-10 mb-4">
+        <h2 class="text-2xl font-bold text-white mb-3">Design your hole pattern in minutes, not hours</h2>
+        <p class="text-gray-400 mb-6">Free to start, no sign-up. Build the pattern in your browser and export STEP straight into your CAD workflow.</p>
+        <a href="../speaker-grille-pattern-generator/index.html" class="inline-block bg-amber-500 hover:bg-amber-600 text-black font-bold text-sm px-10 py-4 rounded-lg transition no-underline shadow-lg shadow-amber-500/20">
+          Open the Pattern Generator · Free
+        </a>
+      </div>
+
+      </main>
+
+      <aside class="sv-toc sticky top-24 hidden w-56 shrink-0 lg:block" aria-label="On this page">
+        <p class="m-0 text-[12px] font-semibold uppercase tracking-[0.14em] text-white/50">On this page</p>
+        <ol class="m-0 mt-4 list-none space-y-1 border-l border-white/[0.08] p-0">
+          <li><a href="#the-pattern-to-step-workflow-step-by-step" class="-ml-px block border-l border-transparent py-1 pl-4 text-[14px] leading-[1.4] text-white/60 no-underline transition hover:text-white">The pattern-to-STEP workflow, step by step</a></li>
+          <li><a href="#why-step-instead-of-dxf-or-stl" class="-ml-px block border-l border-transparent py-1 pl-4 text-[14px] leading-[1.4] text-white/60 no-underline transition hover:text-white">Why STEP instead of DXF or STL?</a></li>
+          <li><a href="#frequently-asked-questions" class="-ml-px block border-l border-transparent py-1 pl-4 text-[14px] leading-[1.4] text-white/60 no-underline transition hover:text-white">Frequently asked questions</a></li>
+        </ol>
+      </aside>
+    </div>
+
+    <!-- site-chrome:footer:start -->
+    <footer class="border-t border-white/[0.07] px-5 pb-10 pt-14">
+      <div class="mx-auto max-w-[1240px]">
+        <div class="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+          <div class="col-span-2 md:col-span-4 lg:col-span-1">
+            <a href="../index.html" class="inline-flex items-center gap-2.5 no-underline">
+              <svg viewBox="0 0 80.67 77.04" class="h-[26px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+              <span class="text-[22px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+            </a>
+            <p class="mt-5 max-w-[300px] text-[14px] leading-[1.5] text-white/60">
+              A browser-based parametric pattern generator. Design it, export SVG / DXF / STEP, make it.
+            </p>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Product</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../app/index__5a07df1e.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Open the app</a></li>
+              <li><a href="../ai/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a></li>
+              <li></li>
+              <li><a href="../changelog/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Changelog</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Patterns</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../explore/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Explore</a></li>
+              <li><a href="../speaker-grille-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Speaker grille</a></li>
+              <li><a href="../ventilation-hole-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Ventilation holes</a></li>
+              <li><a href="../halftone-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Halftone patterns</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Guides</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../tutorial/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Tutorial</a></li>
+              <li><a href="../faq/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">FAQ</a></li>
+              <li><a href="../ipad/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Using on iPad</a></li>
+              <li><a href="../wrap/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Wrap onto curved surfaces</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">About</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../about/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">About HueScript</a></li>
+              <li><button type="button" data-sv-copy="huescript@gmail.com" class="relative p-0 text-left text-[14px] text-white/60 transition hover:text-white" title="huescript@gmail.com">Contact us<span class="sv-copy-toast absolute bottom-full left-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span></button></li>
+              <li><a href="../privacy/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Privacy policy</a></li>
+              <li><a href="../terms/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Terms of service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Community bar -->
+        <div class="mt-12 flex flex-col gap-6 border-t border-white/[0.07] pt-6 lg:flex-row lg:items-center lg:justify-between">
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a href="../app/index__4b616722.html" class="flex items-center gap-2 text-[14px] font-medium text-white/70 no-underline transition hover:text-white">
+              <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" /></svg>
+              Send feedback
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-5">
+            <div class="flex items-center gap-4 text-white/50">
+              <a href="https://www.instagram.com/huescript/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="Instagram">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+              </a>
+              <a href="https://www.youtube.com/@HueScript" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="YouTube">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg>
+              </a>
+              <button type="button" data-sv-copy="huescript@gmail.com" class="relative transition hover:text-white" title="huescript@gmail.com" aria-label="huescript@gmail.com">
+                <svg class="h-[18px] w-[18px] fill-current sv-copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                <svg class="sv-copy-check h-[18px] w-[18px] fill-current text-green-400" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                <span class="sv-copy-toast absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span>
+              </button>
+            </div>
+
+            <!-- Language picker: real links inside a <details>, so every locale
+                 stays crawlable and the control needs no JavaScript. -->
+            
+
+            <div class="flex flex-col leading-tight">
+              <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50">Created by</span>
+              <span class="text-[14px] font-semibold text-white">Yoshi Chen</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="m-0 mt-8 text-center text-[13px] text-white/50">© 2026 HueScript. All rights reserved.</p>
+
+        <script src="../site-copy.js" defer></script>
+      </div>
+    </footer>
+    <!-- site-chrome:footer:end -->
+    <script src="../site-toc.js" defer></script>
+  </body>
+</html>

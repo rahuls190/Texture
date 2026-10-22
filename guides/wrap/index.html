@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js)。初始化在 public/ga-init.js（外部檔，CSP 不開 'unsafe-inline'） -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8W2EV2PJ7W"></script>
+    <script src="../../ga-init.js"></script>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Primary Meta Tags -->
+    <title>Wrap a Pattern onto a Curved Surface | HueScript Wrap</title>
+    <meta name="title" content="Wrap a Pattern onto a Curved Surface | HueScript Wrap">
+    <meta name="description" content="Flatten a curved face of your STEP part, lay a HueScript pattern on it and wrap it back onto the curve: raised, recessed or cut through, exported as STEP in your part’s own coordinates. Runs in the browser.">
+    <meta name="author" content="HueScript">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="apple-touch-icon" href="../../apple-touch-icon.png" />
+
+    <!-- Canonical URL & Hreflang -->
+    <link rel="canonical" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="en" href="https://texture.huescript.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://texture.huescript.com/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://texture.huescript.com/guides/wrap/en">
+    <meta property="og:title" content="Wrap a Pattern onto a Curved Surface | HueScript Wrap">
+    <meta property="og:description" content="Flatten the curved face, lay the pattern on it, wrap it back. Raised, recessed or cut through, exported as STEP.">
+    <meta property="og:image" content="https://texture.huescript.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="HueScript">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://texture.huescript.com/guides/wrap/en">
+    <meta name="twitter:title" content="Wrap a Pattern onto a Curved Surface | HueScript Wrap">
+    <meta name="twitter:description" content="Flatten the curved face, lay the pattern on it, wrap it back. Raised, recessed or cut through, exported as STEP.">
+    <meta name="twitter:image" content="https://texture.huescript.com/og-image.jpg">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://texture.huescript.com/guides/wrap/en#article",
+          "headline": "Wrap a Pattern onto a Curved Surface | HueScript Wrap",
+          "description": "Flatten a curved face of your STEP part, lay a HueScript pattern on it and wrap it back onto the curve: raised, recessed or cut through, exported as STEP in your part’s own coordinates. Runs in the browser.",
+          "inLanguage": "en",
+          "image": "https://cdn.texture.huescript.com/Demovideo/wrap-surface.webp?v=1a58d978",
+          "datePublished": "2026-10-15",
+          "dateModified": "2026-10-15",
+          "author": {
+            "@type": "Organization",
+            "name": "HueScript",
+            "url": "https://texture.huescript.com/"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "HueScript",
+            "url": "https://texture.huescript.com/"
+          },
+          "mainEntityOfPage": "https://texture.huescript.com/guides/wrap/en",
+          "video": {
+            "@id": "https://texture.huescript.com/guides/wrap/en#video"
+          }
+        },
+        {
+          "@type": "VideoObject",
+          "@id": "https://texture.huescript.com/guides/wrap/en#video",
+          "name": "One pattern, any curve",
+          "description": "Send the pattern from HueScript, click the face, flatten it and switch between raised, recessed and cut. The same steps work on a dome, a double-curved panel or a flat plate.",
+          "thumbnailUrl": "https://cdn.texture.huescript.com/Demovideo/wrap-surface.webp?v=1a58d978",
+          "contentUrl": "https://cdn.texture.huescript.com/Demovideo/wrap-surface.mp4?v=14efdaf7",
+          "uploadDate": "2026-10-15",
+          "duration": "PT11S",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://texture.huescript.com/guides/wrap/en#faq",
+          "inLanguage": "en",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Which CAD programs can open the STEP?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Any CAD that imports STEP (.stp). The pattern lands where it was on your part."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my STEP file uploaded?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Everything runs in your browser."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which surfaces can Wrap flatten?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Planes, cylinders and cones unroll exactly; spheres and freeform faces with minimum distortion. Tangent faces can be flattened together."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which pattern files does Wrap accept?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "SVG and DXF exported from HueScript."
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://texture.huescript.com/guides/wrap/en#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "HueScript",
+              "item": "https://texture.huescript.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Wrap a pattern onto a curved surface"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- Fonts are self-hosted; @font-face lives in styles/tailwind.css -->
+
+    <style>
+      html { scroll-behavior: smooth; }
+      body { -webkit-font-smoothing: antialiased; }
+      .sv-faq summary { list-style: none; cursor: pointer; }
+      .sv-faq[open] .sv-faq-icon { transform: rotate(45deg); }
+
+      .wg-dot { flex: none; width: 12px; height: 2px; margin-top: .8em; border-radius: 2px; background: #f59e0b; }
+      .wg-beta { display: inline-block; margin-left: .5em; padding: 1px 5px; border: 1px solid rgba(245,158,11,.4); border-radius: 4px; vertical-align: middle; font-size: 11px; font-weight: 600; letter-spacing: .08em; line-height: 1.5; text-transform: uppercase; color: #fbbf24; }
+      video[data-wg-video] { cursor: pointer; }
+      /* CJK headings wrap at spaces and punctuation instead of mid-phrase. */
+      html[lang^="zh"] :is(h1, h2), html[lang="ja"] :is(h1, h2), html[lang="ko"] :is(h1, h2) { word-break: keep-all; overflow-wrap: break-word; }
+
+      summary::-webkit-details-marker { display: none; }
+      .sv-lang[open] .sv-lang-chevron { transform: rotate(180deg); }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    </style>
+    <!-- Tailwind CSS (compiled). Must stay last in <head>: utilities must override the Material Symbols stylesheet's 24px font-size default. -->
+    
+    <link rel="stylesheet" crossorigin href="../../assets/tailwind-BFpa3N4E.css">
+  </head>
+  <body class="bg-[#0a0a0a] text-gray-300 antialiased">
+
+    <!-- ============================== NAV ============================== -->
+    <div class="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-xl">
+      <nav class="mx-auto max-w-[1240px] px-5">
+        <div class="flex h-16 items-center justify-between gap-4">
+          <div class="flex items-center gap-6">
+          <a href="../../index.html" class="flex items-center gap-2 no-underline">
+            <svg viewBox="0 0 80.67 77.04" class="h-[17px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+            <span class="text-[15px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+          </a>
+
+          <div class="hidden items-center gap-1 md:flex">
+            <a href="../../faq/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">FAQ</a>
+            <a href="../../tutorial/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Tutorial</a>
+            <a href="../../changelog/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Changelog</a>
+            <a href="../../explore/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">Explore</a>
+            <a href="../../ai/index.html" class="whitespace-nowrap rounded-md px-2 py-1.5 text-[14px] lg:px-2.5 text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+          </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <!-- Desktop only: on a phone the tool cannot be used, so the whole
+                 mobile site funnels into the send-link form instead. -->
+            <a href="../../app/index__5a07df1e.html" class="hidden whitespace-nowrap rounded-lg bg-amber-500 px-3.5 py-2 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400 md:inline-block">Open the app</a>
+            <details class="relative md:hidden">
+              <summary class="flex h-8 w-8 cursor-pointer list-none items-center justify-center rounded-lg border border-white/[0.08] text-gray-400 transition hover:text-white">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              </summary>
+              <div class="absolute right-0 top-10 w-48 rounded-xl border border-white/[0.08] bg-[#141414] p-1.5">
+                <a href="../../faq/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">FAQ</a>
+                <a href="../../tutorial/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Tutorial</a>
+                <a href="../../changelog/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Changelog</a>
+                <a href="../../explore/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">Explore</a>
+                <a href="../../ai/index.html" class="block rounded-md px-3 py-2 text-[14px] text-white/60 no-underline hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a>
+              </div>
+            </details>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- ============================== HERO ============================== -->
+    <header class="mx-auto max-w-[1240px] px-5 pb-6 pt-14 sm:pt-20">
+      <div class="mb-6 text-[13px] text-white/50">
+        <a href="../../index.html" class="text-white/50 no-underline transition hover:text-amber-500">Home</a>
+        <span class="mx-2">/</span>
+        <span>Guides</span>
+        <span class="mx-2">/</span>
+        <span class="text-white/70">Wrap onto curved surfaces</span>
+      </div>
+      <h1 class="max-w-[860px] text-balance text-[36px] font-medium leading-[1.05em] tracking-[-0.04em] text-white min-[810px]:text-[42px] min-[1200px]:text-[54px]">Wrap a pattern onto a curved surface</h1>
+      <p class="mb-0 mt-5 max-w-[720px] text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Flatten the curved face of your STEP part, lay your HueScript pattern on it, wrap it back and export STEP.</p>
+      <div class="mt-6 flex flex-wrap items-center gap-2">
+        <a href="../../wrap/index.html" class="whitespace-nowrap rounded-lg bg-amber-500 px-4 py-2.5 text-[14px] font-medium text-black no-underline transition hover:bg-amber-400">Open Wrap</a>
+        <a href="../../app/index__5a07df1e.html" class="whitespace-nowrap rounded-lg border border-white/[0.12] px-4 py-2.5 text-[14px] font-medium text-white/80 no-underline transition hover:border-white/30 hover:text-white">Design a pattern</a>
+        <span class="text-[14px] text-white/60 sm:pl-1">Runs in your browser · Your STEP file is never uploaded</span>
+      </div>
+
+      <figure class="m-0 mt-10">
+        <div class="overflow-hidden rounded-xl border border-white/[0.07] bg-black sm:rounded-2xl">
+          <video
+            src="../../https://cdn.texture.huescript.com/Demovideo/wrap-surface__fc8f5d0a.mp4"
+            poster="../../https://cdn.texture.huescript.com/Demovideo/wrap-surface__a6ffcf16.webp"
+            width="2240" height="1080"
+            autoplay muted loop playsinline preload="metadata"
+            data-wg-video="hero"
+            class="block aspect-[2240/1080] h-auto w-full"
+            aria-label="Screen recording: in HueScript, Export then Wrap opens the pattern in HueScript Wrap; a click selects the face of a dome, Flatten lays the pattern on the flat, and the shapes switch from raised to recessed to cut through. The same tool then shows a double-curved panel and another dome."></video>
+        </div>
+      </figure>
+    </header>
+
+    <main>
+
+      <section id="send" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div>
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Start from HueScript</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">In HueScript, choose <strong class="font-medium text-white">Export</strong> → <strong class="font-medium text-white">Wrap</strong>: the pattern opens in Wrap.</p>
+            <ul class="m-0 mt-5 list-none space-y-3 p-0">
+              <li class="flex gap-3"><span class="wg-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">To edit it, click the thumbnail and send it again. Only the pattern is swapped.</span></li>
+            </ul>
+          </div>
+          <figure class="m-0">
+          <div class="overflow-hidden rounded-xl border border-white/[0.07] bg-black sm:rounded-2xl">
+            <video
+              src="../../https://cdn.texture.huescript.com/Demovideo/wrap-send__0b557602.mp4"
+              poster="../../https://cdn.texture.huescript.com/Demovideo/wrap-send__50a090a7.webp"
+              width="1280" height="720"
+              muted loop playsinline preload="none"
+              data-wg-video
+              class="block aspect-video h-auto w-full"
+              aria-label="Screen recording: the HueScript Export menu, Wrap at the bottom of the list; Wrap opens in a new tab with the pattern in its Pattern panel."></video>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="flatten" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div class="md:order-2">
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Click the face, flatten it</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Import your STEP, click the face and press <strong class="font-medium text-white">Flatten</strong>.</p>
+            <ul class="m-0 mt-5 list-none space-y-3 p-0">
+              <li class="flex gap-3"><span class="wg-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Planes, cylinders and cones: 0% distortion.</span></li>
+              <li class="flex gap-3"><span class="wg-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Domes and freeform faces: minimum distortion, shown as a heat map.</span></li>
+            </ul>
+          </div>
+          <figure class="m-0">
+          <div class="overflow-hidden rounded-xl border border-white/[0.07] bg-black sm:rounded-2xl">
+            <video
+              src="../../https://cdn.texture.huescript.com/Demovideo/wrap-flatten__dc36c50c.mp4"
+              poster="../../https://cdn.texture.huescript.com/Demovideo/wrap-flatten__7154658e.webp"
+              width="1280" height="720"
+              muted loop playsinline preload="none"
+              data-wg-video
+              class="block aspect-video h-auto w-full"
+              aria-label="Screen recording: a click selects the face of a double-curved panel, Flatten unrolls it next to the 3D view with a heat map of the stretch, and the info bar shows the distortion."></video>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="place" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div>
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Place the pattern</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]"><strong class="font-medium text-white">Scale</strong>, <strong class="font-medium text-white">Rotate</strong> and <strong class="font-medium text-white">Move</strong> it on the flat. The 3D view follows.</p>
+            <ul class="m-0 mt-5 list-none space-y-3 p-0">
+              <li class="flex gap-3"><span class="wg-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Shapes crossing the edge become notches.</span></li>
+            </ul>
+          </div>
+          <figure class="m-0">
+          <div class="overflow-hidden rounded-xl border border-white/[0.07] bg-black sm:rounded-2xl">
+            <video
+              src="../../https://cdn.texture.huescript.com/Demovideo/wrap-place__96b7aff6.mp4"
+              poster="../../https://cdn.texture.huescript.com/Demovideo/wrap-place__629e9c85.webp"
+              width="1280" height="720"
+              muted loop playsinline preload="none"
+              data-wg-video
+              class="block aspect-video h-auto w-full"
+              aria-label="Screen recording: scrolling the Scale and Rotate fields in Wrap; the pattern grows and turns on the flattened face and on the 3D part, and shapes crossing the edge are trimmed into notches."></video>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="effects" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div class="md:order-2">
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Raised, recessed or cut through</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Pick <strong class="font-medium text-white">Raised</strong>, <strong class="font-medium text-white">Recessed</strong> or <strong class="font-medium text-white">Cut</strong> and see it live in 3D.</p>
+            <ul class="m-0 mt-5 list-none space-y-3 p-0">
+              <li class="flex gap-3"><span class="wg-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">Height, draft angle and fillets are adjustable.</span></li>
+            </ul>
+          </div>
+          <figure class="m-0">
+          <div class="overflow-hidden rounded-xl border border-white/[0.07] bg-black sm:rounded-2xl">
+            <video
+              src="../../https://cdn.texture.huescript.com/Demovideo/wrap-effects__bced4ae9.mp4"
+              poster="../../https://cdn.texture.huescript.com/Demovideo/wrap-effects__f06a530c.webp"
+              width="1280" height="720"
+              muted loop playsinline preload="none"
+              data-wg-video
+              class="block aspect-video h-auto w-full"
+              aria-label="Screen recording: the Effect switches from Raised to Recessed to Cut on a dome, the height is raised and the draft angle tapers the walls, all previewed live in 3D."></video>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="export" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <div class="grid items-center gap-8 md:grid-cols-2 md:gap-14">
+          <div>
+            <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Export STEP</h2>
+            <p class="m-0 mt-5 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]"><strong class="font-medium text-white">Export</strong> → <strong class="font-medium text-white">STP</strong>, in your part’s own coordinates.</p>
+            <ul class="m-0 mt-5 list-none space-y-3 p-0">
+              <li class="flex gap-3"><span class="wg-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]"><strong class="font-medium text-white">Surface</strong> or <strong class="font-medium text-white">Solid</strong>; <strong class="font-medium text-white">Split STP</strong> for dense patterns.</span></li>
+              <li class="flex gap-3"><span class="wg-dot" aria-hidden="true"></span><span class="min-w-0 text-pretty text-[16px] leading-[1.5] text-white/60 min-[810px]:text-[17px]">For the flattened outline, use <strong class="font-medium text-white">Import outline into HueScript</strong> below the flat view.</span></li>
+            </ul>
+          </div>
+          <figure class="m-0">
+          <div class="overflow-hidden rounded-xl border border-white/[0.07] bg-black sm:rounded-2xl">
+            <video
+              src="../../https://cdn.texture.huescript.com/Demovideo/wrap-export__c1c4cf9a.mp4"
+              poster="../../https://cdn.texture.huescript.com/Demovideo/wrap-export__552fd9c0.webp"
+              width="1280" height="720"
+              muted loop playsinline preload="none"
+              data-wg-video
+              class="block aspect-video h-auto w-full"
+              aria-label="Screen recording: the Export menu in Wrap with STP; the STP settings switch between Surface and Solid, Pattern only and Part + pattern, and Split STP shows its grid."></video>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ---------- FAQ ---------- -->
+      <section id="faq" class="scroll-mt-20 mx-auto max-w-[1240px] px-5 pt-20 sm:pt-28">
+        <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Questions</h2>
+        <div class="mt-8 max-w-3xl divide-y divide-white/[0.07] overflow-hidden rounded-xl border border-white/[0.07] bg-[#0f0f0f]">
+          <details class="sv-faq px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 text-left text-[17px] font-normal text-white">
+              Which CAD programs can open the STEP?
+              <span class="sv-faq-icon shrink-0 text-[20px] leading-none text-white/50 transition-transform">+</span>
+            </summary>
+            <p class="mb-0 mt-3 text-[16px] leading-[1.5] text-white/60">Any CAD that imports STEP (.stp). The pattern lands where it was on your part.</p>
+          </details>
+          <details class="sv-faq px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 text-left text-[17px] font-normal text-white">
+              Is my STEP file uploaded?
+              <span class="sv-faq-icon shrink-0 text-[20px] leading-none text-white/50 transition-transform">+</span>
+            </summary>
+            <p class="mb-0 mt-3 text-[16px] leading-[1.5] text-white/60">No. Everything runs in your browser.</p>
+          </details>
+          <details class="sv-faq px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 text-left text-[17px] font-normal text-white">
+              Which surfaces can Wrap flatten?
+              <span class="sv-faq-icon shrink-0 text-[20px] leading-none text-white/50 transition-transform">+</span>
+            </summary>
+            <p class="mb-0 mt-3 text-[16px] leading-[1.5] text-white/60">Planes, cylinders and cones unroll exactly; spheres and freeform faces with minimum distortion. Tangent faces can be flattened together.</p>
+          </details>
+          <details class="sv-faq px-5 py-4">
+            <summary class="flex items-center justify-between gap-4 text-left text-[17px] font-normal text-white">
+              Which pattern files does Wrap accept?
+              <span class="sv-faq-icon shrink-0 text-[20px] leading-none text-white/50 transition-transform">+</span>
+            </summary>
+            <p class="mb-0 mt-3 text-[16px] leading-[1.5] text-white/60">SVG and DXF exported from HueScript.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ---------- Closing CTA ---------- -->
+      <section class="mx-auto max-w-[1240px] px-5 pb-24 pt-20 sm:pt-28">
+        <div class="rounded-2xl border border-white/[0.07] bg-[#0f0f0f] px-6 py-14 text-center">
+          <h2 class="m-0 text-balance text-[26px] font-medium leading-[1.12] tracking-[-0.03em] text-white min-[810px]:text-[32px] min-[1200px]:text-[38px]">Put your pattern on a real part<span class="wg-beta">Beta</span></h2>
+          <a href="../../wrap/index.html" class="mt-6 inline-block rounded-lg bg-amber-500 px-5 py-3 text-[15px] font-medium text-black no-underline transition hover:bg-amber-400">Open Wrap</a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="border-t border-white/[0.07] px-5 pb-10 pt-14">
+      <div class="mx-auto max-w-[1240px]">
+        <div class="grid grid-cols-2 gap-10 md:grid-cols-4 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr]">
+          <div class="col-span-2 md:col-span-4 lg:col-span-1">
+            <a href="../../index.html" class="inline-flex items-center gap-2.5 no-underline">
+              <svg viewBox="0 0 80.67 77.04" class="h-[26px] w-auto" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z" fill="#f49d0b" />
+              <path d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z" fill="#fff" />
+              <path d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z" fill="#f49d0b" />
+              <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
+              <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
+            </svg>
+              <span class="text-[22px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+            </a>
+            <p class="mt-5 max-w-[300px] text-[14px] leading-[1.5] text-white/60">
+              A browser-based parametric pattern generator. Design it, export SVG / DXF / STEP, make it.
+            </p>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Product</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../../app/index__5a07df1e.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Open the app</a></li>
+              <li><a href="../../ai/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">AI design<span class="ml-1.5 rounded border border-amber-500/40 px-1 py-px align-middle text-[10px] font-semibold uppercase tracking-wider text-amber-400">Beta</span></a></li>
+              <li></li>
+              <li><a href="../../changelog/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Changelog</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Patterns</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../../explore/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Explore</a></li>
+              <li><a href="../../speaker-grille-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Speaker grille</a></li>
+              <li><a href="../../ventilation-hole-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Ventilation holes</a></li>
+              <li><a href="../../halftone-pattern-generator/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Halftone patterns</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">Guides</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../../tutorial/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Tutorial</a></li>
+              <li><a href="../../faq/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">FAQ</a></li>
+              <li><a href="../../ipad/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Using on iPad</a></li>
+              <li><a href="index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Wrap onto curved surfaces</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="m-0 text-[14px] font-medium text-white">About</p>
+            <ul class="mt-3 space-y-2 p-0" style="list-style:none">
+              <li><a href="../../about/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">About HueScript</a></li>
+              <li><button type="button" data-sv-copy="huescript@gmail.com" class="relative p-0 text-left text-[14px] text-white/60 transition hover:text-white" title="huescript@gmail.com">Contact us<span class="sv-copy-toast absolute bottom-full left-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span></button></li>
+              <li><a href="../../privacy/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Privacy policy</a></li>
+              <li><a href="../../terms/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Terms of service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Community bar -->
+        <div class="mt-12 flex flex-col gap-6 border-t border-white/[0.07] pt-6 lg:flex-row lg:items-center lg:justify-between">
+
+          <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a href="../../app/index__4b616722.html" class="flex items-center gap-2 text-[14px] font-medium text-white/70 no-underline transition hover:text-white">
+              <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" /></svg>
+              Send feedback
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-5">
+            <div class="flex items-center gap-4 text-white/50">
+              <a href="https://www.instagram.com/huescript/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="Instagram">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+              </a>
+              <a href="https://www.youtube.com/@HueScript" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="YouTube">
+                <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg>
+              </a>
+              <button type="button" data-sv-copy="huescript@gmail.com" class="relative transition hover:text-white" title="huescript@gmail.com" aria-label="huescript@gmail.com">
+                <svg class="h-[18px] w-[18px] fill-current sv-copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
+                <svg class="sv-copy-check h-[18px] w-[18px] fill-current text-green-400" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                <span class="sv-copy-toast absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span>
+              </button>
+            </div>
+
+            <!-- Language picker: real links inside a <details>, so every locale
+                 stays crawlable and the control needs no JavaScript. -->
+            
+
+            <div class="flex flex-col leading-tight">
+              <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50">Created by</span>
+              <span class="text-[14px] font-semibold text-white">Yoshi Chen</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="m-0 mt-8 text-center text-[13px] text-white/50">© 2026 HueScript. All rights reserved.</p>
+
+        <script src="../../site-copy.js" defer></script>
+      </div>
+    </footer>
+
+    <script src="../../site-guide-wrap.js" defer></script>
+  </body>
+</html>

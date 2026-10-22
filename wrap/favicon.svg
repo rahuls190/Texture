@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 大圖（connector 列表、書籤牆）logo 佔 56%；48px 以下（瀏覽器分頁）放大到 76%，不然 16px 時三條橫槓糊在一起。
+     預設值寫在 transform 屬性上，不認 media query 的轉檔器拿到的就是 56% 那版。
+     圓角只給 48px 以下：分頁不會幫忙裁角；大圖維持滿版方形，因為透明角會被 Google 的 favicon 服務壓成白底，
+     在 Claude 的圓角格子裡露白邊。做法是圓角底在下、方形底蓋在上，小尺寸時把方形那張藏掉。 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>@media (max-width:48px){.m{transform:translate(12px,13.71px) scale(.9421)}.sq{display:none}}</style>
+  <rect width="100" height="100" rx="22" fill="#1a1a1a"/>
+  <rect class="sq" width="100" height="100" fill="#1a1a1a"/>
+  <g class="m" transform="translate(22 23.26) scale(.6942)">
+    <path fill="#f49d0b" d="M24.84,0h40.42C73.76,0,80.67,6.9,80.67,15.41H24.84V0h0Z"/>
+    <path fill="#fff" d="M15.41,0h5.05v15.41H0C0,6.9,6.9,0,15.41,0Z"/>
+    <path fill="#f49d0b" d="M0,30.81h65.26c8.5,0,15.41,6.9,15.41,15.41H15.41C6.9,46.22,0,39.32,0,30.81H0Z"/>
+    <path fill="#fff" d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z"/>
+    <path fill="#f49d0b" d="M0,61.63H0C0,70.14,6.9,77.04,15.41,77.04h39.93v-15.41H0Z"/>
+  </g>
+</svg>
