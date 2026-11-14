@@ -420,7 +420,7 @@
       ctx.restore();
       ctx.restore();
 
-      // Width ruler under the device, over the HueScript window.
+      // Width ruler under the device, over the PatternForge window.
       var px2, spanW, left;
       if (portrait) { px2 = 744; spanW = g.sh; left = g.cx - g.sh / 2; }
       else {
@@ -1136,7 +1136,7 @@
       ctx.save();
       ctx.globalAlpha = fade;
       if (scene === 0) {
-        // HueScript: toolbar with Export, and the pattern on the board.
+        // PatternForge: toolbar with Export, and the pattern on the board.
         box(ctx, fx, fy, fw, fh, 8 * s, '#0f0f0f', '#262626', 1);
         var tb = 34 * s;
         ctx.fillStyle = '#151515';

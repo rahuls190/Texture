@@ -1,4 +1,4 @@
-# HueScript 🎨
+# PatternForge 🎨
 
 > **Free, open-source pattern & texture generator for students and designers.**
 > Create speaker grilles, ventilation holes, halftone textures and vector backgrounds — then export as SVG, DXF and STEP in one click.
@@ -9,9 +9,9 @@
 
 ---
 
-## ✨ What is HueScript?
+## ✨ What is PatternForge?
 
-HueScript is a **browser-based parametric pattern generator** — no install, no account, no cost.
+PatternForge is a **browser-based parametric pattern generator** — no install, no account, no cost.
 
 Drop gradient controllers onto the canvas and watch your pattern update in real time. Switch between 9 layout modes, import photos for halftone effects, and export to professional CAD formats.
 
@@ -21,7 +21,7 @@ Drop gradient controllers onto the canvas and watch your pattern update in real 
 
 ## 🎓 For Students
 
-HueScript is completely free and open source — built to help students learn and create:
+PatternForge is completely free and open source — built to help students learn and create:
 
 - **Design students** — Generate unique vector patterns for print, fabric, and digital work
 - **Engineering students** — Export STEP files for SolidWorks, Fusion 360, CATIA and more
@@ -43,7 +43,7 @@ No login. No subscription. No export limits. Just open it and start designing.
 | **DXF Export** | For AutoCAD and CNC cutting |
 | **STEP Export** | For SolidWorks, Fusion 360, CATIA, Inventor, Rhino |
 | **STP Split** | Splits dense models into smaller blocks for smoother CAD performance |
-| **HueScript Wrap** *(Beta)* | Wrap a flat pattern onto a curved 3D surface |
+| **PatternForge Wrap** *(Beta)* | Wrap a flat pattern onto a curved 3D surface |
 | **AI Design** *(Beta)* | AI-assisted pattern generation |
 | **12 Preset Patterns** | Ready-to-use patterns in the Explore gallery |
 | **Fully Free** | No limits, no account, no payment |
@@ -53,10 +53,10 @@ No login. No subscription. No export limits. Just open it and start designing.
 ## 📁 Project Structure
 
 ```
-HueScript/
+PatternForge/
 ├── index.html                        ← Homepage
 ├── app/                              ← The pattern generator app
-├── wrap/                             ← HueScript Wrap app (Vite build)
+├── wrap/                             ← PatternForge Wrap app (Vite build)
 │
 ├── ── Pages ──
 ├── about/index.html
@@ -103,7 +103,7 @@ HueScript/
 
 ## 🛠️ Running Locally
 
-HueScript is a **fully static site** — no build step needed for the marketing pages.
+PatternForge is a **fully static site** — no build step needed for the marketing pages.
 
 ### Option 1 — Open directly in browser
 Just open `index.html` in your browser.
@@ -114,14 +114,14 @@ Just open `index.html` in your browser.
 
 Using Python:
 ```bash
-cd HueScript
+cd PatternForge
 python -m http.server 8080
 # Open http://localhost:8080
 ```
 
 Using Node.js (`npx serve`):
 ```bash
-cd HueScript
+cd PatternForge
 npx serve .
 # Open http://localhost:3000
 ```
@@ -175,7 +175,7 @@ This means you can:
 
 ## 🙌 Credits
 
-- Concept and design by [HueScript](https://texture.huescript.com), open-sourced for the student community
+- Concept and design by [PatternForge](https://texture.huescript.com), open-sourced for the student community
 - Font: [Inter](https://rsms.me/inter/) by Rasmus Andersson (SIL Open Font License)
 - Styling: [Tailwind CSS](https://tailwindcss.com/)
 

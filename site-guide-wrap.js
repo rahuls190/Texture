@@ -1,4 +1,4 @@
-// /guides/wrap/<lang>（HueScript Wrap 指南）的頁內行為：各步驟的示範片捲到畫面裡才播、離開就停，
+// /guides/wrap/<lang>（PatternForge Wrap 指南）的頁內行為：各步驟的示範片捲到畫面裡才播、離開就停，
 // 點一下暫停／繼續。hero 那支照 autoplay 自己播。減少動態效果時都不自動播，改成留在封面＋原生控制列。
 // 頁面由 scripts/generate-guide-wrap-pages.mjs 產生，用 <script src="/site-guide-wrap.js" defer> 載入（CSP 不開 'unsafe-inline'）。
 (function () {

@@ -188,7 +188,7 @@
     }
     ctx.closePath();
   }
-  // The HueScript mark (same paths as the site logo), normalised to width 1 and centred:
+  // The PatternForge mark (same paths as the site logo), normalised to width 1 and centred:
   // the "custom" shape on the halftone page, standing in for "your logo".
   var LOGO = (function () {
     var raw = [

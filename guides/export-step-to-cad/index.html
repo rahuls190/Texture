@@ -11,7 +11,7 @@
     <title>Export Hole Patterns to SolidWorks & Fusion 360 as STEP Files</title>
     <meta name="title" content="Export Hole Patterns to SolidWorks & Fusion 360 as STEP Files">
     <meta name="description" content="Skip modeling hundreds of holes by hand. Design a perforated pattern in your browser and export it as a STEP file that imports cleanly into SolidWorks, Fusion 360, CATIA, Inventor, or Rhino.">
-    <meta name="author" content="HueScript">
+    <meta name="author" content="PatternForge">
     <meta name="theme-color" content="#0a0a0a">
     <meta name="robots" content="index, follow">
 
@@ -29,7 +29,7 @@
     <meta property="og:description" content="Design perforated patterns in your browser and export STEP files that import cleanly into SolidWorks, Fusion 360, CATIA, Inventor, or Rhino.">
     <meta property="og:image" content="https://texture.huescript.com/og-image.jpg">
     <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="HueScript">
+    <meta property="og:site_name" content="PatternForge">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -47,7 +47,7 @@
           "@type": "HowTo",
           "@id": "https://texture.huescript.com/guides/export-step-to-cad#howto",
           "name": "How to Export a Hole Pattern to SolidWorks or Fusion 360 as a STEP File",
-          "description": "Design a perforated pattern in the browser with HueScript and bring it into SolidWorks, Fusion 360, or any CAD package as a STEP file.",
+          "description": "Design a perforated pattern in the browser with PatternForge and bring it into SolidWorks, Fusion 360, or any CAD package as a STEP file.",
           "totalTime": "PT10M",
           "tool": [
             { "@type": "HowToTool", "name": "A web browser (Chrome, Edge, Firefox, or Safari)" },
@@ -58,7 +58,7 @@
             {
               "@type": "HowToStep",
               "name": "Design the pattern in your browser",
-              "text": "Open a HueScript pattern generator and build the hole pattern parametrically: choose an array mode, set hole size and spacing, and add gradients or a boundary shape.",
+              "text": "Open a PatternForge pattern generator and build the hole pattern parametrically: choose an array mode, set hole size and spacing, and add gradients or a boundary shape.",
               "url": "https://texture.huescript.com/guides/export-step-to-cad#step-1"
             },
             {
@@ -91,8 +91,8 @@
         {
           "@type": "VideoObject",
           "@id": "https://texture.huescript.com/guides/export-step-to-cad#video",
-          "name": "Split Surface STEP Export: HueScript Tutorial",
-          "description": "Demo of the HueScript STP Split feature: divide a dense hole pattern into multiple STEP regions that import smoothly into CAD and align automatically thanks to absolute coordinates.",
+          "name": "Split Surface STEP Export: PatternForge Tutorial",
+          "description": "Demo of the PatternForge STP Split feature: divide a dense hole pattern into multiple STEP regions that import smoothly into CAD and align automatically thanks to absolute coordinates.",
           "contentUrl": "https://cdn.texture.huescript.com/tutorial/export-stp-split-surface.mp4?v=37e6590d",
           "thumbnailUrl": "https://texture.huescript.com/tutorial-thumbs/export-stp-split-surface.jpg",
           "uploadDate": "2026-04-14"
@@ -139,7 +139,7 @@
               "name": "Can the holes still be edited after importing into CAD?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "STEP carries exact geometry, not feature history, so you edit the pattern parametrically in HueScript: change the parameters, re-export, and re-import. Cloud-saved projects make this round trip quick."
+                "text": "STEP carries exact geometry, not feature history, so you edit the pattern parametrically in PatternForge: change the parameters, re-export, and re-import. Cloud-saved projects make this round trip quick."
               }
             },
             {
@@ -156,7 +156,7 @@
           "@type": "BreadcrumbList",
           "@id": "https://texture.huescript.com/guides/export-step-to-cad#breadcrumb",
           "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "HueScript", "item": "https://texture.huescript.com/" },
+            { "@type": "ListItem", "position": 1, "name": "PatternForge", "item": "https://texture.huescript.com/" },
             { "@type": "ListItem", "position": 2, "name": "STEP Export to CAD Guide" }
           ]
         }
@@ -230,7 +230,7 @@
               <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
               <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
             </svg>
-            <span class="text-[15px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+            <span class="text-[15px] font-semibold tracking-wide text-white">Pattern<span class="text-amber-500">Forge</span></span>
           </a>
 
           <div class="hidden items-center gap-1 md:flex">
@@ -281,7 +281,7 @@
         Export Perforated Patterns to SolidWorks / Fusion 360 as STEP Files
       </h1>
       <p class="text-gray-400 text-base mb-8">
-        Modeling a hole pattern directly in CAD is slow in a way every mechanical engineer knows: sketch one hole, run a linear or circular pattern, wait for the rebuild, discover the spacing looks wrong, and start over. Gradients make it worse, because most CAD pattern features can't vary hole size across a surface at all. The faster workflow is to design the pattern <em>parametrically in the browser</em>, then hand your CAD software a finished <strong class="text-gray-200 font-semibold">STEP file</strong>. This guide walks through that workflow with <a href="../speaker-grille-pattern-generator/index.html" class="text-amber-500 hover:text-amber-400 no-underline font-medium">HueScript</a>, including how to keep imports fast when the pattern has thousands of holes.
+        Modeling a hole pattern directly in CAD is slow in a way every mechanical engineer knows: sketch one hole, run a linear or circular pattern, wait for the rebuild, discover the spacing looks wrong, and start over. Gradients make it worse, because most CAD pattern features can't vary hole size across a surface at all. The faster workflow is to design the pattern <em>parametrically in the browser</em>, then hand your CAD software a finished <strong class="text-gray-200 font-semibold">STEP file</strong>. This guide walks through that workflow with <a href="../speaker-grille-pattern-generator/index.html" class="text-amber-500 hover:text-amber-400 no-underline font-medium">PatternForge</a>, including how to keep imports fast when the pattern has thousands of holes.
       </p>
 
       <!-- Video -->
@@ -355,7 +355,7 @@
         Each format has a job. <strong class="text-gray-300 font-semibold">DXF</strong> is 2D: perfect for laser cutting and AutoCAD drawings, but your CAD model then needs an extrude-and-cut rebuild. <strong class="text-gray-300 font-semibold">STL</strong> is a triangle mesh: fine for direct 3D printing, useless for precise engineering because every circle becomes a polygon. <strong class="text-gray-300 font-semibold">STEP</strong> is the only one of the three that hands your CAD system exact, manufacturable 3D geometry it can treat as first-class: measure it, reference it, cut with it, thicken it.
       </p>
       <p class="text-gray-400 mb-10">
-        HueScript exports all three from the same design, which is the point: one parametric pattern, a 2D vector path for the graphics and laser-cut route, and a 3D STEP for the engineering route. No redrawing between tools.
+        PatternForge exports all three from the same design, which is the point: one parametric pattern, a 2D vector path for the graphics and laser-cut route, and a 3D STEP for the engineering route. No redrawing between tools.
       </p>
 
       <!-- FAQ -->
@@ -387,7 +387,7 @@
             <span>Can the holes still be edited after importing into CAD?</span>
             <span class="material-symbols-outlined text-gray-400 group-open:rotate-180 transition-transform">expand_more</span>
           </summary>
-          <p class="text-gray-400 text-sm mt-3">STEP carries exact geometry, not feature history, so you edit the pattern parametrically in HueScript: change the parameters, re-export, and re-import. Cloud-saved projects make this round trip quick.</p>
+          <p class="text-gray-400 text-sm mt-3">STEP carries exact geometry, not feature history, so you edit the pattern parametrically in PatternForge: change the parameters, re-export, and re-import. Cloud-saved projects make this round trip quick.</p>
         </details>
         <details class="bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 group">
           <summary class="text-white font-semibold cursor-pointer list-none flex justify-between items-center">
@@ -432,7 +432,7 @@
               <path d="M0,61.63h56.99v15.41H15.41C6.9,77.04,0,70.13,0,61.63H0Z" fill="#f49d0b" />
               <path d="M59.72,61.63h20.95c0,8.5-6.9,15.41-15.41,15.41h-5.54v-15.41h0Z" fill="#fff" />
             </svg>
-              <span class="text-[22px] font-semibold tracking-wide text-white">Hue<span class="text-amber-500">Script</span></span>
+              <span class="text-[22px] font-semibold tracking-wide text-white">Pattern<span class="text-amber-500">Forge</span></span>
             </a>
             <p class="mt-5 max-w-[300px] text-[14px] leading-[1.5] text-white/60">
               A browser-based parametric pattern generator. Design it, export SVG / DXF / STEP, make it.
@@ -472,8 +472,8 @@
           <div>
             <p class="m-0 text-[14px] font-medium text-white">About</p>
             <ul class="mt-3 space-y-2 p-0" style="list-style:none">
-              <li><a href="../about/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">About HueScript</a></li>
-              <li><button type="button" data-sv-copy="huescript@gmail.com" class="relative p-0 text-left text-[14px] text-white/60 transition hover:text-white" title="huescript@gmail.com">Contact us<span class="sv-copy-toast absolute bottom-full left-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span></button></li>
+              <li><a href="../about/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">About PatternForge</a></li>
+              <li><button type="button" data-sv-copy="patternforge@gmail.com" class="relative p-0 text-left text-[14px] text-white/60 transition hover:text-white" title="patternforge@gmail.com">Contact us<span class="sv-copy-toast absolute bottom-full left-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">patternforge@gmail.com ✓</span></button></li>
               <li><a href="../privacy/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Privacy policy</a></li>
               <li><a href="../terms/index.html" class="text-[14px] text-white/60 no-underline transition hover:text-white">Terms of service</a></li>
             </ul>
@@ -492,16 +492,16 @@
 
           <div class="flex flex-wrap items-center gap-5">
             <div class="flex items-center gap-4 text-white/50">
-              <a href="https://www.instagram.com/huescript/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="Instagram">
+              <a href="https://www.instagram.com/patternforge/" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="Instagram">
                 <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
               </a>
-              <a href="https://www.youtube.com/@HueScript" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="YouTube">
+              <a href="https://www.youtube.com/@PatternForge" target="_blank" rel="noopener noreferrer" class="transition hover:text-white" title="YouTube">
                 <svg class="h-[18px] w-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" /></svg>
               </a>
-              <button type="button" data-sv-copy="huescript@gmail.com" class="relative transition hover:text-white" title="huescript@gmail.com" aria-label="huescript@gmail.com">
+              <button type="button" data-sv-copy="patternforge@gmail.com" class="relative transition hover:text-white" title="patternforge@gmail.com" aria-label="patternforge@gmail.com">
                 <svg class="h-[18px] w-[18px] fill-current sv-copy-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" /></svg>
                 <svg class="sv-copy-check h-[18px] w-[18px] fill-current text-green-400" viewBox="0 0 24 24" aria-hidden="true" style="display:none"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
-                <span class="sv-copy-toast absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">huescript@gmail.com ✓</span>
+                <span class="sv-copy-toast absolute bottom-full right-0 mb-2 whitespace-nowrap rounded-lg border border-white/[0.12] bg-[#141414] px-2 py-1 text-[12px] text-gray-200 shadow-xl" style="display:none">patternforge@gmail.com ✓</span>
               </button>
             </div>
 
@@ -516,7 +516,7 @@
           </div>
         </div>
 
-        <p class="m-0 mt-8 text-center text-[13px] text-white/50">© 2026 HueScript. All rights reserved.</p>
+        <p class="m-0 mt-8 text-center text-[13px] text-white/50">© 2026 PatternForge. All rights reserved.</p>
 
         <script src="../site-copy.js" defer></script>
       </div>
